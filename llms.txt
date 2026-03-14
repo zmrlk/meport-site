@@ -1,0 +1,33 @@
+# Meport — Teach every AI who you are.
+
+## What is Meport?
+Meport is an open-source CLI tool and desktop app that creates AI personality profiles from your files and exports them to 20+ platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
+
+## Key Facts
+- Free forever, MIT license, open source
+- 100% local — zero servers, zero tracking, zero accounts
+- 80+ personality dimensions across communication, work, cognitive, and personal categories
+- Rule-based exports (direct instructions, not descriptions) — 85% AI compliance vs 50% for descriptions
+- Pack-based profiling: 7 question packs, ~10-15 minutes
+- System scanner pre-fills answers from .gitconfig, project files, AI configs
+- Supports Ollama for fully offline profiling
+- Available as CLI (npx meport) and desktop app (macOS, Windows, Linux)
+
+## Supported Export Platforms
+ChatGPT, Claude, Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini, Grok, Perplexity, Poe, Ollama, Open WebUI, LM Studio, Jan.ai, AGENTS.md, MEPORT.md, MCP Server, JSON, Markdown, PDF
+
+## How It Works
+1. Drop your files (CV, notes, documents) or run npx meport
+2. Meport scans files and asks a few targeted questions
+3. Your answers become direct AI rules ("Be extremely direct. No softening." not "User prefers directness")
+4. Export to any AI platform in its native format
+5. AI finally understands you
+
+## Links
+- Website: https://meport.app
+- GitHub: https://github.com/zmrlk/meport
+- CLI: npx meport
+- Documentation: https://meport.app/docs.html
+
+## Creator
+Built by Karol Zamarlik (ISIKO). Created because every AI tool treats you like a stranger — Meport fixes that in 5 minutes.

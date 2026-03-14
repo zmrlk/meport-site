@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meport — Teach every AI who you are.</title>
+  <meta name="description" content="Meport creates your AI personality profile from your files and exports to 20+ platforms including ChatGPT, Claude, Cursor, Copilot, Ollama. Local-first, open source, free forever.">
+  <meta name="author" content="Karol Zamarlik">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://meport.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meport.app/">
+  <meta property="og:title" content="Meport — Teach every AI who you are.">
+  <meta property="og:description" content="One profile. Every AI. Drop your files, answer a few questions, export to 20+ platforms. Free, local, open source.">
+  <meta property="og:image" content="https://meport.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Meport">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meport — Teach every AI who you are.">
+  <meta name="twitter:description" content="One profile. Every AI. Export to ChatGPT, Claude, Cursor, Copilot, Ollama &amp; 15+ more. Free &amp; open source.">
+  <meta name="twitter:image" content="https://meport.app/og-image.png">
+
+  <meta name="theme-color" content="#050507">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310b981'/%3E%3Ctext x='16' y='23' font-family='system-ui' font-weight='800' font-size='20' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">M</div>
+        <span class="logo-text">Meport</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#platforms" data-i18n="nav.platforms">Platforms</a>
+        <a href="docs.html" data-i18n="nav.docs">Docs</a>
+        <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
+        <button class="lang-switch" id="lang-switch" aria-label="Switch language">
+          <span class="lang-option" data-lang="en">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-option" data-lang="pl">PL</span>
+        </button>
+        <a href="#download" class="btn btn-nav" data-i18n="nav.download">Download</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <div class="hero-ambient"></div>
+
+    <!-- HEADLINE -->
+    <div class="container hero-content">
+      <div class="reveal">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Open source &middot; Local-first &middot; Free forever</p>
+      </div>
+      <div class="reveal r1">
+        <h1 class="hero-h1">
+          <span data-i18n="hero.title1">Teach every AI</span><br>
+          <span class="grad" data-i18n="hero.title2">who you are.</span>
+        </h1>
+      </div>
+      <div class="reveal r2">
+        <p class="hero-p" data-i18n="hero.sub">Drop your files, answer a few questions, and Meport creates your personal ruleset for 20+ AI tools. Five minutes. One profile. Every AI finally gets you.</p>
+      </div>
+      <div class="reveal r3 hero-cta">
+        <a href="#download" class="btn btn-primary" data-i18n="hero.cta_dl">Download App</a>
+        <div class="cli-copy" id="cli-pill">
+          <code>npx meport</code>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT PREVIEW -->
+    <div class="container">
+      <div class="hero-preview reveal r4">
+
+        <!-- APP (main, top) -->
+        <div class="preview-app" id="preview-app">
+          <div class="pa-bar">
+            <div class="pt-dots"><span></span><span></span><span></span></div>
+            <div class="pt-title">Meport</div>
+          </div>
+          <div class="pa-body">
+            <!-- Scanning state -->
+            <div class="pa-scan" id="pa-scan">
+              <div class="pa-orb"></div>
+              <p class="pa-status">Getting to know you...</p>
+              <div class="pa-stats">
+                <div><strong id="stat-files">0</strong> files</div>
+                <div><strong id="stat-folders">0</strong> folders</div>
+                <div><strong id="stat-docs">0</strong> docs</div>
+                <div><strong id="stat-projects">0</strong> projects</div>
+              </div>
+            </div>
+            <!-- Question state -->
+            <div class="pa-questions" id="pa-questions" style="display:none">
+              <div class="pa-dots" id="pa-dots"></div>
+              <div class="pa-qcard" id="pa-qcard">
+                <p class="pa-q" id="pa-q"></p>
+                <div class="pa-opts" id="pa-opts"></div>
+              </div>
+            </div>
+            <!-- Success state -->
+            <div class="pa-success" id="pa-success" style="display:none">
+              <div class="pa-check">&#10003;</div>
+              <p class="pa-done-title" data-i18n="hero.done.title">Profile ready</p>
+              <p class="pa-done-sub" data-i18n="hero.done.sub">7 rules generated from your answers</p>
+              <div class="pa-rules" id="pa-rules"></div>
+              <div class="pa-actions">
+                <button class="pa-copy-btn" id="pa-copy-btn" data-copy-text="Copy rules" data-copied-text="Copied!">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+                  <span data-i18n="hero.done.copy">Copy rules</span>
+                </button>
+                <a href="#download" class="btn btn-primary pa-dl-btn" data-i18n="hero.cta_dl">Download App</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TERMINAL (overlay, bottom-left) -->
+        <div class="preview-terminal">
+          <div class="pt-bar">
+            <div class="pt-dots"><span></span><span></span><span></span></div>
+            <div class="pt-title">Terminal</div>
+          </div>
+          <div class="pt-body" id="pt-body"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TRUST — clickable -->
+    <div class="trust reveal r4">
+      <a href="#platforms">ChatGPT</a><a href="#platforms">Claude</a><a href="#platforms">Cursor</a><a href="#platforms">Copilot</a><a href="#platforms">Gemini</a><a href="#platforms">Ollama</a><a href="#platforms">Windsurf</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BEFORE / AFTER ═══════════════ -->
+  <section class="flow" id="difference">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="diff.eyebrow">Before &amp; After</p>
+      <h2 class="h2 reveal" data-i18n-html="diff.heading">The difference is <em>instant</em></h2>
+      <p class="sub reveal" data-i18n="diff.sub">Same person. Same question. Same AI.</p>
+      <div class="ba reveal r1">
+        <div class="ba-card ba-bad">
+          <span class="ba-tag" data-i18n="diff.without">Without Meport</span>
+          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Help me plan my week&rdquo;</div>
+          <div class="ba-bubble ai" data-i18n-html="diff.a_bad">Here are 10 general productivity tips:<br>1. Make a to-do list<br>2. Prioritize tasks<br>3. Use time blocking<br>4. Take breaks<br>...</div>
+          <p class="ba-verd" data-i18n="diff.verdict_bad">Generic. Could be for anyone.</p>
+        </div>
+        <div class="ba-card ba-good">
+          <span class="ba-tag good" data-i18n="diff.with">With Meport</span>
+          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Help me plan my week&rdquo;</div>
+          <div class="ba-bubble ai good" data-i18n-html="diff.a_good">Knowing you do your best thinking in the mornings and prefer async over meetings:<br><br><strong>Mon&ndash;Wed:</strong> Deep work 9&ndash;12 (your peak). No meetings.<br><strong>Thu:</strong> Client calls + admin (lighter day for you).<br><strong>Fri:</strong> Ship or explore. You do your best creative work when it's open-ended.<br><br>Want me to draft the calendar blocks?</div>
+          <p class="ba-verd good" data-i18n="diff.verdict_good">Knows how you work. Knows your rhythm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+  <section class="flow" id="how">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="how.eyebrow">How it works</p>
+      <h2 class="h2 reveal" data-i18n-html="how.heading">Three steps. <em>Five minutes.</em></h2>
+      <div class="steps">
+        <div class="step reveal r1">
+          <div class="step-n">01</div>
+          <h3 data-i18n="how.s1.title">Drop your files</h3>
+          <p data-i18n="how.s1.desc">CV, notes, bookmarks, chat exports &mdash; anything you have about yourself. Meport reads them on your machine and builds your profile. Nothing is uploaded.</p>
+        </div>
+        <div class="step reveal r2">
+          <div class="step-n">02</div>
+          <h3 data-i18n="how.s2.title">Answer a few questions</h3>
+          <p data-i18n="how.s2.desc">Your files fill most of it automatically. Meport only asks about what's missing &mdash; a few quick questions, not a long survey.</p>
+        </div>
+        <div class="step reveal r3">
+          <div class="step-n">03</div>
+          <h3 data-i18n="how.s3.title">Export everywhere</h3>
+          <p data-i18n="how.s3.desc">Pick the AI tools you use. Meport sends your profile in the right format for each one. ChatGPT, Claude, Cursor, Copilot &mdash; all supported.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PLATFORMS ═══════════════ -->
+  <section class="flow" id="platforms">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="plat.eyebrow">Platforms</p>
+      <h2 class="h2 reveal" data-i18n-html="plat.heading">One profile. <em>Every AI.</em></h2>
+    </div>
+    <div class="marquee-wrap reveal r1">
+      <div class="marquee">
+        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
+        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
+        <span>Open WebUI</span><span>LM Studio</span><span>Jan.ai</span><span>Poe</span><span>TypingMind</span>
+        <span>AGENTS.md</span><span>MEPORT.md</span><span>MCP Server</span><span>JSON</span><span>Markdown</span><span>PDF</span>
+        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
+        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
+        <span>Open WebUI</span><span>LM Studio</span><span>Jan.ai</span><span>Poe</span><span>TypingMind</span>
+        <span>AGENTS.md</span><span>MEPORT.md</span><span>MCP Server</span><span>JSON</span><span>Markdown</span><span>PDF</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="cats reveal r2">
+        <div class="cat"><h4 data-i18n="plat.chat">Chat AI</h4><p>ChatGPT &middot; Claude &middot; Gemini &middot; Grok &middot; Perplexity &middot; Poe</p></div>
+        <div class="cat"><h4 data-i18n="plat.dev">Developer Tools</h4><p>Cursor &middot; Claude Code &middot; Copilot &middot; Windsurf &middot; AGENTS.md</p></div>
+        <div class="cat"><h4 data-i18n="plat.local">Local AI</h4><p>Ollama &middot; Open WebUI &middot; LM Studio &middot; Jan.ai</p></div>
+        <div class="cat"><h4 data-i18n="plat.universal">Universal</h4><p>JSON &middot; Markdown &middot; PDF &middot; MCP &middot; MEPORT.md</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FEATURES ═══════════════ -->
+  <section class="flow" id="features">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="feat.eyebrow">Features</p>
+      <h2 class="h2 reveal" data-i18n-html="feat.heading">Built different. <em>On purpose.</em></h2>
+      <div class="bento">
+        <div class="bento-card reveal">
+          <div class="bento-num">80+</div>
+          <h3 data-i18n="feat.f1.title">Dimensions</h3>
+          <p data-i18n="feat.f1.desc">Communication style, thinking patterns, work habits, personal preferences. The full picture of who you are.</p>
+        </div>
+        <div class="bento-card reveal r1">
+          <div class="bento-num">80%</div>
+          <h3 data-i18n="feat.f2.title">Auto-filled</h3>
+          <p data-i18n="feat.f2.desc">Drop your files. AI extracts your profile automatically. Only a few questions for the rest.</p>
+        </div>
+        <div class="bento-card reveal r2">
+          <div class="bento-num">5<small>min</small></div>
+          <h3 data-i18n="feat.f3.title">Not 85</h3>
+          <p data-i18n="feat.f3.desc">Competitors ask 555 questions. Meport scans your files and asks what's missing.</p>
+        </div>
+        <div class="bento-card reveal r3">
+          <div class="bento-num">20+</div>
+          <h3 data-i18n="feat.f4.title">Exports</h3>
+          <p data-i18n="feat.f4.desc">Native formats for every platform. Not copy-paste text. Real integration files.</p>
+        </div>
+        <div class="bento-card wide reveal r1">
+          <div class="pills"><span data-i18n="feat.f5.p1">Zero servers</span><span data-i18n="feat.f5.p2">Zero accounts</span><span data-i18n="feat.f5.p3">Zero tracking</span></div>
+          <h3 data-i18n="feat.f5.title">Your machine. Your data. Your choice.</h3>
+          <p data-i18n="feat.f5.desc">We don't have servers. Profiling runs locally. When AI helps build your profile, it talks directly to your chosen provider (Claude, OpenAI) or Ollama for fully offline mode. No middleman.</p>
+        </div>
+        <div class="bento-card wide reveal r2">
+          <div class="pills"><span data-i18n="feat.f6.p0">Human-first</span><span>MIT License</span><span data-i18n="feat.f6.p1">Living profile</span></div>
+          <h3 data-i18n="feat.f6.title">Built for real people. Open source. Evolving.</h3>
+          <p data-i18n="feat.f6.desc">No lengthy questionnaires. No overwhelming setup. Full source code. Your profile grows with you — not a one-time quiz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PRICING ═══════════════ -->
+  <section class="flow" id="pricing">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="tracks.eyebrow">Pricing</p>
+      <h2 class="h2 reveal" data-i18n-html="tracks.heading">For you. <em>And your business.</em></h2>
+      <div class="pricing reveal r1">
+        <div class="price-card">
+          <span class="price-badge">Personal</span>
+          <h3 data-i18n="tracks.p.title">Make AI actually get you</h3>
+          <ul>
+            <li data-i18n="tracks.p.l1">80+ personality dimensions</li>
+            <li data-i18n="tracks.p.l2">Designed for real people</li>
+            <li data-i18n="tracks.p.l3">File scanning (CV, notes, bookmarks)</li>
+            <li data-i18n="tracks.p.l4">20+ platform exports</li>
+            <li data-i18n="tracks.p.l5">Progressive profile — grows with you</li>
+            <li data-i18n="tracks.p.l6">Ollama — fully offline</li>
+          </ul>
+          <div class="price-foot">
+            <div class="price-tag" data-i18n="tracks.p.price">Free forever</div>
+            <a href="#download" class="btn btn-outline" data-i18n="tracks.p.cta">Get Started</a>
+          </div>
+        </div>
+        <div class="price-card biz">
+          <span class="price-badge biz">Business</span>
+          <h3 data-i18n="tracks.b.title">Train any AI with your brand</h3>
+          <ul>
+            <li data-i18n="tracks.b.l1">Company profiling from docs &amp; website</li>
+            <li data-i18n="tracks.b.l2">Brand voice extraction</li>
+            <li data-i18n="tracks.b.l3">Product catalog + FAQ scanning</li>
+            <li data-i18n="tracks.b.l4">Chatbot &amp; AI agent exports</li>
+            <li data-i18n="tracks.b.l5">Customer profile (ICP) generation</li>
+            <li data-i18n="tracks.b.l6">RAG-ready knowledge base</li>
+          </ul>
+          <div class="price-foot">
+            <div class="price-tag">$29 <small data-i18n="tracks.b.price_note">one-time</small></div>
+            <a href="#download" class="btn btn-primary" data-i18n="tracks.b.cta">Get Business</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ DOWNLOAD ═══════════════ -->
+  <section class="flow cta-section" id="download">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="reveal">
+        <h2 class="cta-h2"><span class="grad" data-i18n="dl.title">Meport yourself.</span></h2>
+        <p class="cta-p" data-i18n="dl.sub">Five minutes. One profile. Every AI finally gets you.</p>
+      </div>
+      <div class="dl reveal r1">
+        <div class="dl-card">
+          <h3 data-i18n="dl.app.title">Desktop App</h3>
+          <p data-i18n="dl.app.desc">Drag & drop. Zero setup. For everyone.</p>
+          <div class="dl-btns">
+            <a href="#" class="btn btn-primary">macOS</a>
+            <a href="#" class="btn btn-outline">Windows</a>
+            <a href="#" class="btn btn-outline">Linux</a>
+          </div>
+        </div>
+        <div class="dl-card">
+          <h3 data-i18n="dl.cli.title">CLI</h3>
+          <p data-i18n="dl.cli.desc">For developers. One command.</p>
+          <div class="cli-copy lg" id="cli-pill-dl">
+            <code>npx meport</code>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="reveal r2 coffee-row">
+        <a href="#" class="coffee-btn" data-i18n="dl.coffee">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Buy us a coffee
+        </a>
+      </div>
+      <div class="reveal r3 dl-links">
+        <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
+        <span>&middot;</span>
+        <a href="docs.html" data-i18n="dl.docs">Documentation</a>
+        <span>&middot;</span>
+        <a href="#">Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><div class="logo-icon sm">M</div><span class="logo-text">Meport</span></a>
+        <p data-i18n="footer.tagline">Your AI identity. Portable. Private. Free.</p>
+      </div>
+      <div class="footer-cols">
+        <div><h4 data-i18n="footer.product">Product</h4><a href="#download" data-i18n="nav.download">Download</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#platforms" data-i18n="nav.platforms">Platforms</a></div>
+        <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="#">MCP Server</a></div>
+        <div><h4 data-i18n="footer.community">Community</h4><a href="#">Discord</a><a href="#">Twitter / X</a><a href="#" data-i18n="footer.coffee">Buy us a coffee</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>MIT License &middot; Built by <a href="https://isiko.dev" target="_blank" rel="noopener">ISIKO</a> &middot; meport.app</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Meport",
+    "url": "https://meport.app",
+    "description": "Open-source tool that creates AI personality profiles from your files and exports them to 20+ platforms including ChatGPT, Claude, Cursor, Copilot, and Ollama. Local-first, free forever.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Windows, Linux",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free forever. Open source. MIT license."
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Karol Zamarlik",
+      "url": "https://github.com/zmrlk"
+    },
+    "license": "https://opensource.org/licenses/MIT",
+    "isAccessibleForFree": true,
+    "downloadUrl": "https://www.npmjs.com/package/meport",
+    "softwareVersion": "1.0.0",
+    "featureList": [
+      "AI personality profiling from files",
+      "Export to 20+ platforms",
+      "100% local processing",
+      "Ollama support for fully offline use",
+      "CLI: npx meport",
+      "80+ personality dimensions",
+      "Business track for company AI profiles"
+    ]
+  }
+  </script>
+</body>
+</html>
