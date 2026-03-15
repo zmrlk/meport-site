@@ -44,6 +44,8 @@
       <div class="nav-links" id="nav-links">
         <a href="#how" data-i18n="nav.how">How it works</a>
         <a href="#platforms" data-i18n="nav.platforms">Platforms</a>
+        <a href="#compare" data-i18n="nav.compare">Compare</a>
+        <a href="#privacy" data-i18n="priv.eyebrow">Privacy</a>
         <a href="docs.html" data-i18n="nav.docs">Docs</a>
         <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
         <button class="lang-switch" id="lang-switch" aria-label="Switch language">
@@ -160,15 +162,15 @@
       <div class="ba reveal r1">
         <div class="ba-card ba-bad">
           <span class="ba-tag" data-i18n="diff.without">Without Meport</span>
-          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Help me plan my week&rdquo;</div>
-          <div class="ba-bubble ai" data-i18n-html="diff.a_bad">Here are 10 general productivity tips:<br>1. Make a to-do list<br>2. Prioritize tasks<br>3. Use time blocking<br>4. Take breaks<br>...</div>
-          <p class="ba-verd" data-i18n="diff.verdict_bad">Generic. Could be for anyone.</p>
+          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Plan me a weekend trip with my dog&rdquo;</div>
+          <div class="ba-bubble ai" data-i18n-html="diff.a_bad">I&rsquo;d love to help! 🎉 Where are you traveling from? What&rsquo;s your budget? Mountains or sea? What breed is your dog?<br><br>Here are 10 popular dog-friendly destinations...<br><br>Let me know! 😊🐾</div>
+          <p class="ba-verd" data-i18n="diff.verdict_bad">Questions instead of answers. Generic list.</p>
         </div>
         <div class="ba-card ba-good">
           <span class="ba-tag good" data-i18n="diff.with">With Meport</span>
-          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Help me plan my week&rdquo;</div>
-          <div class="ba-bubble ai good" data-i18n-html="diff.a_good">Knowing you do your best thinking in the mornings and prefer async over meetings:<br><br><strong>Mon&ndash;Wed:</strong> Deep work 9&ndash;12 (your peak). No meetings.<br><strong>Thu:</strong> Client calls + admin (lighter day for you).<br><strong>Fri:</strong> Ship or explore. You do your best creative work when it's open-ended.<br><br>Want me to draft the calendar blocks?</div>
-          <p class="ba-verd good" data-i18n="diff.verdict_good">Knows how you work. Knows your rhythm.</p>
+          <div class="ba-bubble user" data-i18n="diff.q">&ldquo;Plan me a weekend trip with my dog&rdquo;</div>
+          <div class="ba-bubble ai good" data-i18n-html="diff.a_good"><em>Krak&oacute;w, mountains, labrador</em> &mdash; budget ~$120.<br><br><strong>Szczawnica</strong>, 2h drive. No crowds.<br>Cabin with garden, dogs OK, $70/night.<br>Saturday: river rafting + easy trail &mdash; dog friendly.<br>Sunday: terrace breakfast, walk, drive home.<br><br><strong>~$115 total.</strong> Book it?</div>
+          <p class="ba-verd good" data-i18n="diff.verdict_good">Knows you, your dog, your budget. Just answers.</p>
         </div>
       </div>
     </div>
@@ -199,34 +201,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════ PLATFORMS ═══════════════ -->
-  <section class="flow" id="platforms">
-    <div class="container">
-      <p class="eyebrow reveal" data-i18n="plat.eyebrow">Platforms</p>
-      <h2 class="h2 reveal" data-i18n-html="plat.heading">One profile. <em>Every AI.</em></h2>
-    </div>
-    <div class="marquee-wrap reveal r1">
-      <div class="marquee">
-        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
-        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
-        <span>Open WebUI</span><span>LM Studio</span><span>Jan.ai</span><span>Poe</span><span>TypingMind</span>
-        <span>AGENTS.md</span><span>MEPORT.md</span><span>MCP Server</span><span>JSON</span><span>Markdown</span><span>PDF</span>
-        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
-        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
-        <span>Open WebUI</span><span>LM Studio</span><span>Jan.ai</span><span>Poe</span><span>TypingMind</span>
-        <span>AGENTS.md</span><span>MEPORT.md</span><span>MCP Server</span><span>JSON</span><span>Markdown</span><span>PDF</span>
-      </div>
-    </div>
-    <div class="container">
-      <div class="cats reveal r2">
-        <div class="cat"><h4 data-i18n="plat.chat">Chat AI</h4><p>ChatGPT &middot; Claude &middot; Gemini &middot; Grok &middot; Perplexity &middot; Poe</p></div>
-        <div class="cat"><h4 data-i18n="plat.dev">Developer Tools</h4><p>Cursor &middot; Claude Code &middot; Copilot &middot; Windsurf &middot; AGENTS.md</p></div>
-        <div class="cat"><h4 data-i18n="plat.local">Local AI</h4><p>Ollama &middot; Open WebUI &middot; LM Studio &middot; Jan.ai</p></div>
-        <div class="cat"><h4 data-i18n="plat.universal">Universal</h4><p>JSON &middot; Markdown &middot; PDF &middot; MCP &middot; MEPORT.md</p></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ═══════════════ FEATURES ═══════════════ -->
   <section class="flow" id="features">
     <div class="container">
@@ -249,7 +223,7 @@
           <p data-i18n="feat.f3.desc">Competitors ask 555 questions. Meport scans your files and asks what's missing.</p>
         </div>
         <div class="bento-card reveal r3">
-          <div class="bento-num">20+</div>
+          <div class="bento-num">15+</div>
           <h3 data-i18n="feat.f4.title">Exports</h3>
           <p data-i18n="feat.f4.desc">Native formats for every platform. Not copy-paste text. Real integration files.</p>
         </div>
@@ -267,6 +241,71 @@
     </div>
   </section>
 
+  <!-- ═══════════════ PLATFORMS ═══════════════ -->
+  <section class="flow" id="platforms">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="plat.eyebrow">Platforms</p>
+      <h2 class="h2 reveal" data-i18n-html="plat.heading">One profile. <em>Every AI.</em></h2>
+    </div>
+    <div class="marquee-wrap reveal r1">
+      <div class="marquee">
+        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
+        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
+        <span>AGENTS.md</span><span>OpenClaw</span><span>JSON</span><span>Markdown</span>
+        <span>ChatGPT</span><span>Claude</span><span>Gemini</span><span>Cursor</span><span>Claude Code</span>
+        <span>GitHub Copilot</span><span>Windsurf</span><span>Grok</span><span>Perplexity</span><span>Ollama</span>
+        <span>AGENTS.md</span><span>OpenClaw</span><span>JSON</span><span>Markdown</span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="cats reveal r2">
+        <div class="cat"><h4 data-i18n="plat.chat">Chat AI</h4><p>ChatGPT &middot; Claude &middot; Gemini &middot; Grok &middot; Perplexity</p></div>
+        <div class="cat"><h4 data-i18n="plat.dev">Developer Tools</h4><p>Cursor &middot; Claude Code &middot; Copilot &middot; Windsurf &middot; AGENTS.md &middot; OpenClaw</p></div>
+        <div class="cat"><h4 data-i18n="plat.local">Local AI</h4><p>Ollama</p></div>
+        <div class="cat"><h4 data-i18n="plat.universal">Universal</h4><p>JSON &middot; Markdown</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ COMPARISON TABLE ═══════════════ -->
+  <section class="flow" id="compare">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="compare.eyebrow">Choose your way</p>
+      <h2 class="h2 reveal" data-i18n-html="compare.heading">CLI, Desktop, Web, <em>or MCP.</em></h2>
+      <p class="sub reveal" data-i18n="compare.sub">Same engine. Same profile. Pick the interface you prefer.</p>
+      <div class="compare-table reveal r1">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="compare.feature">Feature</th>
+              <th><span class="ct-badge ct-ready">CLI</span></th>
+              <th><span class="ct-badge ct-soon">Desktop<small class="ct-soon-label"> · Soon</small></span></th>
+              <th><span class="ct-badge ct-soon">Web App<small class="ct-soon-label"> · Soon</small></span></th>
+              <th><span class="ct-badge ct-soon">MCP<small class="ct-soon-label"> · Soon</small></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="compare.r1">Profiling (questions)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r2">File scanning</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-limit" data-i18n="compare.limited">Limited</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r3">AI interview</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r4">Export to 15+ platforms</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r5">Auto-deploy to tools</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r6">Profile editing</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r7">Question packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r8">Inference engine</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r9">Offline mode (Ollama)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r10">GUI / drag & drop</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r11">Works without terminal</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r12">Business track</td><td class="ct-soon-t">Soon</td><td class="ct-soon-t">Soon</td><td class="ct-soon-t">Soon</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r13">Read profile via API</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r14">Serve profile to AI tools</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r15">Live profile updates</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ PRICING ═══════════════ -->
   <section class="flow" id="pricing">
     <div class="container">
@@ -280,7 +319,7 @@
             <li data-i18n="tracks.p.l1">80+ personality dimensions</li>
             <li data-i18n="tracks.p.l2">Designed for real people</li>
             <li data-i18n="tracks.p.l3">File scanning (CV, notes, bookmarks)</li>
-            <li data-i18n="tracks.p.l4">20+ platform exports</li>
+            <li data-i18n="tracks.p.l4">15+ platform exports</li>
             <li data-i18n="tracks.p.l5">Progressive profile — grows with you</li>
             <li data-i18n="tracks.p.l6">Ollama — fully offline</li>
           </ul>
@@ -301,9 +340,49 @@
             <li data-i18n="tracks.b.l6">RAG-ready knowledge base</li>
           </ul>
           <div class="price-foot">
-            <div class="price-tag">$29 <small data-i18n="tracks.b.price_note">one-time</small></div>
-            <a href="#download" class="btn btn-primary" data-i18n="tracks.b.cta">Get Business</a>
+            <div class="price-tag" data-i18n="dl.coming">Coming soon</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PRIVACY ═══════════════ -->
+  <section class="flow" id="privacy">
+    <div class="container">
+      <p class="eyebrow reveal" data-i18n="priv.eyebrow">Privacy</p>
+      <h2 class="h2 reveal" data-i18n-html="priv.heading">Your data stays <em>yours.</em></h2>
+      <p class="sub reveal" data-i18n="priv.sub">No servers. No accounts. No tracking. Here's exactly what happens with your data.</p>
+      <div class="privacy-grid reveal r1">
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <h4 data-i18n="priv.local.title">100% local processing</h4>
+          <p data-i18n="priv.local.desc">Meport runs entirely on your machine. Your profile, your files, your answers — everything stays in a local JSON file. We don't have servers to send data to.</p>
+        </div>
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <h4 data-i18n="priv.scan.title">What we read</h4>
+          <p data-i18n="priv.scan.desc">When you drop files (CV, notes, bookmarks), Meport reads them locally to extract profile dimensions. It looks for: occupation, skills, interests, communication patterns. Files are never uploaded anywhere.</p>
+        </div>
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h4 data-i18n="priv.filter.title">Privacy filter</h4>
+          <p data-i18n="priv.filter.desc">Before any AI processing, a built-in filter blocks sensitive patterns: passwords, financial data, medical records, legal documents, identity numbers. This runs automatically — you can't disable it.</p>
+        </div>
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <h4 data-i18n="priv.ai.title">When AI is used</h4>
+          <p data-i18n="priv.ai.desc">AI is optional — only used if you choose AI interview mode or Layer 3 insights. When used, filtered profile data goes directly to YOUR chosen provider (Claude, OpenAI, or Ollama for fully offline). Meport is never a middleman.</p>
+        </div>
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <h4 data-i18n="priv.export.title">What exports contain</h4>
+          <p data-i18n="priv.export.desc">Exports are plain text rules like "Max 5 lines for simple questions" or "Skip praise." They contain behavioral preferences, not personal data. No names, addresses, or sensitive info goes into exports.</p>
+        </div>
+        <div class="priv-card">
+          <svg class="priv-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          <h4 data-i18n="priv.offline.title">Fully offline option</h4>
+          <p data-i18n="priv.offline.desc">Use Ollama as your AI provider and nothing ever leaves your machine. Zero network requests. Zero telemetry. The entire profiling pipeline runs without internet.</p>
         </div>
       </div>
     </div>
@@ -318,22 +397,27 @@
         <p class="cta-p" data-i18n="dl.sub">Five minutes. One profile. Every AI finally gets you.</p>
       </div>
       <div class="dl reveal r1">
-        <div class="dl-card">
-          <h3 data-i18n="dl.app.title">Desktop App</h3>
-          <p data-i18n="dl.app.desc">Drag & drop. Zero setup. For everyone.</p>
-          <div class="dl-btns">
-            <a href="#" class="btn btn-primary">macOS</a>
-            <a href="#" class="btn btn-outline">Windows</a>
-            <a href="#" class="btn btn-outline">Linux</a>
-          </div>
-        </div>
-        <div class="dl-card">
+        <div class="dl-card dl-ready">
           <h3 data-i18n="dl.cli.title">CLI</h3>
-          <p data-i18n="dl.cli.desc">For developers. One command.</p>
+          <p data-i18n="dl.cli.desc">For developers. Full power. One command.</p>
           <div class="cli-copy lg" id="cli-pill-dl">
             <code>npx meport</code>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
+          <p class="dl-sub" data-i18n="dl.cli.sub">23 commands &middot; 9 question packs &middot; 15+ exports</p>
+        </div>
+        <div class="dl-card dl-soon">
+          <span class="dl-badge" data-i18n="dl.coming">Coming soon</span>
+          <h3 data-i18n="dl.app.title">Desktop App</h3>
+          <p data-i18n="dl.app.desc">Drag & drop. Zero setup. For everyone. No terminal needed.</p>
+          <div class="dl-platforms-row">
+            <span>macOS</span><span>Windows</span><span>Linux</span>
+          </div>
+        </div>
+        <div class="dl-card dl-soon">
+          <span class="dl-badge" data-i18n="dl.coming">Coming soon</span>
+          <h3 data-i18n="dl.web.title">Web App</h3>
+          <p data-i18n="dl.web.desc">Profile creation in the browser. Nothing to install.</p>
         </div>
       </div>
       <div class="reveal r2 coffee-row">
@@ -362,10 +446,10 @@
       <div class="footer-cols">
         <div><h4 data-i18n="footer.product">Product</h4><a href="#download" data-i18n="nav.download">Download</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#platforms" data-i18n="nav.platforms">Platforms</a></div>
         <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="#">MCP Server</a></div>
-        <div><h4 data-i18n="footer.community">Community</h4><a href="https://isiko.pl" target="_blank">ISIKO</a><a href="https://x.com/kzamarlikk" target="_blank">Twitter / X</a><a href="https://buycoffee.to/zmrlk" target="_blank" data-i18n="footer.coffee">Buy us a coffee</a></div>
+        <div><h4 data-i18n="footer.community">Community</h4><a href="https://isiko.pl" target="_blank">ISIKO</a><a href="https://x.com/meportapp" target="_blank">@meportapp</a><a href="https://x.com/kzamarlikk" target="_blank">@kzamarlikk</a><a href="https://buycoffee.to/zmrlk" target="_blank" data-i18n="footer.coffee">Buy us a coffee</a></div>
       </div>
     </div>
-    <div class="footer-bottom"><p>MIT License &middot; Built by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> &middot; meport.app</p></div>
+    <div class="footer-bottom"><p data-i18n-html="footer.bottom">Created by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> with <a href="https://github.com/zmrlk/bOS" target="_blank" rel="noopener">bOS CLI</a> &middot; meport.app &middot; 2026</p></div>
   </footer>
 
   <script src="app.js"></script>
@@ -392,10 +476,10 @@
     "license": "https://opensource.org/licenses/MIT",
     "isAccessibleForFree": true,
     "downloadUrl": "https://www.npmjs.com/package/meport",
-    "softwareVersion": "1.0.0",
+    "softwareVersion": "0.1.0",
     "featureList": [
       "AI personality profiling from files",
-      "Export to 20+ platforms",
+      "Export to 15+ platforms",
       "100% local processing",
       "Ollama support for fully offline use",
       "CLI: npx meport",

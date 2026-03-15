@@ -4,23 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meport — Documentation</title>
-  <meta name="description" content="Learn how to use Meport. Adaptive guides for beginners, power users, and developers.">
+  <meta name="description" content="Complete Meport CLI documentation. All 23 commands, flags, options, examples. EN/PL.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="docs.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310b981'/%3E%3Ctext x='16' y='23' font-family='system-ui' font-weight='800' font-size='20' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --text-2: rgba(255,255,255,.5);
+      --text-3: rgba(255,255,255,.28);
+      --bg-card: rgba(255,255,255,.03);
+      --bg-surface: rgba(255,255,255,.05);
+      --accent-glow: rgba(41,239,130,.06);
+      --r-sm: 8px;
+    }
+  </style>
 </head>
 <body class="docs-body">
 
   <div class="bg-grid" aria-hidden="true"></div>
 
+  <!-- Mobile toggle -->
+  <button class="docs-menu-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 5h12M3 9h12M3 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+
   <div class="docs-layout">
 
-    <!-- SIDEBAR -->
+    <!-- ===================== SIDEBAR ===================== -->
     <aside class="docs-sidebar" id="sidebar">
-      <!-- LOGO + HOME -->
       <div class="sidebar-header">
         <a href="index.html" class="nav-logo">
           <div class="logo-icon">M</div>
@@ -37,25 +51,19 @@
 
       <!-- LEVEL SELECTOR -->
       <div class="level-selector">
-        <p class="level-label" data-i18n="docs.level_label">I am a...</p>
+        <p class="level-label" data-i18n="level_label">I am a...</p>
         <div class="level-pills">
           <button class="level-pill active" data-level="beginner">
-            <span class="level-icon">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".75" fill="currentColor"/></svg>
-            </span>
-            <span data-i18n="docs.level.beginner">Beginner</span>
+            <span class="level-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11" r=".75" fill="currentColor"/></svg></span>
+            <span data-i18n="level_beginner">Beginner</span>
           </button>
           <button class="level-pill" data-level="power">
-            <span class="level-icon">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4H14l-3.5 2.5L12 13 8 10l-4 3 1.5-4.5L2 6h4.5L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            </span>
-            <span data-i18n="docs.level.power">Power User</span>
+            <span class="level-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4H14l-3.5 2.5L12 13 8 10l-4 3 1.5-4.5L2 6h4.5L8 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+            <span data-i18n="level_power">Power User</span>
           </button>
           <button class="level-pill" data-level="dev">
-            <span class="level-icon">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 4L1 8l4 4M11 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span data-i18n="docs.level.dev">Developer</span>
+            <span class="level-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 4L1 8l4 4M11 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span data-i18n="level_dev">Developer</span>
           </button>
         </div>
       </div>
@@ -63,1000 +71,1038 @@
       <!-- NAV -->
       <nav class="docs-nav">
         <div class="docs-nav-group">
-          <h4 data-i18n="docs.nav.start">Getting Started</h4>
-          <a href="#what-is" class="docs-link active" data-i18n="docs.nav.what">What is Meport?</a>
-          <a href="#install" class="docs-link" data-i18n="docs.nav.install">Installation</a>
-          <a href="#first-profile" class="docs-link" data-i18n="docs.nav.first">Your first profile</a>
+          <h4 data-i18n="nav_start">Getting Started</h4>
+          <a href="#what-is" class="docs-link active" data-i18n="nav_what">What is Meport?</a>
+          <a href="#install" class="docs-link" data-i18n="nav_install">Installation</a>
+          <a href="#first-profile" class="docs-link" data-i18n="nav_first">Your first profile</a>
         </div>
         <div class="docs-nav-group">
-          <h4 data-i18n="docs.nav.profiling">Profiling</h4>
-          <a href="#packs" class="docs-link" data-i18n="docs.nav.packs">Question packs</a>
-          <a href="#how-profiling" class="docs-link" data-i18n="docs.nav.how_profiling">How profiling works</a>
-          <a href="#dimensions" class="docs-link" data-i18n="docs.nav.dimensions">Dimensions</a>
+          <h4 data-i18n="nav_commands">Commands Reference</h4>
+          <a href="#cmd-profile" class="docs-link">profile</a>
+          <a href="#cmd-export" class="docs-link">export</a>
+          <a href="#cmd-deploy" class="docs-link">deploy</a>
+          <a href="#cmd-view" class="docs-link">view</a>
+          <a href="#cmd-edit" class="docs-link">edit</a>
+          <a href="#cmd-refresh" class="docs-link">refresh</a>
+          <a href="#cmd-deepen" class="docs-link">deepen</a>
+          <a href="#cmd-import" class="docs-link">import</a>
+          <a href="#cmd-discover" class="docs-link">discover</a>
+          <a href="#cmd-demo" class="docs-link">demo</a>
+          <a href="#cmd-report" class="docs-link">report</a>
+          <a href="#cmd-card" class="docs-link">card</a>
+          <a href="#cmd-config" class="docs-link">config</a>
+          <a href="#cmd-packs" class="docs-link">packs</a>
+          <a href="#cmd-projects" class="docs-link">projects</a>
+          <a href="#cmd-history" class="docs-link">history</a>
+          <a href="#cmd-feedback" class="docs-link">feedback</a>
+          <a href="#cmd-scan" class="docs-link">scan</a>
+          <a href="#cmd-continue" class="docs-link">continue</a>
+          <a href="#cmd-sync" class="docs-link" data-min-level="power">sync</a>
+          <a href="#cmd-update" class="docs-link" data-min-level="power">update</a>
+          <a href="#cmd-shell" class="docs-link" data-min-level="dev">shell</a>
         </div>
         <div class="docs-nav-group">
-          <h4 data-i18n="docs.nav.exporting">Exporting</h4>
-          <a href="#export" class="docs-link" data-i18n="docs.nav.export">How exports work</a>
-          <a href="#p-chatgpt" class="docs-link">ChatGPT</a>
-          <a href="#p-claude" class="docs-link">Claude</a>
-          <a href="#p-cursor" class="docs-link">Cursor</a>
-          <a href="#p-ollama" class="docs-link">Ollama</a>
-          <a href="#p-all" class="docs-link" data-i18n="docs.nav.all">All platforms</a>
+          <h4 data-i18n="nav_packs">Question Packs</h4>
+          <a href="#packs" class="docs-link" data-i18n="nav_packs_overview">Overview</a>
+          <a href="#packs-list" class="docs-link" data-i18n="nav_packs_list">All packs</a>
         </div>
         <div class="docs-nav-group">
-          <h4 data-i18n="docs.nav.cli_ref">CLI Reference</h4>
-          <a href="#cli-commands" class="docs-link" data-i18n="docs.nav.commands">Commands</a>
-          <a href="#cli-flags" class="docs-link" data-i18n="docs.nav.flags">Flags</a>
-          <a href="#cli-sync" class="docs-link" data-i18n="docs.nav.sync">Sync</a>
-        </div>
-        <div class="docs-nav-group" data-min-level="dev">
-          <h4 data-i18n="docs.nav.advanced">Advanced</h4>
-          <a href="#schema" class="docs-link">Schema</a>
-          <a href="#rule-engine" class="docs-link" data-i18n="docs.nav.rules">Rule engine</a>
-          <a href="#api" class="docs-link" data-i18n="docs.nav.api">API</a>
+          <h4 data-i18n="nav_export">Export Formats</h4>
+          <a href="#export-formats" class="docs-link" data-i18n="nav_export_all">All platforms</a>
+          <a href="#export-auto" class="docs-link" data-i18n="nav_export_auto">Auto-deploy</a>
+          <a href="#export-manual" class="docs-link" data-i18n="nav_export_manual">Manual (clipboard)</a>
         </div>
         <div class="docs-nav-group">
-          <h4 data-i18n="docs.nav.other">Other</h4>
-          <a href="#privacy" class="docs-link" data-i18n="docs.nav.privacy">Privacy</a>
-          <a href="#faq" class="docs-link">FAQ</a>
+          <h4 data-i18n="nav_scanning">Scanning</h4>
+          <a href="#scanning" class="docs-link" data-i18n="nav_scan_how">How scanning works</a>
+        </div>
+        <div class="docs-nav-group">
+          <h4 data-i18n="nav_ai">AI Providers</h4>
+          <a href="#ai-providers" class="docs-link" data-i18n="nav_ai_setup">Setup</a>
+        </div>
+        <div class="docs-nav-group">
+          <h4 data-i18n="nav_profile_mgmt">Profile Management</h4>
+          <a href="#profile-mgmt" class="docs-link" data-i18n="nav_profile_lifecycle">Lifecycle</a>
+        </div>
+        <div class="docs-nav-group">
+          <h4 data-i18n="nav_deployment">Deployment</h4>
+          <a href="#deployment" class="docs-link" data-i18n="nav_deploy_how">How deploy works</a>
+        </div>
+        <div class="docs-nav-group">
+          <h4 data-i18n="nav_config_section">Configuration</h4>
+          <a href="#configuration" class="docs-link" data-i18n="nav_config_files">Config files</a>
+        </div>
+        <div class="docs-nav-group">
+          <h4>FAQ</h4>
+          <a href="#faq" class="docs-link" data-i18n="nav_faq">Questions</a>
         </div>
       </nav>
 
-      <!-- SIDEBAR FOOTER -->
       <div class="sidebar-footer">
-        <a href="index.html" class="sidebar-link">Home</a>
-        <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener" class="sidebar-link">GitHub</a>
-        <a href="#" class="sidebar-link sidebar-coffee" title="Buy us a coffee">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          Coffee
-        </a>
+        <a href="https://github.com/nicusX/meport" class="sidebar-link">GitHub</a>
+        <a href="index.html" class="sidebar-link" data-i18n="nav_home">Home</a>
       </div>
     </aside>
 
-    <!-- MOBILE TOGGLE -->
-    <button class="docs-menu-toggle" id="nav-toggle" aria-label="Menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+    <!-- ===================== MAIN CONTENT ===================== -->
+    <main class="docs-main">
 
-    <!-- MAIN CONTENT -->
-    <main class="docs-main" id="docs-main">
+      <!-- ==================== GETTING STARTED ==================== -->
 
-      <!-- ============================================================ -->
-      <!-- WHAT IS MEPORT                                                -->
-      <!-- ============================================================ -->
       <section class="doc-section" id="what-is">
-        <h1 data-i18n="docs.what.title">What is Meport?</h1>
-
-        <div class="level-content" data-show="beginner">
-          <div class="doc-callout doc-callout-info">
-            <strong data-i18n="docs.what.b.callout_title">New to AI?</strong>
-            <span data-i18n="docs.what.b.callout">No worries. You don't need to know anything technical. Meport does the hard part for you.</span>
-          </div>
-          <p data-i18n="docs.what.b.p1">You probably use ChatGPT, Claude, or another AI assistant. But every time you start a conversation, the AI doesn't know anything about you. It gives you generic answers that could be for anyone.</p>
-          <p data-i18n="docs.what.b.p2"><strong>Meport fixes that.</strong> It scans your files (CV, notes, documents), asks a few quick questions, and creates a profile of who you are &mdash; how you think, work, and communicate. Then it sends that profile to your AI tools so they actually understand you.</p>
-          <p data-i18n="docs.what.b.p3">Think of it like setting up a new phone &mdash; you transfer your data once, and everything just works. Except instead of photos, you're transferring your <em>identity</em> to AI.</p>
-          <h3 data-i18n="docs.what.b.result_title">The result?</h3>
-          <p data-i18n="docs.what.b.result">Instead of "Here are 10 generic tips," your AI says "Based on your preference for short answers and your work style, here's exactly what you need." Same AI, same question &mdash; completely different quality.</p>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p data-i18n="docs.what.p.p1">Meport is a CLI tool that creates deep AI personality profiles through pack-based profiling and exports them to 20+ platforms (ChatGPT, Claude, Cursor, Ollama) in their native format.</p>
-          <p data-i18n="docs.what.p.p2">You use multiple AI tools. Each one treats you like a stranger. Meport creates a single profile with 80+ dimensions &mdash; communication style, thinking patterns, work habits, personal preferences &mdash; and exports it everywhere.</p>
-          <ul>
-            <li><strong>Pack-based profiling:</strong> 7 question packs covering identity, work, lifestyle, health, and more. Complete in 10-15 minutes.</li>
-            <li><strong>System scanner:</strong> Reads your .gitconfig, project files, and AI configs to pre-fill answers automatically.</li>
-            <li><strong>20+ platform exports:</strong> ChatGPT, Claude, Cursor, Ollama, Copilot, Gemini, Windsurf, and more &mdash; each in their native format.</li>
-            <li><strong>Rule-based output:</strong> "Never use emoji" instead of "User doesn't like emoji." Direct instructions, not descriptions.</li>
-            <li><strong>100% local:</strong> Your data never leaves your machine. No backend. No account.</li>
-            <li><strong>Free forever:</strong> MIT license. Full features. No paywall.</li>
-          </ul>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p data-i18n="docs.what.d.p1">Meport is an open-source CLI tool that generates rule-based AI personality profiles through pack-based profiling and compiles them to 20+ platform-native formats.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport profile            # start pack-based profiling (~10-15 min)
-npx meport export chatgpt     # export to specific platform
-npx meport export --all       # export to all 20+ platforms
-npx meport sync               # auto-sync to file-based platforms</code></pre>
-          </div>
-          <p>Architecture: TypeScript CLI (Commander.js). 7 question packs, 80+ dimensions across identity, communication, cognitive, work, personality, and more. 20+ rule-based compilers with platform-specific char limits. System scanner reads .gitconfig, project files, and AI configs to pre-fill answers. i18n: English + Polish. Fully offline, no backend.</p>
-          <ul>
-            <li><strong>Profile format:</strong> Local JSON at <code>~/.meport/</code></li>
-            <li><strong>Export compilers:</strong> Rule-based compilation with per-platform char/token limits</li>
-            <li><strong>3-layer inference:</strong> Explicit (answers) &rarr; Inferred (behavioral signals) &rarr; Compound (rule combinations)</li>
-            <li><strong>Key principle:</strong> Rules &gt; Descriptions &mdash; each option has an <code>export_rule</code> that becomes a direct instruction</li>
-          </ul>
+        <h1 data-i18n="s_what_title">What is Meport?</h1>
+        <p data-i18n="s_what_p1">Meport is a CLI tool that creates a comprehensive AI personality profile through a single conversation. Your AI doesn't know you &mdash; Meport fixes that in 30 minutes.</p>
+        <p data-i18n="s_what_p2">It generates personalized instructions for <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> and more &mdash; all from one profile.</p>
+        <div class="doc-callout doc-callout-info">
+          <strong data-i18n="s_what_callout_title">How it works</strong>
+          <span data-i18n="s_what_callout_body">1. Answer questions (or let AI interview you) &rarr; 2. Meport builds a profile with 30+ dimensions &rarr; 3. Export to any AI platform &rarr; 4. Your AI finally knows how to talk to you.</span>
         </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- INSTALLATION                                                  -->
-      <!-- ============================================================ -->
       <section class="doc-section" id="install">
-        <h1 data-i18n="docs.install.title">Installation</h1>
-
-        <div class="level-content" data-show="beginner">
-          <h3>Desktop App (recommended)</h3>
-          <p>The easiest way to use Meport. Download the app, open it, drag your files in, and follow the steps.</p>
-          <div class="doc-dl-buttons">
-            <a href="#" class="btn btn-glow">macOS</a>
-            <a href="#" class="btn btn-outline-light">Windows</a>
-            <a href="#" class="btn btn-outline-light">Linux</a>
-          </div>
-          <h3>Or use the terminal</h3>
-          <p>If you're comfortable with the command line:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport</code></pre>
-          </div>
-          <p>Requires <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> 18+. No other setup needed.</p>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <h3>Option 1: Desktop App</h3>
-          <p>Download from meport.app. Drag &amp; drop interface. Supports file scanning and all 20+ exports.</p>
-          <div class="doc-dl-buttons">
-            <a href="#" class="btn btn-glow">macOS</a>
-            <a href="#" class="btn btn-outline-light">Windows</a>
-            <a href="#" class="btn btn-outline-light">Linux</a>
-          </div>
-          <h3>Option 2: CLI (no install)</h3>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport</code></pre>
-          </div>
-          <p>Requires Node.js 18+. That's the only dependency.</p>
-          <h3>Or install globally</h3>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npm install -g meport
-meport profile</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <h3>CLI (npm)</h3>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code># Run directly (no install)
-npx meport
-
-# Or install globally
-npm install -g meport
-meport profile
-
-# Or clone and build from source
-git clone https://github.com/zmrlk/meport.git
-cd meport
-pnpm install
-pnpm dev</code></pre>
-          </div>
-          <h3>Requirements</h3>
-          <ul>
-            <li>Node.js 18+</li>
-            <li>No API keys needed &mdash; profiling is local, rule-based, no AI calls required</li>
-            <li>No backend, no account, no internet connection needed</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- YOUR FIRST PROFILE                                            -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="first-profile">
-        <h1 data-i18n="docs.first.title">Your first profile</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>Here's what happens when you run Meport:</p>
-          <div class="doc-steps">
-            <div class="doc-step">
-              <div class="doc-step-num">1</div>
-              <div>
-                <h4>Meport says hi</h4>
-                <p>Open your terminal and run <code>npx meport</code>. Meport greets you and asks if you'd like to scan your files first.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">2</div>
-              <div>
-                <h4>File scan</h4>
-                <p>If you say yes, Meport scans your files (CV, notes, configs, documents) and shows you what it found. You review and confirm what's right.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">3</div>
-              <div>
-                <h4>Quick questions</h4>
-                <p>Meport asks a few targeted questions to fill in what the scan couldn't figure out. Most are multiple choice &mdash; pick the option that fits you.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">4</div>
-              <div>
-                <h4>Summary + review</h4>
-                <p>Meport shows you a summary of your profile. You can see everything it learned and fix anything that doesn't look right.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">5</div>
-              <div>
-                <h4>Export</h4>
-                <p>Happy with the profile? Export it to your AI tools. Meport formats everything for each platform automatically.</p>
-              </div>
-            </div>
-          </div>
-          <div class="doc-callout doc-callout-info">
-            <strong data-i18n="docs.first.b.callout_title">Can I stop and come back?</strong>
-            <span>Yes! If you need to stop, just close the terminal. Run <code>npx meport continue</code> later to pick up where you left off.</span>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>The profiling flow: <strong>Greeting &rarr; File scan &rarr; Show findings &rarr; Confirm &rarr; Quick questions &rarr; Summary &rarr; Corrections &rarr; Export.</strong></p>
-          <p>Run <code>meport profile</code> to start. Meport first scans your files (documents, configs, notes) and shows what it found. You confirm the findings, answer a few targeted questions to fill gaps, review the summary, make corrections if needed, and export.</p>
-          <p>The whole session takes 5-15 minutes depending on how many files you scan. Interrupt and resume with <code>meport continue</code>. Quick tune-ups later: <code>meport update</code>.</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code># Start profiling (system scan + question packs)
-meport profile
-
-# Resume an interrupted session
-meport continue
-
-# View your completed profile
-meport view
-
-# Quick tune-up (adjust specific dimensions)
-meport update
-
-# Export to all 20+ platforms
-meport export --all</code></pre>
-          </div>
-          <p>Profile is saved locally at <code>~/.meport/</code>. System scanner sources: <code>~/.gitconfig</code>, project files in cwd, <code>.cursor/</code>, <code>CLAUDE.md</code>, Ollama configs. Pre-filled values are presented for confirmation during profiling.</p>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- QUESTION PACKS                                                -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="packs">
-        <h1 data-i18n="docs.packs.title">Question packs</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>Meport organizes its questions into <strong>packs</strong> &mdash; short groups of related questions. You don't have to do all of them at once. Start with the essentials and add more packs later if you want a richer profile.</p>
-          <h3>Available packs</h3>
-          <div class="doc-file-grid">
-            <div class="doc-file-item"><strong>Micro Setup</strong><span>Quick-start pack. The bare essentials in ~2 minutes.</span></div>
-            <div class="doc-file-item"><strong>Core</strong><span>Identity, communication style, and thinking patterns.</span></div>
-            <div class="doc-file-item"><strong>Context</strong><span>Your background, expertise, and current situation.</span></div>
-            <div class="doc-file-item"><strong>Work</strong><span>How you work, your tools, and productivity preferences.</span></div>
-            <div class="doc-file-item"><strong>Lifestyle</strong><span>Daily routines, interests, and personal preferences.</span></div>
-            <div class="doc-file-item"><strong>Health</strong><span>Optional. Health-related preferences for AI context.</span></div>
-            <div class="doc-file-item"><strong>Finance</strong><span>Optional. Financial context and decision-making style.</span></div>
-            <div class="doc-file-item"><strong>Learning</strong><span>How you learn best, preferred formats, and pace.</span></div>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Meport uses 7 question packs (plus a micro-setup quick-start). Each pack covers a specific domain and contributes dimensions to your profile. You can add or remove packs at any time.</p>
-          <div class="doc-file-grid">
-            <div class="doc-file-item"><strong>micro-setup</strong><span>Bare essentials. ~2 min. Gets you a working profile fast.</span></div>
-            <div class="doc-file-item"><strong>core</strong><span>Identity, communication, cognitive patterns. The foundation.</span></div>
-            <div class="doc-file-item"><strong>context</strong><span>Background, expertise, current projects and goals.</span></div>
-            <div class="doc-file-item"><strong>work</strong><span>Workflow, tools, collaboration style, productivity patterns.</span></div>
-            <div class="doc-file-item"><strong>lifestyle</strong><span>Routines, interests, personal values and preferences.</span></div>
-            <div class="doc-file-item"><strong>health</strong><span>Optional. Health context, neurodivergence, energy patterns.</span></div>
-            <div class="doc-file-item"><strong>finance</strong><span>Optional. Financial decision-making, risk tolerance.</span></div>
-            <div class="doc-file-item"><strong>learning</strong><span>Learning style, preferred formats, depth vs. breadth.</span></div>
-          </div>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport packs list              # show available packs and status
-meport packs add health        # add the health pack
-meport packs remove finance    # remove the finance pack</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>7 question packs + micro-setup. Each pack is a self-contained module of questions, where each question's options carry an <code>export_rule</code> field. Packs can be added/removed dynamically.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport packs list              # list all packs with completion status
-meport packs add &lt;pack&gt;       # add a pack to your profile
-meport packs remove &lt;pack&gt;    # remove a pack</code></pre>
-          </div>
-          <p>Packs: <code>micro-setup</code>, <code>core</code>, <code>context</code>, <code>work</code>, <code>lifestyle</code>, <code>health</code>, <code>finance</code>, <code>learning</code>. Each question has multiple-choice options, and each option maps to one or more export rules.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Question schema (simplified)</span></div>
-            <pre><code>{
-  "pack": "core",
-  "id": "communication_directness",
-  "question": "How direct should AI be with you?",
-  "options": [
-    {
-      "label": "Very direct",
-      "export_rule": "Be extremely direct. No softening, no hedging."
-    },
-    {
-      "label": "Balanced",
-      "export_rule": "Be direct but diplomatic. Brief context before conclusions."
-    },
-    {
-      "label": "Gentle",
-      "export_rule": "Be considerate in delivery. Soften criticism, explain reasoning."
-    }
-  ]
-}</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- HOW PROFILING WORKS                                           -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="how-profiling">
-        <h1 data-i18n="docs.profiling.title">How profiling works</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>The full flow looks like this:</p>
-          <div class="doc-steps">
-            <div class="doc-step">
-              <div class="doc-step-num">1</div>
-              <div>
-                <h4>Greeting</h4>
-                <p>Meport introduces itself and asks if you'd like to start with a file scan or go straight to questions.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">2</div>
-              <div>
-                <h4>File scan (optional)</h4>
-                <p>Meport scans your files &mdash; CV, notes, configs, documents &mdash; and shows you what it found. You confirm or correct each finding.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">3</div>
-              <div>
-                <h4>Quick questions</h4>
-                <p>Short multiple-choice questions fill in what the scan couldn't figure out. Each question takes 5-10 seconds.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">4</div>
-              <div>
-                <h4>Summary + corrections</h4>
-                <p>Meport shows your complete profile. You review everything, fix anything that's wrong, and confirm when it looks right.</p>
-              </div>
-            </div>
-            <div class="doc-step">
-              <div class="doc-step-num">5</div>
-              <div>
-                <h4>Export</h4>
-                <p>Your answers become direct instructions for AI. For example, "Very direct" becomes the rule "Be extremely direct. No softening, no hedging." These instructions are formatted for each platform and exported.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Meport profiling has three layers of inference:</p>
-          <ul>
-            <li><strong>Layer 1 &mdash; Explicit:</strong> Your direct answers. You pick "Very direct" &rarr; rule: "Be extremely direct. No softening, no hedging."</li>
-            <li><strong>Layer 2 &mdash; Inferred:</strong> Behavioral signals from how you answer (response patterns, choices across packs) generate additional rules.</li>
-            <li><strong>Layer 3 &mdash; Compound:</strong> Rule combinations. If you selected both "concise" and "technical," a compound rule might emerge like "Give code examples instead of explanations."</li>
-          </ul>
-          <p>The system scanner pre-fills answers from local files: <code>.gitconfig</code> (name, email, editor), project files (language, framework), and AI configs (<code>.cursor/rules/</code>, <code>CLAUDE.md</code>, Ollama modelfiles).</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <h3>3-layer inference pipeline</h3>
-          <ul>
-            <li><strong>Explicit (L1):</strong> Direct answer &rarr; <code>option.export_rule</code>. One-to-one mapping.</li>
-            <li><strong>Inferred (L2):</strong> Behavioral signals from answer patterns across packs. Cross-referenced to generate additional rules.</li>
-            <li><strong>Compound (L3):</strong> Rule combinations. Multiple L1/L2 rules that together imply a higher-order rule.</li>
-          </ul>
-          <h3>System scanner sources</h3>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Scanned files</span></div>
-            <pre><code># Identity
-~/.gitconfig                   # name, email, editor
-~/.ssh/config                  # host patterns (work context)
-
-# AI configurations
-.cursor/rules/*.mdc            # existing Cursor rules
-CLAUDE.md                      # existing Claude Code instructions
-~/.ollama/                     # Ollama model configs
-
-# Project context
-package.json                   # stack, dependencies
-tsconfig.json, .eslintrc       # language preferences
-.editorconfig                  # formatting preferences</code></pre>
-          </div>
-          <p>Key design principle: <strong>Rules &gt; Descriptions.</strong> Every answer option has an <code>export_rule</code> field that becomes a direct instruction in the export. "Never use emoji" instead of "The user prefers not to receive emoji in responses."</p>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- DIMENSIONS                                                    -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="dimensions">
-        <h1 data-i18n="docs.dimensions.title">Dimensions</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>A "dimension" is one aspect of how you think, work, or communicate. Meport tracks 80+ of these to build a complete picture of you for AI. Some examples:</p>
-          <div class="doc-file-grid">
-            <div class="doc-file-item"><strong>Verbosity</strong><span>Do you want short or detailed answers?</span></div>
-            <div class="doc-file-item"><strong>Formality</strong><span>Casual or professional tone?</span></div>
-            <div class="doc-file-item"><strong>Directness</strong><span>Straight to the point or diplomatic?</span></div>
-            <div class="doc-file-item"><strong>Learning style</strong><span>Examples first or theory first?</span></div>
-            <div class="doc-file-item"><strong>Work patterns</strong><span>Deep focus or frequent context-switching?</span></div>
-            <div class="doc-file-item"><strong>Decision making</strong><span>Data-driven or intuition-driven?</span></div>
-          </div>
-          <p>You don't need to worry about dimensions directly &mdash; Meport fills them in based on your answers and exports them as simple rules to your AI.</p>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Meport tracks 80+ dimensions across several categories:</p>
-          <ul>
-            <li><strong>Identity:</strong> Name, role, background, expertise areas</li>
-            <li><strong>Communication:</strong> Verbosity, formality, directness, humor, emoji use</li>
-            <li><strong>Cognitive:</strong> Thinking style, learning mode, abstraction level, problem-solving approach</li>
-            <li><strong>Work:</strong> Tools, stack, workflow patterns, collaboration style, focus patterns</li>
-            <li><strong>Personality:</strong> Risk tolerance, decision-making, conflict style, feedback preferences</li>
-            <li><strong>Life context:</strong> Routines, interests, health considerations, financial context</li>
-          </ul>
-          <p>View all your dimensions anytime with <code>meport view</code>.</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>80+ dimensions spanning identity, communication, cognitive, work, personality, and life context categories. Each dimension stores:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Dimension structure</span></div>
-            <pre><code>{
-  "dimension": "verbosity_preference",
-  "value": "concise",
-  "source": "explicit",        // explicit | inferred | compound | system_scan
-  "export_rule": "Keep responses concise. Use bullet points. No filler.",
-  "pack": "core"
-}</code></pre>
-          </div>
-          <p>The <code>export_rule</code> field is what gets compiled into platform exports. This is the core design principle: every dimension maps to an actionable rule, not a description. Compilers select and prioritize rules based on platform constraints (char limits, max rules).</p>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- HOW EXPORTS WORK                                              -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="export">
-        <h1 data-i18n="docs.export.title">How exports work</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>Once your profile is ready, you tell Meport which AI tool you use. It creates a set of rules in the exact format that tool expects.</p>
-          <p>For ChatGPT, it creates text you paste into Custom Instructions. For Cursor, it creates a file you put in your project folder. Each platform is different, but Meport handles the formatting for you.</p>
-          <div class="doc-callout doc-callout-info">
-            <strong>Why it works so well</strong>
-            <span>Meport doesn't just <em>describe</em> you to AI. It gives AI <strong>direct instructions</strong>. Instead of saying "the user prefers short answers" (which AI often ignores), it says "Keep responses under 5 lines. Use bullet points." AI follows clear instructions much better than vague descriptions.</span>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Meport has 20+ rule-based compilers, one per supported platform. Each compiler takes your profile dimensions and their export rules, prioritizes them by impact, and compiles them into the platform's native format within its character/token limits.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export chatgpt          # ChatGPT Custom Instructions
-meport export claude           # Claude Project Instructions (.md)
-meport export cursor           # Cursor rules (.mdc)
-meport export ollama           # Ollama Modelfile (SYSTEM directive)
-meport export --all            # all 20+ platforms at once</code></pre>
-          </div>
-          <p>Key design: exports are <strong>rule-based</strong>, not description-based. "Never use emoji" instead of "User doesn't like emoji." AI follows direct instructions more reliably than third-person descriptions.</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>20+ rule-based compilers. Each implements platform-specific formatting, character limits, and rule prioritization. The compiler selects the most impactful rules that fit within the platform's constraints.</p>
-          <h3>Export format limits</h3>
-          <div class="doc-platform-list">
-            <div class="doc-plat-row"><strong>ChatGPT</strong><span>1,500 chars &times; 2 fields, max 12 rules</span></div>
-            <div class="doc-plat-row"><strong>Claude</strong><span>~2,000 tokens, Markdown with XML tags</span></div>
-            <div class="doc-plat-row"><strong>Cursor</strong><span>12,000 chars, .mdc format, auto-synced to <code>.cursor/rules/</code></span></div>
-            <div class="doc-plat-row"><strong>Ollama</strong><span>1,000 tokens, Modelfile SYSTEM directive, max 8 rules</span></div>
-          </div>
-          <p>Rule prioritization: rules are ranked by impact score (derived from dimension importance and cross-platform utility). The compiler fills the available space with the highest-impact rules first.</p>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- CHATGPT                                                       -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="p-chatgpt">
-        <h1>ChatGPT</h1>
-
-        <div class="level-content" data-show="beginner">
-          <div class="doc-steps">
-            <div class="doc-step"><div class="doc-step-num">1</div><div><p>Run <code>npx meport export chatgpt</code> in your terminal</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">2</div><div><p>Meport shows you two blocks of text. Copy them.</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">3</div><div><p>Open ChatGPT &rarr; click your profile picture &rarr; Settings &rarr; Personalization &rarr; Custom Instructions</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">4</div><div><p>Paste the first block into "What would you like ChatGPT to know about you?" and the second into "How would you like ChatGPT to respond?" Save. Done!</p></div></div>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Export creates two text blocks for ChatGPT's Custom Instructions fields (1,500 characters each). Meport selects and prioritizes up to 12 rules to fit within the character limits.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export chatgpt
-meport sync --copy chatgpt     # copy directly to clipboard</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Compiler: ChatGPT. Output: two text fields, 1,500 chars each. Max 12 rules total. Field 1 = identity/context rules. Field 2 = response format/behavior rules.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export chatgpt          # output two fields to terminal
-meport sync --copy chatgpt     # copy to clipboard</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- CLAUDE                                                        -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="p-claude">
-        <h1>Claude</h1>
-
-        <div class="level-content" data-show="beginner">
-          <div class="doc-steps">
-            <div class="doc-step"><div class="doc-step-num">1</div><div><p>Run <code>npx meport export claude</code> in your terminal</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">2</div><div><p>Meport creates a Markdown file with your rules</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">3</div><div><p>Open claude.ai &rarr; Create a Project &rarr; go to Project Instructions &rarr; paste the content</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">4</div><div><p>Start chatting in that project. Claude now follows your rules.</p></div></div>
-          </div>
-          <div class="doc-callout doc-callout-tip">
-            <strong>Claude Code users</strong>
-            <span>If you use Claude Code (the CLI), run <code>npx meport sync</code> and it auto-updates your CLAUDE.md file.</span>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Exports a Markdown file with XML tags, optimized for Claude's Project Instructions format (~2,000 tokens). For Claude Code, use <code>meport sync</code> to auto-update your CLAUDE.md.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export claude           # Markdown with XML tags
-meport sync                    # auto-sync to CLAUDE.md (Claude Code)</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Compiler: Claude. Output: ~2,000 tokens, Markdown with XML tags for structured sections. Auto-sync target: <code>CLAUDE.md</code> in project root (Claude Code).</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export claude           # output Markdown with XML tags
-meport sync                    # auto-sync CLAUDE.md in cwd</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- CURSOR                                                        -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="p-cursor">
-        <h1>Cursor</h1>
-
-        <div class="level-content" data-show="beginner">
-          <div class="doc-steps">
-            <div class="doc-step"><div class="doc-step-num">1</div><div><p>Run <code>npx meport export cursor</code> in your terminal</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">2</div><div><p>Meport creates a <code>.mdc</code> rules file</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">3</div><div><p>The file goes into <code>.cursor/rules/</code> in your project folder</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">4</div><div><p>Cursor automatically reads it. No restart needed.</p></div></div>
-          </div>
-          <div class="doc-callout doc-callout-tip">
-            <strong>Even easier</strong>
-            <span>Run <code>npx meport sync</code> and Meport auto-places the file in the right folder for you.</span>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Exports a <code>.mdc</code> rules file (12,000 char limit) directly to <code>.cursor/rules/</code>. Use <code>meport sync</code> for automatic placement and updates.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export cursor           # create .mdc file
-meport sync                    # auto-sync to .cursor/rules/</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Compiler: Cursor. Output: 12,000 chars, <code>.mdc</code> format. Auto-sync target: <code>.cursor/rules/meport.mdc</code>. The sync command detects if <code>.cursor/</code> exists and writes directly.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export cursor           # generate .mdc file
-meport sync                    # auto-sync to .cursor/rules/meport.mdc</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- OLLAMA                                                        -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="p-ollama">
-        <h1>Ollama</h1>
-
-        <div class="level-content" data-show="beginner">
-          <div class="doc-callout doc-callout-info">
-            <strong>What is Ollama?</strong>
-            <span>Ollama lets you run AI on your own computer, completely offline. No internet needed. Your conversations never leave your machine.</span>
-          </div>
-          <p>If you have Ollama installed, Meport can create a special file (called a Modelfile) that makes any local AI model know you. This is the most private option &mdash; everything stays on your computer.</p>
-          <div class="doc-steps">
-            <div class="doc-step"><div class="doc-step-num">1</div><div><p>Run <code>npx meport export ollama</code></p></div></div>
-            <div class="doc-step"><div class="doc-step-num">2</div><div><p>Meport creates a Modelfile with your rules</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">3</div><div><p>Run <code>ollama create me-llama3 -f Modelfile</code> to create your personalized model</p></div></div>
-            <div class="doc-step"><div class="doc-step-num">4</div><div><p>Run <code>ollama run me-llama3</code> &mdash; the model now follows your rules</p></div></div>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Exports a Modelfile with a SYSTEM directive containing up to 8 rules (~1,000 tokens). Create a personalized model variant with <code>ollama create</code>.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export ollama
-ollama create me-llama3 -f Modelfile
-ollama run me-llama3</code></pre>
-          </div>
-          <p>Use <code>meport sync</code> to auto-update the Modelfile when your profile changes.</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Compiler: Ollama. Output: ~1,000 tokens, Modelfile with SYSTEM directive. Max 8 rules. The SYSTEM directive is injected before FROM, so any base model can be personalized.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport export ollama           # generate Modelfile
-meport sync                    # auto-sync Modelfile
-ollama create me-llama3 -f Modelfile
-ollama run me-llama3</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- ALL PLATFORMS                                                 -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="p-all">
-        <h1 data-i18n="docs.all.title">All platforms</h1>
-
-        <p>Meport supports 20+ platform compilers. Here are the main ones:</p>
-        <div class="doc-platform-list">
-          <div class="doc-plat-row"><strong>ChatGPT</strong><span>Custom Instructions (1,500 chars &times; 2 fields)</span></div>
-          <div class="doc-plat-row"><strong>Claude</strong><span>Project Instructions / CLAUDE.md (Markdown + XML tags)</span></div>
-          <div class="doc-plat-row"><strong>Claude Code</strong><span>CLAUDE.md (auto-synced via meport sync)</span></div>
-          <div class="doc-plat-row"><strong>Cursor</strong><span>.cursor/rules/meport.mdc (auto-synced)</span></div>
-          <div class="doc-plat-row"><strong>GitHub Copilot</strong><span>.github/copilot-instructions.md</span></div>
-          <div class="doc-plat-row"><strong>Windsurf</strong><span>.windsurf/rules/*.md</span></div>
-          <div class="doc-plat-row"><strong>Gemini</strong><span>Gems / Custom Instructions</span></div>
-          <div class="doc-plat-row"><strong>Grok</strong><span>Custom Instructions</span></div>
-          <div class="doc-plat-row"><strong>Perplexity</strong><span>Collections instructions</span></div>
-          <div class="doc-plat-row"><strong>Poe</strong><span>Bot instructions</span></div>
-          <div class="doc-plat-row"><strong>Ollama</strong><span>Modelfile SYSTEM directive</span></div>
-          <div class="doc-plat-row"><strong>Open WebUI</strong><span>System prompt</span></div>
-          <div class="doc-plat-row"><strong>LM Studio</strong><span>System prompt</span></div>
-          <div class="doc-plat-row"><strong>Jan.ai</strong><span>assistant.json</span></div>
-          <div class="doc-plat-row"><strong>AGENTS.md</strong><span>Open standard format</span></div>
-          <div class="doc-plat-row"><strong>MEPORT.md</strong><span>Human &amp; LLM-readable profile</span></div>
-          <div class="doc-plat-row"><strong>JSON</strong><span>meport.json (Schema v1.0)</span></div>
-          <div class="doc-plat-row"><strong>Markdown</strong><span>Generic .md export</span></div>
-          <div class="doc-plat-row"><strong>PDF</strong><span>Profile report</span></div>
-          <div class="doc-plat-row"><strong>MCP Server</strong><span>Model Context Protocol</span></div>
-        </div>
-
+        <h1 data-i18n="s_install_title">Installation</h1>
+        <p data-i18n="s_install_p1">Meport requires <strong>Node.js 18+</strong>. No installation needed &mdash; run directly with npx:</p>
         <div class="doc-code">
-          <div class="doc-code-bar"><span>Terminal</span></div>
-          <pre><code>meport export --all            # export to all 20+ platforms at once
-meport export chatgpt claude   # export to specific platforms</code></pre>
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code>npx meport</code></pre>
+        </div>
+        <p data-i18n="s_install_p2">Or install globally:</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code>npm install -g meport
+meport</code></pre>
+        </div>
+        <div class="doc-callout doc-callout-tip">
+          <strong data-i18n="s_install_tip_title">Tip</strong>
+          <span data-i18n="s_install_tip_body">Running <code>meport</code> with no arguments opens the interactive shell &mdash; a menu-driven interface for all features.</span>
         </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- CLI COMMANDS                                                  -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="cli-commands">
-        <h1 data-i18n="docs.cli.title">CLI commands</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>Here are the commands you'll use most often:</p>
-          <div class="doc-file-grid">
-            <div class="doc-file-item"><strong><code>npx meport profile</code></strong><span>Start building your profile. Takes ~10-15 minutes.</span></div>
-            <div class="doc-file-item"><strong><code>npx meport export chatgpt</code></strong><span>Export your profile for ChatGPT (or claude, cursor, ollama).</span></div>
-            <div class="doc-file-item"><strong><code>npx meport view</code></strong><span>See all your profile dimensions.</span></div>
-            <div class="doc-file-item"><strong><code>npx meport continue</code></strong><span>Resume a session you stopped earlier.</span></div>
+      <section class="doc-section" id="first-profile">
+        <h1 data-i18n="s_first_title">Your First Profile</h1>
+        <p data-i18n="s_first_p1">The fastest way to get started:</p>
+        <div class="doc-steps">
+          <div class="doc-step">
+            <div class="doc-step-num">1</div>
+            <div><p data-i18n="s_first_step1">Run <code>meport profile</code>. If AI is configured, it starts an AI-driven interview. Otherwise, it uses the quiz mode.</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">2</div>
+            <div><p data-i18n="s_first_step2">Answer the questions. Meport auto-detects your system (OS, timezone, tools, languages) and skips what it already knows.</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">3</div>
+            <div><p data-i18n="s_first_step3">Review your profile and confirm. Meport auto-exports to all platforms and shows you how to apply each one.</p></div>
           </div>
         </div>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># AI-driven (best quality, needs API key)
+meport profile --ai
 
-        <div class="level-content" data-show="power">
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>All commands</span></div>
-            <pre><code>meport profile               # Start profiling (pack-based, ~10-15 min)
-meport export [platform]     # Export to specific platform
-meport export --all          # Export to all 20+ platforms
-meport sync                  # Auto-sync to file-based platforms
-meport sync --copy chatgpt   # Copy export to clipboard
-meport view                  # Show all dimensions
-meport update                # Quick tune-up
-meport continue              # Resume interrupted session
-meport packs list            # Show available packs
-meport packs add &lt;pack&gt;     # Add pack
-meport packs remove &lt;pack&gt;  # Remove pack</code></pre>
-          </div>
-        </div>
+# Quick quiz mode (no API key needed)
+meport profile --quick
 
-        <div class="level-content" data-show="dev">
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Complete CLI reference</span></div>
-            <pre><code># Profiling
-meport profile               # Start profiling (system scan + question packs)
-meport continue              # Resume interrupted profiling session
-meport update                # Quick tune-up (adjust specific dimensions)
-meport view                  # Display all dimensions and their values
+# With file scanning
+meport profile --scan ~/Projects ~/Documents/resume.pdf
 
-# Exporting
-meport export [platform]     # Export to: chatgpt | claude | cursor | ollama
-meport export --all          # Export to all 20+ platforms
-
-# Sync
-meport sync                  # Auto-sync exports to file-based platforms
-                             # (Cursor: .cursor/rules/, Ollama: Modelfile,
-                             #  Claude Code: CLAUDE.md)
-meport sync --copy chatgpt   # Copy ChatGPT export to clipboard
-
-# Packs
-meport packs list            # List all packs with completion status
-meport packs add &lt;pack&gt;     # Add a question pack
-meport packs remove &lt;pack&gt;  # Remove a question pack
-
-# Available packs: micro-setup, core, context, work,
-#                  lifestyle, health, finance, learning</code></pre>
-          </div>
+# Polish language
+meport profile --lang pl</code></pre>
         </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- CLI FLAGS                                                     -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="cli-flags">
-        <h1 data-i18n="docs.flags.title">Flags</h1>
+      <!-- ==================== COMMANDS REFERENCE ==================== -->
 
-        <div class="level-content" data-show="beginner">
-          <p>Flags are optional extras you add to commands. The most useful one:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport export --all        # export to all platforms at once</code></pre>
-          </div>
+      <!-- profile -->
+      <section class="doc-section" id="cmd-profile">
+        <h1>meport profile</h1>
+        <p data-i18n="cmd_profile_desc">Start profiling &mdash; one conversation, full AI profile. This is the main command. It runs system scan, asks questions via packs, shows a summary, and auto-exports to all platforms.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport profile [options]</code></pre>
         </div>
-
-        <div class="level-content" data-show="power">
-          <div class="doc-platform-list">
-            <div class="doc-plat-row"><strong><code>--all</code></strong><span>Export to all 20+ platforms at once</span></div>
-            <div class="doc-plat-row"><strong><code>--copy</code></strong><span>Copy export to clipboard (with sync command)</span></div>
-            <div class="doc-plat-row"><strong><code>--lang en|pl</code></strong><span>Set language (English or Polish)</span></div>
-          </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-o, --output &lt;path&gt;       Output file path (default: ./meport-profile.json)
+-e, --export-dir &lt;path&gt;  Auto-export directory
+-l, --lang &lt;locale&gt;      Language for questions (en, pl)
+-s, --scan &lt;paths...&gt;    Scan files or folders for profile data
+-q, --quick              Quick mode — key questions only, instant profile
+    --ai                 Force AI-driven conversational profiling</code></pre>
         </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Standard profiling (auto-detects AI config)
+meport profile
 
-        <div class="level-content" data-show="dev">
-          <div class="doc-platform-list">
-            <div class="doc-plat-row"><strong><code>--all</code></strong><span>Export to all supported platforms</span></div>
-            <div class="doc-plat-row"><strong><code>--copy</code></strong><span>Copy export output to clipboard (sync command)</span></div>
-            <div class="doc-plat-row"><strong><code>--lang en|pl</code></strong><span>Set interface language (i18n: English, Polish)</span></div>
-          </div>
+# AI-driven interview
+meport profile --ai
+
+# Quick mode — 5 minutes, core questions only
+meport profile --quick
+
+# Scan local files for extra context
+meport profile --scan ./resume.pdf ./portfolio/
+
+# Polish language, custom output
+meport profile --lang pl -o ~/my-profile.json
+
+# Full pipeline: scan + export to specific directory
+meport profile --scan ~/Projects --export-dir ~/ai-configs/</code></pre>
         </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SYNC                                                          -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="cli-sync">
-        <h1 data-i18n="docs.sync.title">Sync</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p>The <code>sync</code> command automatically updates your AI tools whenever your profile changes. Instead of manually exporting and placing files, just run:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport sync</code></pre>
-          </div>
-          <p>This updates Cursor, Ollama, and Claude Code automatically. For ChatGPT (which requires pasting), use:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>npx meport sync --copy chatgpt</code></pre>
-          </div>
-          <p>This copies the ChatGPT export to your clipboard so you can paste it into settings.</p>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Sync auto-updates exports for file-based platforms:</p>
-          <ul>
-            <li><strong>Cursor:</strong> writes to <code>.cursor/rules/meport.mdc</code></li>
-            <li><strong>Ollama:</strong> updates Modelfile</li>
-            <li><strong>Claude Code:</strong> updates <code>CLAUDE.md</code></li>
-          </ul>
-          <p>For clipboard-based platforms (ChatGPT), use <code>meport sync --copy chatgpt</code>.</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport sync                    # auto-sync all file-based platforms
-meport sync --copy chatgpt     # copy ChatGPT export to clipboard</code></pre>
-          </div>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Sync detects file-based platforms in the current directory and writes compiled exports directly:</p>
-          <div class="doc-code">
-            <div class="doc-code-bar"><span>Terminal</span></div>
-            <pre><code>meport sync                    # auto-detect and update:
-                               #   .cursor/rules/meport.mdc (if .cursor/ exists)
-                               #   CLAUDE.md (if in project root)
-                               #   Modelfile (if Ollama configured)
-
-meport sync --copy chatgpt     # compile ChatGPT export → clipboard</code></pre>
-          </div>
-          <p>Sync is idempotent &mdash; running it multiple times produces the same result. It only writes when the compiled output differs from the existing file.</p>
+        <div class="doc-callout doc-callout-info">
+          <strong data-i18n="cmd_profile_flow_title">Profiling flow</strong>
+          <span data-i18n="cmd_profile_flow_body">Phase 0: System scan (silent) &rarr; Phase 1: Intro &rarr; Phase 2: File scan (if --scan) &rarr; Phase 3: Pack questions &rarr; Phase 4: Final summary + AI rules preview &rarr; Phase 5: Auto-export to all platforms. Press Ctrl+C at any time &mdash; session is auto-saved. Resume with <code>meport continue</code>.</span>
         </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- SCHEMA (dev only)                                             -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="schema" data-min-level="dev">
-        <h1>Schema</h1>
-        <p>The Meport profile stores 80+ dimensions across several categories. Each dimension has a value, source, associated export rule, and pack origin.</p>
-        <div class="doc-code"><div class="doc-code-bar"><span>Profile structure (simplified)</span></div><pre><code>{
-  "version": "1.0",
-  "created": "2026-03-14T12:00:00Z",
-  "dimensions": [
-    {
-      "dimension": "verbosity_preference",
-      "value": "concise",
-      "source": "explicit",
-      "export_rule": "Keep responses concise. Use bullet points. No filler.",
-      "pack": "core"
-    },
-    {
-      "dimension": "communication_directness",
-      "value": "very_direct",
-      "source": "explicit",
-      "export_rule": "Be extremely direct. No softening, no hedging.",
-      "pack": "core"
-    },
-    {
-      "dimension": "emoji_usage",
-      "value": "never",
-      "source": "inferred",
-      "export_rule": "Never use emoji.",
-      "pack": "core"
-    }
-  ],
-  "compound_rules": [
-    {
-      "sources": ["verbosity_preference", "communication_directness"],
-      "export_rule": "Give the answer first, then explain only if asked."
-    }
-  ]
-}</code></pre></div>
-        <p>Categories: identity, communication, cognitive, work, personality, life context. Dimensions are populated by question packs and the system scanner.</p>
+      <!-- export -->
+      <section class="doc-section" id="cmd-export">
+        <h1>meport export</h1>
+        <p data-i18n="cmd_export_desc">Export your profile to a specific platform format. Uses rule-based compilers by default (14 platforms). Falls back to legacy compilers with <code>--legacy</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport export [platform] [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>[platform]               Target: chatgpt, claude, claude-code, cursor, ollama,
+                         gemini, copilot, windsurf, agents-md, grok, perplexity,
+                         openclaw, generic, json
+-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-o, --output &lt;path&gt;     Output file path
+-a, --all               Export to ALL available platforms at once
+-c, --copy              Copy export to clipboard (single platform)
+-l, --lang &lt;locale&gt;     Language for UI (en, pl)
+    --legacy            Use legacy description-based compilers</code></pre>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># List all available export targets
+meport export
+
+# Export to ChatGPT and copy to clipboard
+meport export chatgpt --copy
+
+# Export to all platforms at once
+meport export --all
+
+# Export to specific file
+meport export cursor -o .cursor/rules/meport.mdc
+
+# Export all to custom directory
+meport export --all -o ./my-exports/
+
+# Legacy mode
+meport export chatgpt --legacy</code></pre>
+        </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- RULE ENGINE (dev only)                                        -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="rule-engine" data-min-level="dev">
-        <h1>Rule engine</h1>
-        <p>The rule engine is the core of Meport's export system. It transforms profile dimensions into platform-specific instruction sets.</p>
-        <h3>Design principle: Rules &gt; Descriptions</h3>
-        <p>Every question option has an <code>export_rule</code> &mdash; a direct instruction, not a description. This is a deliberate design choice.</p>
-        <div class="doc-code"><div class="doc-code-bar"><span>Rule vs. Description</span></div><pre><code># BAD (description-based, what competitors do):
-"The user prefers concise responses and doesn't like emoji."
+      <!-- deploy -->
+      <section class="doc-section" id="cmd-deploy">
+        <h1>meport deploy</h1>
+        <p data-i18n="cmd_deploy_desc">Push your profile to all platforms automatically. Auto-writes files for Cursor, Claude Code, Copilot, Windsurf, AGENTS.md. Copies ChatGPT to clipboard. Shows instructions for web platforms.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport deploy [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)
+-a, --all               Deploy to all targets without confirmation
+-g, --global            Deploy to ALL tracked projects (from meport projects)</code></pre>
+        </div>
+        <h3 data-i18n="h_auto_targets">Auto-deploy targets</h3>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>Cursor</strong><span>.cursor/rules/meport.mdc</span></div>
+          <div class="doc-plat-row"><strong>Claude Code</strong><span>CLAUDE.md (smart merge)</span></div>
+          <div class="doc-plat-row"><strong>Copilot</strong><span>.github/copilot-instructions.md</span></div>
+          <div class="doc-plat-row"><strong>Windsurf</strong><span>.windsurfrules</span></div>
+          <div class="doc-plat-row"><strong>AGENTS.md</strong><span>AGENTS.md (OpenAI Codex)</span></div>
+        </div>
+        <h3 data-i18n="h_manual_targets">Manual targets (clipboard)</h3>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>ChatGPT</strong><span>Settings &rarr; Personalization</span></div>
+          <div class="doc-plat-row"><strong>Claude</strong><span>Projects &rarr; Instructions</span></div>
+          <div class="doc-plat-row"><strong>Gemini</strong><span>Gems &rarr; Create Gem</span></div>
+          <div class="doc-plat-row"><strong>Grok</strong><span>Settings &rarr; Custom Instructions</span></div>
+          <div class="doc-plat-row"><strong>Perplexity</strong><span>Profile &rarr; AI Profile</span></div>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Interactive deploy (asks confirmation)
+meport deploy
 
-# GOOD (rule-based, what Meport does):
-"Keep responses concise. Use bullet points. No filler."
-"Never use emoji."</code></pre></div>
-        <h3>3-layer inference</h3>
+# Deploy everything without asking
+meport deploy --all
+
+# Deploy to all tracked projects at once
+meport deploy --global
+
+# Polish UI
+meport deploy --lang pl</code></pre>
+        </div>
+        <div class="doc-callout doc-callout-info">
+          <strong data-i18n="cmd_deploy_merge_title">Smart merge</strong>
+          <span data-i18n="cmd_deploy_merge_body">When deploying to CLAUDE.md, meport doesn't overwrite your existing content. It appends a <code># --- meport profile ---</code> section. On subsequent deploys, only that section is updated.</span>
+        </div>
+      </section>
+
+      <!-- view -->
+      <section class="doc-section" id="cmd-view">
+        <h1>meport view</h1>
+        <p data-i18n="cmd_view_desc">View your profile summary. Shows all dimensions organized by category, compound AI signals, and completeness bar.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport view [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+      </section>
+
+      <!-- edit -->
+      <section class="doc-section" id="cmd-edit">
+        <h1>meport edit</h1>
+        <p data-i18n="cmd_edit_desc">Edit individual profile dimensions interactively. Pick any dimension, change its value, add new dimensions, or delete existing ones. Auto-saves and creates a history snapshot.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport edit [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Open interactive editor
+meport edit
+
+# Edit a specific profile
+meport edit -p ~/work-profile.json</code></pre>
+        </div>
+      </section>
+
+      <!-- refresh -->
+      <section class="doc-section" id="cmd-refresh">
+        <h1>meport refresh</h1>
+        <p data-i18n="cmd_refresh_desc">Refresh your profile &mdash; re-scans your system, detects changes, asks about life updates, and re-exports. Use this periodically to keep your profile current.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport refresh [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+        <div class="doc-callout doc-callout-tip">
+          <strong data-i18n="cmd_refresh_tip_title">Living profile</strong>
+          <span data-i18n="cmd_refresh_tip_body">Refresh compares your current system with your saved profile and highlights what changed. If you have AI configured, it can also analyze free-text life updates and map them to profile dimensions.</span>
+        </div>
+      </section>
+
+      <!-- deepen -->
+      <section class="doc-section" id="cmd-deepen">
+        <h1>meport deepen</h1>
+        <p data-i18n="cmd_deepen_desc">Go deeper &mdash; targeted AI interview about shallow areas of your profile. Each session focuses on the 3 shallowest categories. Requires AI configuration.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport deepen [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+        <h3 data-i18n="h_categories">Depth categories</h3>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>Identity</strong><span data-i18n="cat_identity">Name, background, achievements, vision</span></div>
+          <div class="doc-plat-row"><strong>Communication</strong><span data-i18n="cat_comm">Verbosity, directness, anti-patterns, pet peeves</span></div>
+          <div class="doc-plat-row"><strong>Work style</strong><span data-i18n="cat_work">Energy, deadlines, perfectionism, collaboration</span></div>
+          <div class="doc-plat-row"><strong>Cognitive</strong><span data-i18n="cat_cognitive">Learning style, decision style, attention span</span></div>
+          <div class="doc-plat-row"><strong>Context</strong><span data-i18n="cat_context">Occupation, industry, life stage, focus</span></div>
+          <div class="doc-plat-row"><strong>Motivation</strong><span data-i18n="cat_motivation">Drives, fears, vision, primary need</span></div>
+          <div class="doc-plat-row"><strong>AI relationship</strong><span data-i18n="cat_ai">Relationship model, correction style, proactivity</span></div>
+          <div class="doc-plat-row"><strong>Lifestyle</strong><span data-i18n="cat_lifestyle">Routine, social energy, risk tolerance</span></div>
+        </div>
+        <div class="doc-callout doc-callout-info">
+          <strong data-i18n="cmd_deepen_tip_title">Progressive deepening</strong>
+          <span data-i18n="cmd_deepen_tip_body">Run <code>meport deepen</code> multiple times. Session 1 covers broad gaps. Session 2+ targets specific shallow areas. Each session adds 5-15 new dimensions. Type <code>/done</code> to finish early.</span>
+        </div>
+      </section>
+
+      <!-- import -->
+      <section class="doc-section" id="cmd-import">
+        <h1>meport import</h1>
+        <p data-i18n="cmd_import_desc">Import and upgrade existing custom instructions from ChatGPT, Claude, Cursor, or any AI. Meport analyzes what you have, identifies gaps, and offers to fill them via scan + targeted questions.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport import [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)
+-f, --file &lt;path&gt;       Import directly from a file</code></pre>
+        </div>
+        <h3 data-i18n="h_sources">Supported sources</h3>
         <ul>
-          <li><strong>Layer 1 &mdash; Explicit:</strong> Direct mapping from answer option to <code>export_rule</code>. One selection = one rule.</li>
-          <li><strong>Layer 2 &mdash; Inferred:</strong> Behavioral signals from answer patterns. E.g., consistently picking short options &rarr; inferred rule about brevity.</li>
-          <li><strong>Layer 3 &mdash; Compound:</strong> Multiple L1/L2 rules combined into higher-order rules. E.g., "concise" + "technical" + "direct" &rarr; "Give code examples instead of explanations. No preamble."</li>
+          <li>ChatGPT Custom Instructions</li>
+          <li>Claude Project Instructions</li>
+          <li>Cursor (.cursorrules / .mdc files)</li>
+          <li>CLAUDE.md</li>
+          <li data-i18n="import_any">Any text file or pasted content</li>
         </ul>
-        <h3>Compiler pipeline</h3>
-        <p>Each compiler: collect rules &rarr; score by impact &rarr; select top N rules within char/token budget &rarr; format for platform &rarr; output.</p>
-        <div class="doc-code"><div class="doc-code-bar"><span>Per-platform constraints</span></div><pre><code>ChatGPT:  1,500 chars × 2 fields  |  max 12 rules
-Claude:   ~2,000 tokens           |  Markdown + XML tags
-Cursor:   12,000 chars            |  .mdc format
-Ollama:   ~1,000 tokens           |  SYSTEM directive, max 8 rules</code></pre></div>
-      </section>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Interactive import (paste or choose source)
+meport import
 
-      <!-- ============================================================ -->
-      <!-- API (dev only)                                                -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="api" data-min-level="dev">
-        <h1 data-i18n="docs.api.title">API</h1>
-        <p>Meport can be used programmatically as an npm package:</p>
-        <div class="doc-code"><div class="doc-code-bar"><span>TypeScript</span></div><pre><code>import { loadProfile, compile } from 'meport';
+# Import from file
+meport import --file ~/.cursor/rules/my-rules.mdc
 
-// Load profile from default location (~/.meport/)
-const profile = await loadProfile();
-
-// Compile for specific platform
-const chatgptExport = compile(profile, 'chatgpt');
-const claudeExport = compile(profile, 'claude');
-const cursorExport = compile(profile, 'cursor');
-const ollamaExport = compile(profile, 'ollama');
-
-// Access dimensions directly
-const dims = profile.dimensions;
-const verbosity = dims.find(d => d.dimension === 'verbosity_preference');
-console.log(verbosity.export_rule);
-// => "Keep responses concise. Use bullet points. No filler."</code></pre></div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- PRIVACY                                                       -->
-      <!-- ============================================================ -->
-      <section class="doc-section" id="privacy">
-        <h1 data-i18n="docs.privacy.title">Privacy</h1>
-
-        <div class="level-content" data-show="beginner">
-          <p><strong>Your profile never leaves your computer.</strong> Meport runs entirely on your machine. There are no servers. There is no account to create. Nobody can see your data.</p>
-          <p>Meport doesn't use AI to build your profile &mdash; it uses rule-based matching from your answers. No API keys needed. No internet connection needed. Everything is 100% local and offline.</p>
-        </div>
-
-        <div class="level-content" data-show="power">
-          <p>Architecture: zero-server. Profile stored locally at <code>~/.meport/</code>. Profiling is rule-based (no AI calls needed). System scanning is local-only. No telemetry. No analytics. No account. MIT license.</p>
-          <p>The only time data leaves your machine is when you manually paste an export into a platform like ChatGPT &mdash; and that's your choice.</p>
-        </div>
-
-        <div class="level-content" data-show="dev">
-          <p>Zero-server architecture. No backend. No database. No API keys required for profiling. Profile: local JSON at <code>~/.meport/</code>. System scan: local file reads only. Export compilation: local rule-based, no AI calls. No tracking, no analytics, no CDN, no network requests. MIT license.</p>
+# Import with Polish UI
+meport import --lang pl</code></pre>
         </div>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- FAQ                                                           -->
-      <!-- ============================================================ -->
+      <!-- discover -->
+      <section class="doc-section" id="cmd-discover">
+        <h1>meport discover</h1>
+        <p data-i18n="cmd_discover_desc">Find existing AI config files on your computer. Scans common project directories for CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, copilot-instructions.md. Offers to track found projects for global deploy.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport discover [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+        <h3 data-i18n="h_scanned_locations">Scanned locations</h3>
+        <ul>
+          <li>~/Desktop, ~/Documents, ~/Projects, ~/Code</li>
+          <li>~/dev, ~/repos, ~/work</li>
+          <li data-i18n="discover_cwd">Current working directory</li>
+          <li>~/.claude/CLAUDE.md (global Claude Code config)</li>
+        </ul>
+      </section>
+
+      <!-- demo -->
+      <section class="doc-section" id="cmd-demo">
+        <h1>meport demo</h1>
+        <p data-i18n="cmd_demo_desc">See how AI responds with vs without your profile. Sends the same prompt twice &mdash; once as generic AI, once with your personalization rules &mdash; and shows a side-by-side comparison. Requires AI configuration.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport demo [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+        <p data-i18n="cmd_demo_prompts">Choose from built-in test prompts or type your own. Available in both English and Polish.</p>
+      </section>
+
+      <!-- report -->
+      <section class="doc-section" id="cmd-report">
+        <h1>meport report</h1>
+        <p data-i18n="cmd_report_desc">Generate a Me Report &mdash; AI-powered personal insights. Shows who you are, your superpowers, behavioral patterns, blind spots, and actionable suggestions. Works with or without AI (AI version is much richer).</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport report [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)
+-o, --output &lt;path&gt;     Save report to file (markdown)</code></pre>
+        </div>
+        <h3 data-i18n="h_report_sections">Report sections</h3>
+        <ul>
+          <li data-i18n="report_s1"><strong>Who You Are</strong> &mdash; narrative summary</li>
+          <li data-i18n="report_s2"><strong>Your Superpowers</strong> &mdash; what makes you unique</li>
+          <li data-i18n="report_s3"><strong>Your Patterns</strong> &mdash; work + communication + energy patterns</li>
+          <li data-i18n="report_s4"><strong>Blind Spots</strong> &mdash; things to watch out for</li>
+          <li data-i18n="report_s5"><strong>How AI Should Work With You</strong> &mdash; top 5 rules</li>
+          <li data-i18n="report_s6"><strong>One Thing to Try</strong> &mdash; actionable suggestion</li>
+        </ul>
+      </section>
+
+      <!-- card -->
+      <section class="doc-section" id="cmd-card">
+        <h1>meport card</h1>
+        <p data-i18n="cmd_card_desc">Show your visual personality card in the terminal. An ASCII art summary of your profile including name, occupation, tech stack, energy type, communication style, achievements, and completeness bar. Great for screenshots.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport card [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+      </section>
+
+      <!-- config -->
+      <section class="doc-section" id="cmd-config">
+        <h1>meport config</h1>
+        <p data-i18n="cmd_config_desc">Configure AI provider and API keys. Supports Claude (Anthropic), OpenAI (GPT), and Ollama (local). Config is stored securely in <code>~/.meport/config.json</code> with restricted file permissions (600).</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport config</code></pre>
+        </div>
+        <h3 data-i18n="h_config_actions">Available actions</h3>
+        <ul>
+          <li data-i18n="config_a1">Set up AI provider (Claude / OpenAI / Ollama)</li>
+          <li data-i18n="config_a2">Show current configuration</li>
+          <li data-i18n="config_a3">Reset configuration</li>
+        </ul>
+        <p data-i18n="cmd_config_test">After configuring, meport tests the connection automatically.</p>
+      </section>
+
+      <!-- packs -->
+      <section class="doc-section" id="cmd-packs">
+        <h1>meport packs</h1>
+        <p data-i18n="cmd_packs_desc">Manage profile question packs. Packs are modular sets of questions that target specific areas of your personality. You can add, remove, and list packs after initial profiling.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport packs list [options]
+meport packs add &lt;pack&gt; [options]
+meport packs remove &lt;pack&gt; [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_subcommands">Subcommands</h3>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>packs list</strong><span data-i18n="packs_list_desc">Show all packs and their active/available status</span></div>
+          <div class="doc-plat-row"><strong>packs add &lt;pack&gt;</strong><span data-i18n="packs_add_desc">Run a pack's questions and merge into profile</span></div>
+          <div class="doc-plat-row"><strong>packs remove &lt;pack&gt;</strong><span data-i18n="packs_remove_desc">Remove a pack's dimensions from profile</span></div>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl) — for packs add</code></pre>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># See all packs
+meport packs list
+
+# Add the health pack
+meport packs add health
+
+# Add finance pack in Polish
+meport packs add finance --lang pl
+
+# Remove lifestyle pack
+meport packs remove lifestyle</code></pre>
+        </div>
+      </section>
+
+      <!-- projects -->
+      <section class="doc-section" id="cmd-projects">
+        <h1>meport projects</h1>
+        <p data-i18n="cmd_projects_desc">Manage tracked projects for multi-deploy. Every time you run <code>meport deploy</code>, the current directory is auto-tracked. Use <code>meport deploy --global</code> to push to all tracked projects at once.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport projects [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+        <h3 data-i18n="h_actions">Actions</h3>
+        <ul>
+          <li data-i18n="projects_a1">Add current directory</li>
+          <li data-i18n="projects_a2">Add another directory by path</li>
+          <li data-i18n="projects_a3">Remove a tracked project</li>
+        </ul>
+        <p data-i18n="cmd_projects_storage">Projects list is stored in <code>~/.meport/projects.json</code>.</p>
+      </section>
+
+      <!-- history -->
+      <section class="doc-section" id="cmd-history">
+        <h1>meport history</h1>
+        <p data-i18n="cmd_history_desc">Show profile version history and changes over time. Every profile save, refresh, and edit creates a snapshot. Shows a timeline with diffs &mdash; dimensions added, changed, and removed.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport history [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+        <p data-i18n="cmd_history_storage">History snapshots are stored in <code>~/.meport/history/</code>. Shows up to 10 most recent entries.</p>
+      </section>
+
+      <!-- feedback -->
+      <section class="doc-section" id="cmd-feedback">
+        <h1>meport feedback</h1>
+        <p data-i18n="cmd_feedback_desc">Rate how well AI responds with your profile. Quick 1-10 rating with an optional note. Feedback is saved in your profile and tracked over time. Low scores trigger suggestions to run <code>meport deepen</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport feedback [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile path (default: ./meport-profile.json)
+-l, --lang &lt;locale&gt;     Language (en, pl)</code></pre>
+        </div>
+      </section>
+
+      <!-- scan -->
+      <section class="doc-section" id="cmd-scan">
+        <h1>meport scan</h1>
+        <p data-i18n="cmd_scan_desc">Scan files and folders to preview what meport can detect &mdash; without creating a profile. Useful for checking what data is available before running <code>meport profile --scan</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport scan &lt;paths...&gt;</code></pre>
+        </div>
+        <h3 data-i18n="h_arguments">Arguments</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Args</div>
+          <pre><code>&lt;paths...&gt;    One or more files or folders to scan</code></pre>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Scan a project directory
+meport scan ~/Projects/my-app
+
+# Scan multiple sources
+meport scan ~/resume.pdf ~/Projects/ ~/.gitconfig
+
+# Preview what meport would detect
+meport scan .
+# Then use results: meport profile --scan .</code></pre>
+        </div>
+      </section>
+
+      <!-- continue -->
+      <section class="doc-section" id="cmd-continue">
+        <h1>meport continue</h1>
+        <p data-i18n="cmd_continue_desc">Resume an interrupted profiling session. If you press Ctrl+C during <code>meport profile</code>, your progress is auto-saved to <code>.meport-session.json</code>. This command picks up exactly where you left off.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport continue [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+      </section>
+
+      <!-- sync (hidden, power+) -->
+      <section class="doc-section" id="cmd-sync" data-min-level="power">
+        <h1>meport sync</h1>
+        <p data-i18n="cmd_sync_desc">Sync profile to file-based platform configs (Claude Code, Cursor, Ollama). Also supports clipboard copy for web platforms. This is a lower-level alternative to <code>meport deploy</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport sync [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)
+-c, --copy &lt;platform&gt;  Copy specific platform export to clipboard
+-a, --all               Sync all + show clipboard targets</code></pre>
+        </div>
+        <h3 data-i18n="h_examples">Examples</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Sync all file-based platforms
+meport sync
+
+# Copy ChatGPT export to clipboard
+meport sync --copy chatgpt
+
+# Copy Claude export to clipboard
+meport sync --copy claude
+
+# Sync all + show clipboard instructions
+meport sync --all</code></pre>
+        </div>
+      </section>
+
+      <!-- update (hidden, power+) -->
+      <section class="doc-section" id="cmd-update" data-min-level="power">
+        <h1>meport update</h1>
+        <p data-i18n="cmd_update_desc">Quick tune-up &mdash; confirm key settings (verbosity, directness, anti-patterns, name), then re-sync all exports. Faster than a full refresh when you just want to tweak settings.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport update [options]</code></pre>
+        </div>
+        <h3 data-i18n="h_options">Options</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">Flags</div>
+          <pre><code>-p, --profile &lt;path&gt;    Profile JSON path (default: ./meport-profile.json)</code></pre>
+        </div>
+      </section>
+
+      <!-- shell (dev only) -->
+      <section class="doc-section" id="cmd-shell" data-min-level="dev">
+        <h1>meport (shell)</h1>
+        <p data-i18n="cmd_shell_desc">Running <code>meport</code> with no arguments opens the interactive shell. This is the default command. It detects whether you have a profile and shows the appropriate menu: first-time setup or the main menu with all available actions.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Syntax</div>
+          <pre><code>meport</code></pre>
+        </div>
+        <h3 data-i18n="h_shell_menu">Main menu items</h3>
+        <ul>
+          <li>View profile / Edit profile / Refresh</li>
+          <li>Demo: Before vs After</li>
+          <li>Me Report / Change history / Personality card</li>
+          <li>Deploy / Export / Manage packs</li>
+          <li>AI analysis / Settings</li>
+        </ul>
+      </section>
+
+      <!-- ==================== QUESTION PACKS ==================== -->
+
+      <section class="doc-section" id="packs">
+        <h1 data-i18n="s_packs_title">Question Packs</h1>
+        <p data-i18n="s_packs_p1">Packs are modular question sets that target specific areas of your personality and preferences. During profiling, you choose which packs to answer. You can add or remove packs at any time.</p>
+        <p data-i18n="s_packs_p2">Each pack contains 5-10 scenario-based questions with multiple choice answers. Questions are designed to reveal behavioral patterns, not just preferences.</p>
+      </section>
+
+      <section class="doc-section" id="packs-list">
+        <h1 data-i18n="s_packslist_title">All Packs</h1>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>micro-setup</strong><span data-i18n="pack_micro">Auto-loaded. Name, intro, pack selection. Always runs first.</span></div>
+          <div class="doc-plat-row"><strong>core</strong><span data-i18n="pack_core">Communication DNA &mdash; how you like AI to talk to you. Verbosity, directness, anti-patterns, feedback style.</span></div>
+          <div class="doc-plat-row"><strong>context</strong><span data-i18n="pack_context">Life Context &mdash; job, location, current focus, tools, industry.</span></div>
+          <div class="doc-plat-row"><strong>work</strong><span data-i18n="pack_work">Work Style &mdash; energy patterns, deadline behavior, perfectionism, task preferences.</span></div>
+          <div class="doc-plat-row"><strong>lifestyle</strong><span data-i18n="pack_lifestyle">Lifestyle &mdash; daily rhythm, social energy, routine preference, travel, food.</span></div>
+          <div class="doc-plat-row"><strong>health</strong><span data-i18n="pack_health">Health (sensitive) &mdash; fitness level, sleep patterns, conditions. Data is privacy-filtered.</span></div>
+          <div class="doc-plat-row"><strong>finance</strong><span data-i18n="pack_finance">Finance (sensitive) &mdash; money style, budgeting, financial goals. Data is privacy-filtered.</span></div>
+          <div class="doc-plat-row"><strong>learning</strong><span data-i18n="pack_learning">Learning &mdash; how you learn, study preferences, format preference, time commitment.</span></div>
+        </div>
+        <div class="doc-callout doc-callout-info" data-min-level="power">
+          <strong data-i18n="packs_sensitive_title">Sensitive packs</strong>
+          <span data-i18n="packs_sensitive_body">Health and Finance packs are marked as sensitive. They show privacy notes before questions and their data goes through privacy filtering in exports. You can skip individual questions or entire packs.</span>
+        </div>
+      </section>
+
+      <!-- ==================== EXPORT FORMATS ==================== -->
+
+      <section class="doc-section" id="export-formats">
+        <h1 data-i18n="s_export_title">Export Formats</h1>
+        <p data-i18n="s_export_p1">Meport compiles your profile into platform-specific formats. Each compiler understands the target platform's constraints (character limits, format requirements, feature support).</p>
+        <h3 data-i18n="h_rule_compilers">Rule-based compilers (14 platforms)</h3>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>chatgpt</strong><span>chatgpt-instructions.txt &mdash; Custom Instructions format</span></div>
+          <div class="doc-plat-row"><strong>claude</strong><span>meport-profile.md &mdash; Project Instructions markdown</span></div>
+          <div class="doc-plat-row"><strong>claude-code</strong><span>CLAUDE.md &mdash; Claude Code project file</span></div>
+          <div class="doc-plat-row"><strong>cursor</strong><span>meport.mdc &mdash; Cursor rules (.mdc format)</span></div>
+          <div class="doc-plat-row"><strong>copilot</strong><span>copilot-instructions.md &mdash; GitHub Copilot</span></div>
+          <div class="doc-plat-row"><strong>windsurf</strong><span>.windsurfrules &mdash; Windsurf AI rules</span></div>
+          <div class="doc-plat-row"><strong>agents-md</strong><span>AGENTS.md &mdash; OpenAI Codex format</span></div>
+          <div class="doc-plat-row"><strong>ollama</strong><span>Modelfile &mdash; Ollama system prompt</span></div>
+          <div class="doc-plat-row"><strong>gemini</strong><span>gemini-instructions.txt &mdash; Google Gemini / Gems</span></div>
+          <div class="doc-plat-row"><strong>grok</strong><span>grok-instructions.txt &mdash; xAI Grok</span></div>
+          <div class="doc-plat-row"><strong>perplexity</strong><span>perplexity-instructions.txt &mdash; Perplexity AI Profile</span></div>
+          <div class="doc-plat-row"><strong>openclaw</strong><span>OpenClaw identity + agents bundle</span></div>
+          <div class="doc-plat-row"><strong>generic</strong><span>meport-profile.md &mdash; Generic markdown rules</span></div>
+          <div class="doc-plat-row"><strong>json</strong><span>meport-profile.json &mdash; Raw JSON profile data</span></div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="export-auto">
+        <h1 data-i18n="s_export_auto_title">Auto-deploy Platforms</h1>
+        <p data-i18n="s_export_auto_p1">These platforms support file-based configuration. Meport writes the file directly to the correct location in your project:</p>
+        <div class="doc-file-grid">
+          <div class="doc-file-item"><strong>Cursor</strong><span>.cursor/rules/meport.mdc</span></div>
+          <div class="doc-file-item"><strong>Claude Code</strong><span>CLAUDE.md (project root)</span></div>
+          <div class="doc-file-item"><strong>Copilot</strong><span>.github/copilot-instructions.md</span></div>
+          <div class="doc-file-item"><strong>Windsurf</strong><span>.windsurfrules</span></div>
+          <div class="doc-file-item"><strong>AGENTS.md</strong><span>AGENTS.md (project root)</span></div>
+          <div class="doc-file-item"><strong>Ollama</strong><span>Modelfile + ollama create</span></div>
+        </div>
+      </section>
+
+      <section class="doc-section" id="export-manual">
+        <h1 data-i18n="s_export_manual_title">Manual Platforms (Clipboard)</h1>
+        <p data-i18n="s_export_manual_p1">Web-based platforms require manual pasting. Meport copies the content to your clipboard and shows where to paste:</p>
+        <div class="doc-platform-list">
+          <div class="doc-plat-row"><strong>ChatGPT</strong><span>Settings &rarr; Personalization &rarr; Custom Instructions</span></div>
+          <div class="doc-plat-row"><strong>Claude (web)</strong><span>Projects &rarr; Create Project &rarr; Instructions</span></div>
+          <div class="doc-plat-row"><strong>Gemini</strong><span>Gems &rarr; Create Gem &rarr; Instructions</span></div>
+          <div class="doc-plat-row"><strong>Grok</strong><span>Settings &rarr; Custom Instructions</span></div>
+          <div class="doc-plat-row"><strong>Perplexity</strong><span>Profile &rarr; AI Profile</span></div>
+        </div>
+      </section>
+
+      <!-- ==================== SCANNING ==================== -->
+
+      <section class="doc-section" id="scanning">
+        <h1 data-i18n="s_scan_title">Scanning</h1>
+        <p data-i18n="s_scan_p1">Meport can auto-detect information about you from your system and files. This happens automatically during profiling (Phase 0) and can also be triggered manually.</p>
+        <h3 data-i18n="h_system_scan">System scan (automatic)</h3>
+        <p data-i18n="s_scan_system">Runs silently at the start of every profiling session. Detects:</p>
+        <ul>
+          <li data-i18n="scan_os">Operating system, timezone, locale</li>
+          <li data-i18n="scan_name">Username / preferred name (from git config or OS)</li>
+          <li data-i18n="scan_tools">Installed tools (editors, languages, frameworks)</li>
+          <li data-i18n="scan_stack">Tech stack (from package.json, Cargo.toml, etc.)</li>
+          <li data-i18n="scan_ai">AI tools in use (Cursor, Claude Code, Copilot, etc.)</li>
+        </ul>
+        <h3 data-i18n="h_file_scan">File scan (opt-in via --scan)</h3>
+        <p data-i18n="s_scan_file">Scan specific files or directories for additional profile data. Useful for resumes, portfolios, project files.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Preview what meport can detect
+meport scan ~/Projects ~/resume.pdf
+
+# Use detected data during profiling
+meport profile --scan ~/Projects ~/resume.pdf</code></pre>
+        </div>
+        <h3 data-i18n="h_privacy_filter">Privacy filter</h3>
+        <p data-i18n="s_scan_privacy">Sensitive data (health conditions, financial details) is marked as sensitive and goes through privacy filtering before export. Dimensions starting with <code>_</code> are internal and never exported. You can review all detected dimensions with <code>meport view</code>.</p>
+      </section>
+
+      <!-- ==================== AI PROVIDERS ==================== -->
+
+      <section class="doc-section" id="ai-providers">
+        <h1 data-i18n="s_ai_title">AI Providers</h1>
+        <p data-i18n="s_ai_p1">Meport uses AI for three features: conversational profiling (<code>--ai</code>), deepening sessions, and report generation. Configure via <code>meport config</code>.</p>
+
+        <h3>Claude (Anthropic)</h3>
+        <p data-i18n="s_ai_claude">Best quality. Requires an Anthropic API key. Default model: <code>claude-sonnet-4-20250514</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Setup</div>
+          <pre><code>meport config
+# Select: Claude (Anthropic)
+# Enter your API key
+# Model: claude-sonnet-4-20250514 (default)</code></pre>
+        </div>
+
+        <h3>OpenAI (GPT)</h3>
+        <p data-i18n="s_ai_openai">Good quality. Requires an OpenAI API key. Default model: <code>gpt-4o-mini</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Setup</div>
+          <pre><code>meport config
+# Select: OpenAI (GPT)
+# Enter your API key
+# Model: gpt-4o-mini (default)</code></pre>
+        </div>
+
+        <h3>Ollama (local)</h3>
+        <p data-i18n="s_ai_ollama">Free, runs on your machine. No API key needed. Default model: <code>llama3.1</code>. Default URL: <code>http://localhost:11434</code>.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Setup</div>
+          <pre><code># Install Ollama first: https://ollama.ai
+ollama pull llama3.1
+
+meport config
+# Select: Ollama (local)
+# URL: http://localhost:11434
+# Model: llama3.1</code></pre>
+        </div>
+
+        <div class="doc-callout doc-callout-tip">
+          <strong data-i18n="s_ai_tip_title">Without AI</strong>
+          <span data-i18n="s_ai_tip_body">Meport works fine without any AI provider. Quiz mode (<code>meport profile</code>) uses pre-built question packs with multiple choice answers. AI just unlocks conversational interviews, deeper reports, and smarter gap-filling.</span>
+        </div>
+      </section>
+
+      <!-- ==================== PROFILE MANAGEMENT ==================== -->
+
+      <section class="doc-section" id="profile-mgmt">
+        <h1 data-i18n="s_pm_title">Profile Management</h1>
+        <p data-i18n="s_pm_p1">Your profile is a living document. Here is the recommended lifecycle:</p>
+
+        <div class="doc-steps">
+          <div class="doc-step">
+            <div class="doc-step-num">1</div>
+            <div><p><strong data-i18n="pm_create">Create</strong> <span data-i18n="pm_create_desc">&mdash; <code>meport profile</code> to build your initial profile.</span></p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">2</div>
+            <div><p><strong data-i18n="pm_deploy_step">Deploy</strong> <span data-i18n="pm_deploy_desc">&mdash; <code>meport deploy</code> to push to all your AI tools.</span></p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">3</div>
+            <div><p><strong data-i18n="pm_deepen">Deepen</strong> <span data-i18n="pm_deepen_desc">&mdash; <code>meport deepen</code> to fill shallow areas (run 2-3 times).</span></p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">4</div>
+            <div><p><strong data-i18n="pm_refresh">Refresh</strong> <span data-i18n="pm_refresh_desc">&mdash; <code>meport refresh</code> periodically to keep your profile current.</span></p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">5</div>
+            <div><p><strong data-i18n="pm_feedback">Feedback</strong> <span data-i18n="pm_feedback_desc">&mdash; <code>meport feedback</code> to rate and track improvement over time.</span></p></div>
+          </div>
+        </div>
+
+        <h3 data-i18n="h_pm_files">Key files</h3>
+        <div class="doc-file-grid">
+          <div class="doc-file-item"><strong>meport-profile.json</strong><span data-i18n="file_profile">Your profile (in project directory)</span></div>
+          <div class="doc-file-item"><strong>meport-exports/</strong><span data-i18n="file_exports">All platform exports</span></div>
+          <div class="doc-file-item"><strong>~/.meport/config.json</strong><span data-i18n="file_config">AI provider config</span></div>
+          <div class="doc-file-item"><strong>~/.meport/history/</strong><span data-i18n="file_history">Version history snapshots</span></div>
+          <div class="doc-file-item"><strong>~/.meport/projects.json</strong><span data-i18n="file_projects">Tracked projects list</span></div>
+          <div class="doc-file-item"><strong>.meport-session.json</strong><span data-i18n="file_session">Interrupted session state</span></div>
+        </div>
+      </section>
+
+      <!-- ==================== DEPLOYMENT ==================== -->
+
+      <section class="doc-section" id="deployment">
+        <h1 data-i18n="s_deploy_title">Deployment</h1>
+        <p data-i18n="s_deploy_p1">Meport is your <strong>management center</strong> for all AI profiles. Update once, deploy everywhere.</p>
+
+        <h3 data-i18n="h_deploy_flow">Deploy flow</h3>
+        <div class="doc-steps">
+          <div class="doc-step">
+            <div class="doc-step-num">1</div>
+            <div><p data-i18n="deploy_s1">Compiles profile to all 14 platform formats</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">2</div>
+            <div><p data-i18n="deploy_s2">Auto-writes to file-based platforms (Cursor, Claude Code, Copilot, Windsurf, AGENTS.md)</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">3</div>
+            <div><p data-i18n="deploy_s3">Copies ChatGPT export to clipboard</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">4</div>
+            <div><p data-i18n="deploy_s4">Shows instructions for web platforms (Claude, Gemini, Grok, Perplexity)</p></div>
+          </div>
+          <div class="doc-step">
+            <div class="doc-step-num">5</div>
+            <div><p data-i18n="deploy_s5">Auto-tracks the project directory for future global deploys</p></div>
+          </div>
+        </div>
+
+        <h3 data-i18n="h_deploy_global">Global deploy</h3>
+        <p data-i18n="s_deploy_global">Use <code>meport deploy --global</code> to push your profile to ALL tracked projects at once. Combine with <code>meport discover</code> to find and track existing projects first.</p>
+        <div class="doc-code">
+          <div class="doc-code-bar">Terminal</div>
+          <pre><code># Discover existing AI configs across all projects
+meport discover
+
+# Deploy to all tracked projects
+meport deploy --global</code></pre>
+        </div>
+      </section>
+
+      <!-- ==================== CONFIGURATION ==================== -->
+
+      <section class="doc-section" id="configuration">
+        <h1 data-i18n="s_config_title">Configuration</h1>
+        <p data-i18n="s_config_p1">Meport stores configuration in <code>~/.meport/config.json</code>. The file has restricted permissions (mode 600) so only you can read it.</p>
+
+        <h3 data-i18n="h_config_structure">Config structure</h3>
+        <div class="doc-code">
+          <div class="doc-code-bar">~/.meport/config.json</div>
+          <pre><code>{
+  "ai": {
+    "provider": "claude",       // "claude" | "openai" | "ollama"
+    "apiKey": "sk-ant-...",     // API key (not needed for Ollama)
+    "model": "claude-sonnet-4-20250514",  // Model name
+    "baseUrl": "http://..."     // Only for Ollama
+  }
+}</code></pre>
+        </div>
+
+        <h3 data-i18n="h_config_env">Environment variables</h3>
+        <ul>
+          <li><code>LANG</code> &mdash; <span data-i18n="config_env_lang">Auto-detected for language. Set to <code>pl</code> prefix for Polish.</span></li>
+        </ul>
+
+        <h3 data-i18n="h_config_locations">File locations</h3>
+        <div class="doc-file-grid">
+          <div class="doc-file-item"><strong>~/.meport/config.json</strong><span data-i18n="config_loc_config">AI provider settings</span></div>
+          <div class="doc-file-item"><strong>~/.meport/history/</strong><span data-i18n="config_loc_history">Profile version history</span></div>
+          <div class="doc-file-item"><strong>~/.meport/projects.json</strong><span data-i18n="config_loc_projects">Tracked project directories</span></div>
+          <div class="doc-file-item"><strong>./meport-profile.json</strong><span data-i18n="config_loc_profile">Profile data (per project)</span></div>
+          <div class="doc-file-item"><strong>./meport-exports/</strong><span data-i18n="config_loc_exports">Generated platform files</span></div>
+          <div class="doc-file-item"><strong>./.meport-session.json</strong><span data-i18n="config_loc_session">Auto-saved interrupted session</span></div>
+        </div>
+      </section>
+
+      <!-- ==================== FAQ ==================== -->
+
       <section class="doc-section" id="faq">
         <h1>FAQ</h1>
         <div class="doc-faq">
+
           <details class="doc-faq-item">
-            <summary data-i18n="docs.faq.q1">Is Meport really free?</summary>
-            <p data-i18n="docs.faq.a1">Yes. All features, all exports, all platforms. $0. Forever. MIT license.</p>
+            <summary data-i18n="faq_q1">Do I need an API key to use meport?</summary>
+            <p data-i18n="faq_a1">No. Quiz mode works without any API key. AI features (conversational interview, deepening, reports, demo) require an API key from Claude, OpenAI, or a local Ollama installation.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary>Do I need an API key?</summary>
-            <p>No. Meport uses rule-based profiling, not AI. Your answers map directly to export rules. No API keys, no internet connection, no AI provider needed.</p>
+            <summary data-i18n="faq_q2">Is my data sent anywhere?</summary>
+            <p data-i18n="faq_a2">Your profile stays on your machine in <code>meport-profile.json</code>. If you use AI features, your answers are sent to the configured AI provider (Claude/OpenAI/Ollama). With Ollama, everything stays local.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary data-i18n="docs.faq.q3">Is my data safe?</summary>
-            <p>Your data never leaves your computer. Meport has no servers, no accounts, no tracking. Your profile is stored locally. The only time data goes anywhere is when you manually paste or place an export into a platform.</p>
+            <summary data-i18n="faq_q3">How long does profiling take?</summary>
+            <p data-i18n="faq_a3">Quick mode: 5 minutes. Full profiling: 15-30 minutes. AI-driven interview: 10-20 minutes. You can interrupt at any time (Ctrl+C) and resume later with <code>meport continue</code>.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary data-i18n="docs.faq.q4">Can I update my profile later?</summary>
-            <p>Yes. Run <code>meport update</code> for a quick tune-up, or add new question packs with <code>meport packs add</code>. Run <code>meport sync</code> to push changes to your platforms.</p>
+            <summary data-i18n="faq_q4">Can I use meport for work and personal profiles?</summary>
+            <p data-i18n="faq_a4">Yes. Use <code>-o</code> to save to different files: <code>meport profile -o work-profile.json</code> and <code>meport profile -o personal.json</code>. Then export each separately.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary>How long does profiling take?</summary>
-            <p>The full profile with all packs takes about 10-15 minutes. You can start with just the micro-setup pack (~2 minutes) and add more packs later. Use <code>meport continue</code> if you need to stop and resume.</p>
+            <summary data-i18n="faq_q5">How often should I refresh my profile?</summary>
+            <p data-i18n="faq_a5">Run <code>meport refresh</code> every 2-4 weeks, or whenever something significant changes (new job, new tools, new goals). Meport will detect changes and ask for confirmation.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary>What platforms are supported?</summary>
-            <p>20+ platforms including ChatGPT, Claude, Cursor, Copilot, Gemini, Windsurf, Ollama, and more. Each has a dedicated compiler that formats your profile in the platform's native format.</p>
+            <summary data-i18n="faq_q6">What happens if I skip questions?</summary>
+            <p data-i18n="faq_a6">Skipped questions reduce profile completeness but don't break anything. You can always come back later with <code>meport deepen</code> or <code>meport packs add &lt;pack&gt;</code> to fill gaps.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary>What languages does Meport support?</summary>
-            <p>English and Polish. The interface language can be set with <code>--lang en</code> or <code>--lang pl</code>.</p>
+            <summary data-i18n="faq_q7">Can I manually edit the profile JSON?</summary>
+            <p data-i18n="faq_a7">Yes, but use <code>meport edit</code> instead &mdash; it validates changes and auto-saves snapshots. If you edit the JSON directly, run <code>meport refresh</code> afterward to recompute derived signals.</p>
           </details>
+
           <details class="doc-faq-item">
-            <summary>What's the difference between export and sync?</summary>
-            <p><code>export</code> generates the output and shows it to you. <code>sync</code> automatically places the files where they need to go (e.g., <code>.cursor/rules/</code>, <code>CLAUDE.md</code>) and keeps them updated.</p>
+            <summary data-i18n="faq_q8">What is the difference between deploy and export?</summary>
+            <p data-i18n="faq_a8"><code>meport export</code> generates files. <code>meport deploy</code> generates files AND writes them to the correct locations in your project (Cursor rules, CLAUDE.md, etc.). Deploy is the recommended workflow.</p>
           </details>
+
+          <details class="doc-faq-item">
+            <summary data-i18n="faq_q9">How does the smart merge work for CLAUDE.md?</summary>
+            <p data-i18n="faq_a9">When deploying to a file that already has content, meport appends a <code># --- meport profile ---</code> section. On subsequent deploys, only that section is replaced. Your custom content above it is preserved.</p>
+          </details>
+
+          <details class="doc-faq-item">
+            <summary data-i18n="faq_q10">Which AI provider is best?</summary>
+            <p data-i18n="faq_a10">Claude (Anthropic) gives the best quality for interviews and reports. GPT-4o-mini is a good budget option. Ollama is free but quality depends on the model. For profiling without AI, quiz mode is excellent.</p>
+          </details>
+
         </div>
       </section>
 
