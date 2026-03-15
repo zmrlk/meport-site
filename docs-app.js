@@ -8,380 +8,708 @@
 const T = {
   // Level selector
   level_label:      { en: 'I am a...', pl: 'Jestem...' },
-  level_beginner:   { en: 'Beginner', pl: 'Poczatkujacy' },
+  level_beginner:   { en: 'Beginner', pl: 'Początkujący' },
   level_power:      { en: 'Power User', pl: 'Zaawansowany' },
   level_dev:        { en: 'Developer', pl: 'Developer' },
 
-  // Sidebar nav
+  // Sidebar nav groups
   nav_start:        { en: 'Getting Started', pl: 'Pierwsze kroki' },
+  nav_reference:    { en: 'Reference', pl: 'Referencja' },
+  nav_advanced:     { en: 'Advanced', pl: 'Zaawansowane' },
+  nav_internals:    { en: 'Internals', pl: 'Architektura' },
+  nav_help:         { en: 'Help', pl: 'Pomoc' },
+
+  // Sidebar nav items
   nav_what:         { en: 'What is Meport?', pl: 'Czym jest Meport?' },
   nav_install:      { en: 'Installation', pl: 'Instalacja' },
-  nav_first:        { en: 'Your first profile', pl: 'Pierwszy profil' },
-  nav_commands:     { en: 'Commands Reference', pl: 'Komendy' },
-  nav_packs:        { en: 'Question Packs', pl: 'Pakiety pytan' },
-  nav_packs_overview: { en: 'Overview', pl: 'Przeg\u0142ad' },
-  nav_packs_list:   { en: 'All packs', pl: 'Wszystkie pakiety' },
-  nav_export:       { en: 'Export Formats', pl: 'Formaty eksportu' },
-  nav_export_all:   { en: 'All platforms', pl: 'Wszystkie platformy' },
-  nav_export_auto:  { en: 'Auto-deploy', pl: 'Auto-deploy' },
-  nav_export_manual:{ en: 'Manual (clipboard)', pl: 'Reczne (schowek)' },
+  nav_quickstart:   { en: 'Quick Start', pl: 'Szybki start' },
+  nav_glossary:     { en: 'Glossary', pl: 'Słownik' },
+  nav_commands:     { en: 'Commands', pl: 'Komendy' },
+  nav_packs:        { en: 'Question Packs', pl: 'Pakiety pytań' },
+  nav_exports:      { en: 'Export Formats', pl: 'Formaty eksportu' },
   nav_scanning:     { en: 'Scanning', pl: 'Skanowanie' },
-  nav_scan_how:     { en: 'How scanning works', pl: 'Jak dzia\u0142a skanowanie' },
   nav_ai:           { en: 'AI Providers', pl: 'Dostawcy AI' },
-  nav_ai_setup:     { en: 'Setup', pl: 'Konfiguracja' },
-  nav_profile_mgmt: { en: 'Profile Management', pl: 'Zarzadzanie profilem' },
-  nav_profile_lifecycle: { en: 'Lifecycle', pl: 'Cykl zycia' },
-  nav_deployment:   { en: 'Deployment', pl: 'Wdrazanie' },
-  nav_deploy_how:   { en: 'How deploy works', pl: 'Jak dzia\u0142a deploy' },
-  nav_config_section: { en: 'Configuration', pl: 'Konfiguracja' },
-  nav_config_files: { en: 'Config files', pl: 'Pliki konfiguracyjne' },
-  nav_faq:          { en: 'Questions', pl: 'Pytania' },
-  nav_home:         { en: 'Home', pl: 'Strona g\u0142owna' },
+  nav_profile_mgmt: { en: 'Profile Management', pl: 'Zarządzanie profilem' },
+  nav_deployment:   { en: 'Deployment', pl: 'Wdrażanie' },
+  nav_config:       { en: 'Configuration', pl: 'Konfiguracja' },
+  nav_privacy:      { en: 'Privacy & Security', pl: 'Prywatność' },
+  nav_architecture: { en: 'Architecture', pl: 'Architektura' },
+  nav_schema:       { en: 'Schema Reference', pl: 'Schemat' },
+  nav_inference:    { en: 'Inference Engine', pl: 'Silnik inferencji' },
+  nav_compilers:    { en: 'Compiler System', pl: 'System kompilatorów' },
+  nav_contributing: { en: 'Contributing', pl: 'Współtworzenie' },
+  nav_faq:          { en: 'FAQ', pl: 'FAQ' },
+  nav_issues:       { en: 'Common Issues', pl: 'Częste problemy' },
+  nav_home:         { en: 'Home', pl: 'Strona główna' },
 
-  // Section: What is Meport
-  s_what_title:     { en: 'What is Meport?', pl: 'Czym jest Meport?' },
-  s_what_p1:        { en: 'Meport is a CLI tool that creates a comprehensive AI personality profile through a single conversation. Your AI doesn\'t know you \u2014 Meport fixes that in 30 minutes.', pl: 'Meport to narzedzie CLI, ktore tworzy kompleksowy profil osobowo\u015bci AI w jednej rozmowie. Twoje AI Cie nie zna \u2014 Meport naprawi to w 30 minut.' },
-  s_what_p2:        { en: 'It generates personalized instructions for <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> and more \u2014 all from one profile.', pl: 'Generuje spersonalizowane instrukcje dla <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> i innych \u2014 wszystko z jednego profilu.' },
-  s_what_callout_title: { en: 'How it works', pl: 'Jak to dzia\u0142a' },
-  s_what_callout_body:  { en: '1. Answer questions (or let AI interview you) \u2192 2. Meport builds a profile with 30+ dimensions \u2192 3. Export to any AI platform \u2192 4. Your AI finally knows how to talk to you.', pl: '1. Odpowiedz na pytania (lub pozwol AI przeprowadzic wywiad) \u2192 2. Meport buduje profil z 30+ wymiarami \u2192 3. Eksportuj na dowolna platforme AI \u2192 4. Twoje AI wreszcie wie, jak z Toba rozmawiac.' },
+  // Table headers
+  tbl_flag:  { en: 'Flag', pl: 'Flaga' },
+  tbl_type:  { en: 'Type', pl: 'Typ' },
+  tbl_desc:  { en: 'Description', pl: 'Opis' },
 
-  // Section: Installation
+  // ═══════ SECTION: WHAT IS MEPORT ═══════
+  s_what_title:   { en: 'What is Meport?', pl: 'Czym jest Meport?' },
+
+  // Beginner
+  s_what_b_p1:    { en: 'Meport is a free tool that teaches your AI how to talk to <em>you</em>. Right now, every AI assistant (ChatGPT, Claude, Copilot, and others) treats you like a stranger. Meport fixes that.', pl: 'Meport to darmowe narzędzie, które uczy Twoje AI, jak rozmawiać z <em>Tobą</em>. Teraz każdy asystent AI (ChatGPT, Claude, Copilot i inne) traktuje Cię jak obcą osobę. Meport to naprawia.' },
+  s_what_b_p2:    { en: 'You answer a few questions (takes about 15-30 minutes), and Meport creates a <strong>personality profile</strong> that you paste into any AI platform. After that, the AI knows your name, how you like to communicate, what you work on, and how to help you best.', pl: 'Odpowiadasz na kilka pytań (zajmuje ok. 15-30 minut), a Meport tworzy <strong>profil osobowości</strong>, który wklejasz do dowolnej platformy AI. Po tym AI zna Twoje imię, wie jak lubisz się komunikować, czym się zajmujesz i jak najlepiej Ci pomóc.' },
+  s_what_callout_title: { en: 'How it works in 4 steps', pl: 'Jak to działa w 4 krokach' },
+  s_what_callout_body:  { en: '1. Answer questions (or let AI interview you) &rarr; 2. Meport builds a profile with 30+ personality dimensions &rarr; 3. Export to any AI platform &rarr; 4. Your AI finally knows how to talk to you.', pl: '1. Odpowiedz na pytania (lub pozwól AI przeprowadzić wywiad) &rarr; 2. Meport buduje profil z 30+ wymiarami osobowości &rarr; 3. Eksportuj na dowolną platformę AI &rarr; 4. Twoje AI wreszcie wie, jak z Tobą rozmawiać.' },
+  s_what_b_p3:    { en: 'Meport works with <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> and more. One profile, all platforms.', pl: 'Meport działa z <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> i innymi. Jeden profil, wszystkie platformy.' },
+
+  // Power
+  s_what_p_p1:    { en: 'Meport is a CLI tool (v0.1.0) that creates structured AI personality profiles and compiles them into platform-specific custom instructions. It replaces manual prompt engineering with a standardized, portable profile format.', pl: 'Meport to narzędzie CLI (v0.1.0), które tworzy ustrukturyzowane profile osobowości AI i kompiluje je do instrukcji specyficznych dla każdej platformy. Zastępuje ręczne prompt engineering standaryzowanym, przenośnym formatem profilu.' },
+  s_what_p_p2:    { en: 'Key capabilities: <strong>9 question packs</strong> covering communication, work, cognition, personality, and more. <strong>14 export compilers</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, OpenClaw, generic, JSON). <strong>3-layer inference engine</strong> (explicit answers, behavioral signals, compound patterns). <strong>Rule-based exports</strong> generating actionable IF/THEN instructions instead of vague descriptions.', pl: 'Kluczowe możliwości: <strong>9 pakietów pytań</strong> obejmujących komunikację, pracę, kognitywistykę, osobowość i więcej. <strong>14 kompilatorów eksportu</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, OpenClaw, generic, JSON). <strong>3-warstwowy silnik inferencji</strong> (jawne odpowiedzi, sygnały behawioralne, wzorce złożone). <strong>Eksporty oparte na regułach</strong> generujące akcjonalne instrukcje IF/THEN zamiast ogólnych opisów.' },
+
+  // Dev
+  s_what_d_p1:    { en: 'Meport is a TypeScript monorepo (pnpm workspaces) with three packages: <code>@meport/core</code> (schema, profiler, compilers, inference), <code>@meport/cli</code> (Commander.js CLI with 23 commands), and <code>@meport/app</code> (future Electron app).', pl: 'Meport to monorepo TypeScript (pnpm workspaces) z trzema pakietami: <code>@meport/core</code> (schemat, profiler, kompilatory, inferencja), <code>@meport/cli</code> (CLI Commander.js z 23 komendami), oraz <code>@meport/app</code> (przyszła aplikacja Electron).' },
+  s_what_d_p2:    { en: 'The core innovation is the <strong>rule-based compiler system</strong>. Instead of generating descriptions ("User prefers brevity" ~50% compliance), Meport generates actionable rules ("Max 5 lines for simple questions" ~85% compliance). Each question option carries an <code>export_rule</code> field that becomes a concrete AI behavior instruction.', pl: 'Kluczową innowacją jest <strong>system kompilatorów opartych na regułach</strong>. Zamiast generować opisy ("Użytkownik preferuje zwięzłość" ~50% skuteczności), Meport generuje akcjonalne reguły ("Max 5 linii na proste pytania" ~85% skuteczności). Każda opcja pytania ma pole <code>export_rule</code>, które staje się konkretną instrukcją zachowania AI.' },
+
+  // ═══════ SECTION: INSTALLATION ═══════
   s_install_title:  { en: 'Installation', pl: 'Instalacja' },
-  s_install_p1:     { en: 'Meport requires <strong>Node.js 18+</strong>. No installation needed \u2014 run directly with npx:', pl: 'Meport wymaga <strong>Node.js 18+</strong>. Nie trzeba instalowac \u2014 uruchom bezposrednio przez npx:' },
-  s_install_p2:     { en: 'Or install globally:', pl: 'Lub zainstaluj globalnie:' },
-  s_install_tip_title: { en: 'Tip', pl: 'Wskaz\u00f3wka' },
-  s_install_tip_body:  { en: 'Running <code>meport</code> with no arguments opens the interactive shell \u2014 a menu-driven interface for all features.', pl: 'Uruchomienie <code>meport</code> bez argument\u00f3w otwiera interaktywna pow\u0142oke \u2014 menu z doste\u0308pem do wszystkich funkcji.' },
+  s_install_b_p1:   { en: 'Meport requires <strong>Node.js 18 or newer</strong>. If you don\'t have Node.js, download it from <a href="https://nodejs.org">nodejs.org</a>. Once you have Node.js, no installation is needed. Just run this in your terminal:', pl: 'Meport wymaga <strong>Node.js 18 lub nowszego</strong>. Jeśli nie masz Node.js, pobierz go ze strony <a href="https://nodejs.org">nodejs.org</a>. Gdy masz Node.js, nie trzeba nic instalować. Uruchom to w terminalu:' },
+  s_install_b_p2:   { en: 'If you plan to use Meport regularly, you can install it globally:', pl: 'Jeśli planujesz używać Meport regularnie, możesz zainstalować go globalnie:' },
+  s_install_tip_title: { en: 'What is a terminal?', pl: 'Co to jest terminal?' },
+  s_install_tip_body:  { en: 'The terminal (also called command line) is a text-based interface on your computer. On Mac, open "Terminal" from Applications. On Windows, search for "PowerShell" or "Command Prompt".', pl: 'Terminal (zwany też linią poleceń) to tekstowy interfejs na Twoim komputerze. Na Macu otwórz "Terminal" z Aplikacji. Na Windows wyszukaj "PowerShell" lub "Wiersz poleceń".' },
 
-  // Section: First profile
-  s_first_title:    { en: 'Your First Profile', pl: 'Tw\u00f3j pierwszy profil' },
-  s_first_p1:       { en: 'The fastest way to get started:', pl: 'Najszybszy spos\u00f3b na start:' },
-  s_first_step1:    { en: 'Run <code>meport profile</code>. If AI is configured, it starts an AI-driven interview. Otherwise, it uses the quiz mode.', pl: 'Uruchom <code>meport profile</code>. Jesli AI jest skonfigurowane, rozpocznie sie wywiad AI. W przeciwnym razie tryb quiz.' },
-  s_first_step2:    { en: 'Answer the questions. Meport auto-detects your system (OS, timezone, tools, languages) and skips what it already knows.', pl: 'Odpowiedz na pytania. Meport automatycznie wykrywa Tw\u00f3j system (OS, strefe czasowa, narzedzia, jezyki) i pomija to, co juz wie.' },
-  s_first_step3:    { en: 'Review your profile and confirm. Meport auto-exports to all platforms and shows you how to apply each one.', pl: 'Przejrzyj profil i potwierdz. Meport automatycznie eksportuje na wszystkie platformy i pokazuje, jak kazda zastosowac.' },
+  s_install_pw_p1:  { en: 'Requires <strong>Node.js 18+</strong>. Use <code>npx</code> for zero-install runs or install globally with <code>npm</code>.', pl: 'Wymaga <strong>Node.js 18+</strong>. Użyj <code>npx</code> do uruchomienia bez instalacji lub zainstaluj globalnie przez <code>npm</code>.' },
 
-  // Common headings
-  h_options:        { en: 'Options', pl: 'Opcje' },
-  h_examples:       { en: 'Examples', pl: 'Przyk\u0142ady' },
-  h_arguments:      { en: 'Arguments', pl: 'Argumenty' },
-  h_subcommands:    { en: 'Subcommands', pl: 'Podkomendy' },
-  h_actions:        { en: 'Actions', pl: 'Akcje' },
-  h_sources:        { en: 'Supported sources', pl: 'Obs\u0142ugiwane zr\u00f3d\u0142a' },
-  h_auto_targets:   { en: 'Auto-deploy targets', pl: 'Cele auto-deploy' },
-  h_manual_targets: { en: 'Manual targets (clipboard)', pl: 'Reczne (schowek)' },
-  h_categories:     { en: 'Depth categories', pl: 'Kategorie g\u0142e\u0308bokosci' },
-  h_scanned_locations: { en: 'Scanned locations', pl: 'Skanowane lokalizacje' },
-  h_report_sections: { en: 'Report sections', pl: 'Sekcje raportu' },
-  h_config_actions: { en: 'Available actions', pl: 'Dost\u0119pne akcje' },
-  h_shell_menu:     { en: 'Main menu items', pl: 'Pozycje menu g\u0142\u00f3wnego' },
-  h_rule_compilers: { en: 'Rule-based compilers (14 platforms)', pl: 'Kompilatory (14 platform)' },
-  h_system_scan:    { en: 'System scan (automatic)', pl: 'Skan systemu (automatyczny)' },
-  h_file_scan:      { en: 'File scan (opt-in via --scan)', pl: 'Skan plik\u00f3w (opcjonalny via --scan)' },
-  h_privacy_filter: { en: 'Privacy filter', pl: 'Filtr prywatno\u015bci' },
-  h_deploy_flow:    { en: 'Deploy flow', pl: 'Przebieg deploy' },
-  h_deploy_global:  { en: 'Global deploy', pl: 'Deploy globalny' },
-  h_config_structure: { en: 'Config structure', pl: 'Struktura konfiguracji' },
-  h_config_env:     { en: 'Environment variables', pl: 'Zmienne srodowiskowe' },
-  h_config_locations: { en: 'File locations', pl: 'Lokalizacje plik\u00f3w' },
-  h_pm_files:       { en: 'Key files', pl: 'Kluczowe pliki' },
+  s_install_d_p1:   { en: 'Requires <strong>Node.js 18+</strong> and <strong>pnpm</strong> for building from source.', pl: 'Wymaga <strong>Node.js 18+</strong> i <strong>pnpm</strong> do budowania ze źródeł.' },
+  s_install_d_p2:   { en: 'The monorepo uses pnpm workspaces. TypeScript with strict mode, vitest for testing.', pl: 'Monorepo używa pnpm workspaces. TypeScript z strict mode, vitest do testów.' },
+
+  // ═══════ SECTION: QUICK START ═══════
+  s_quick_title:    { en: 'Quick Start', pl: 'Szybki start' },
+  s_quick_b_intro:  { en: 'Create your first AI profile in 5 minutes. Here\'s what to do:', pl: 'Stwórz swój pierwszy profil AI w 5 minut. Oto co zrobić:' },
+  s_quick_b_step1:  { en: '<strong>Open your terminal</strong> and run this command. Meport\'s interactive shell will start.', pl: '<strong>Otwórz terminal</strong> i wpisz tę komendę. Uruchomi się interaktywna powłoka Meport.' },
+  s_quick_b_step2:  { en: '<strong>Meport scans your system</strong> automatically. It detects your language, timezone, and tech tools. Nothing personal is read without your permission.', pl: '<strong>Meport skanuje Twój system</strong> automatycznie. Wykrywa język, strefę czasową i narzędzia. Nic osobistego nie jest czytane bez Twojej zgody.' },
+  s_quick_b_step3:  { en: '<strong>Answer the questions.</strong> Start with <code>meport profile</code>. You\'ll get about 20-30 questions about how you like to communicate, work, and think. You can skip any question you don\'t want to answer.', pl: '<strong>Odpowiedz na pytania.</strong> Zacznij od <code>meport profile</code>. Dostaniesz ok. 20-30 pytań o to, jak lubisz się komunikować, pracować i myśleć. Możesz pominąć każde pytanie.' },
+  s_quick_b_step4:  { en: '<strong>Export your profile.</strong> When you\'re done, export to any AI platform. For example, to get instructions for ChatGPT:', pl: '<strong>Eksportuj swój profil.</strong> Gdy skończysz, eksportuj na dowolną platformę AI. Na przykład, aby uzyskać instrukcje dla ChatGPT:' },
+  s_quick_b_step5:  { en: '<strong>Paste the result</strong> into your AI\'s custom instructions (Settings in ChatGPT, System prompt in Claude, etc.). That\'s it!', pl: '<strong>Wklej wynik</strong> do niestandardowych instrukcji AI (Ustawienia w ChatGPT, Prompt systemowy w Claude, itp.). To wszystko!' },
+  s_quick_b_output_title: { en: 'What you\'ll see', pl: 'Co zobaczysz' },
+  s_quick_b_output_body:  { en: 'After profiling, Meport creates a file called <code>meport-profile.json</code> in your current folder. This is your profile. The export command generates platform-specific text that you paste into your AI tool.', pl: 'Po profilowaniu Meport tworzy plik <code>meport-profile.json</code> w bieżącym folderze. To jest Twój profil. Komenda export generuje tekst specyficzny dla platformy, który wklejasz do narzędzia AI.' },
+
+  s_quick_pw_intro: { en: 'Multiple ways to create and use a profile:', pl: 'Wiele sposobów na stworzenie i wykorzystanie profilu:' },
+  s_quick_d_intro:  { en: 'Key workflows for development and automation:', pl: 'Kluczowe przepływy pracy do rozwoju i automatyzacji:' },
+
+  // ═══════ SECTION: GLOSSARY ═══════
+  s_glossary_title: { en: 'Glossary', pl: 'Słownik' },
+  s_glossary_intro: { en: 'Key terms you\'ll see throughout Meport:', pl: 'Kluczowe pojęcia, które zobaczysz w Meport:' },
+
+  // ═══════ SECTION: COMMANDS ═══════
+  s_cmd_title:      { en: 'Commands Reference', pl: 'Komendy' },
+  s_cmd_intro:      { en: 'All Meport commands with flags, types, and examples. Default profile path is <code>./meport-profile.json</code> for all commands.', pl: 'Wszystkie komendy Meport z flagami, typami i przykładami. Domyślna ścieżka profilu to <code>./meport-profile.json</code> dla wszystkich komend.' },
+  s_cmd_dev_intro:  { en: 'Complete command list. All 23 commands registered in <code>packages/cli/src/index.ts</code>. Hidden commands (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) are deprecated.', pl: 'Pełna lista komend. Wszystkie 23 komendy zarejestrowane w <code>packages/cli/src/index.ts</code>. Ukryte komendy (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) są przestarzałe.' },
+  s_cmd_dev_all_label: { en: 'All 23 commands', pl: 'Wszystkie 23 komendy' },
 
   // Command descriptions
-  cmd_profile_desc: { en: 'Start profiling \u2014 one conversation, full AI profile. This is the main command. It runs system scan, asks questions via packs, shows a summary, and auto-exports to all platforms.', pl: 'Rozpocznij profilowanie \u2014 jedna rozmowa, pe\u0142ny profil AI. To g\u0142\u00f3wna komenda. Uruchamia skan systemu, zadaje pytania przez pakiety, pokazuje podsumowanie i automatycznie eksportuje na wszystkie platformy.' },
-  cmd_profile_flow_title: { en: 'Profiling flow', pl: 'Przebieg profilowania' },
-  cmd_profile_flow_body:  { en: 'Phase 0: System scan (silent) \u2192 Phase 1: Intro \u2192 Phase 2: File scan (if --scan) \u2192 Phase 3: Pack questions \u2192 Phase 4: Final summary + AI rules preview \u2192 Phase 5: Auto-export to all platforms. Press Ctrl+C at any time \u2014 session is auto-saved. Resume with <code>meport continue</code>.', pl: 'Faza 0: Skan systemu (cichy) \u2192 Faza 1: Intro \u2192 Faza 2: Skan plik\u00f3w (jesli --scan) \u2192 Faza 3: Pytania z pakiet\u00f3w \u2192 Faza 4: Podsumowanie + podglad regu\u0142 AI \u2192 Faza 5: Auto-eksport. Naci\u015bnij Ctrl+C w dowolnym momencie \u2014 sesja jest automatycznie zapisywana. Wznowienie: <code>meport continue</code>.' },
+  cmd_profile_desc: { en: 'Start profiling. Creates a comprehensive AI personality profile through interactive questions. If an AI provider is configured, offers AI-driven conversational mode.', pl: 'Rozpocznij profilowanie. Tworzy kompleksowy profil osobowości AI przez interaktywne pytania. Jeśli dostawca AI jest skonfigurowany, oferuje tryb konwersacyjny napędzany AI.' },
+  cmd_profile_o:    { en: 'Output file path (default: ./meport-profile.json)', pl: 'Ścieżka pliku wyjściowego (domyślnie: ./meport-profile.json)' },
+  cmd_profile_e:    { en: 'Auto-export to this directory after profiling', pl: 'Auto-eksport do tego katalogu po profilowaniu' },
+  cmd_profile_l:    { en: 'Language for questions: en or pl', pl: 'Język pytań: en lub pl' },
+  cmd_profile_s:    { en: 'Scan files or folders for profile data before questions', pl: 'Skanuj pliki lub foldery w poszukiwaniu danych profilowych przed pytaniami' },
+  cmd_profile_q:    { en: 'Quick mode — key questions only, ~5 min profile', pl: 'Tryb szybki — tylko kluczowe pytania, profil w ~5 min' },
+  cmd_profile_ai:   { en: 'AI-driven conversational profiling (requires API key via meport config)', pl: 'Profilowanie konwersacyjne z AI (wymaga klucza API przez meport config)' },
 
-  cmd_export_desc:  { en: 'Export your profile to a specific platform format. Uses rule-based compilers by default (14 platforms). Falls back to legacy compilers with <code>--legacy</code>.', pl: 'Eksportuj profil na konkretna platforme. Domyslnie uzywa kompilator\u00f3w regul (14 platform). Legacy mode z <code>--legacy</code>.' },
-  cmd_deploy_desc:  { en: 'Push your profile to all platforms automatically. Auto-writes files for Cursor, Claude Code, Copilot, Windsurf, AGENTS.md. Copies ChatGPT to clipboard. Shows instructions for web platforms.', pl: 'Wgraj profil na wszystkie platformy automatycznie. Zapisuje pliki dla Cursor, Claude Code, Copilot, Windsurf, AGENTS.md. Kopiuje ChatGPT do schowka. Pokazuje instrukcje dla platform webowych.' },
-  cmd_deploy_merge_title: { en: 'Smart merge', pl: 'Inteligentne \u0142\u0105czenie' },
-  cmd_deploy_merge_body:  { en: 'When deploying to CLAUDE.md, meport doesn\'t overwrite your existing content. It appends a <code># --- meport profile ---</code> section. On subsequent deploys, only that section is updated.', pl: 'Przy deploy do CLAUDE.md, meport nie nadpisuje Twojej istniej\u0105cej tre\u015bci. Dodaje sekcj\u0119 <code># --- meport profile ---</code>. Przy kolejnych deployach aktualizuje tylko t\u0119 sekcj\u0119.' },
-  cmd_view_desc:    { en: 'View your profile summary. Shows all dimensions organized by category, compound AI signals, and completeness bar.', pl: 'Podglad profilu. Pokazuje wszystkie wymiary wg kategorii, sygna\u0142y z\u0142ozone AI i pasek kompletno\u015bci.' },
-  cmd_edit_desc:    { en: 'Edit individual profile dimensions interactively. Pick any dimension, change its value, add new dimensions, or delete existing ones. Auto-saves and creates a history snapshot.', pl: 'Edytuj wymiary profilu interaktywnie. Wybierz dowolny wymiar, zmien warto\u015bc, dodaj nowe lub usun istniej\u0105ce. Auto-zapis i tworzenie snapshotu historii.' },
-  cmd_refresh_desc: { en: 'Refresh your profile \u2014 re-scans your system, detects changes, asks about life updates, and re-exports. Use this periodically to keep your profile current.', pl: 'Od\u015bwie\u017c profil \u2014 ponownie skanuje system, wykrywa zmiany, pyta o aktualizacje \u017cyciowe i re-eksportuje. U\u017cywaj okresowo.' },
-  cmd_refresh_tip_title:  { en: 'Living profile', pl: '\u017bywy profil' },
-  cmd_refresh_tip_body:   { en: 'Refresh compares your current system with your saved profile and highlights what changed. If you have AI configured, it can also analyze free-text life updates and map them to profile dimensions.', pl: 'Refresh por\u00f3wnuje Tw\u00f3j system z zapisanym profilem i podkre\u015bla zmiany. Je\u015bli masz skonfigurowane AI, mo\u017ce te\u017c analizowa\u0107 tekstowe aktualizacje \u017cyciowe i mapowa\u0107 je na wymiary profilu.' },
-  cmd_deepen_desc:  { en: 'Go deeper \u2014 targeted AI interview about shallow areas of your profile. Each session focuses on the 3 shallowest categories. Requires AI configuration.', pl: 'Pog\u0142\u0119bianie \u2014 celowany wywiad AI o p\u0142ytkich obszarach profilu. Ka\u017cda sesja skupia si\u0119 na 3 najp\u0142ytszych kategoriach. Wymaga konfiguracji AI.' },
-  cmd_deepen_tip_title:   { en: 'Progressive deepening', pl: 'Progresywne pog\u0142\u0119bianie' },
-  cmd_deepen_tip_body:    { en: 'Run <code>meport deepen</code> multiple times. Session 1 covers broad gaps. Session 2+ targets specific shallow areas. Each session adds 5-15 new dimensions. Type <code>/done</code> to finish early.', pl: 'Uruchom <code>meport deepen</code> kilka razy. Sesja 1 pokrywa szerokie luki. Sesja 2+ celuje w konkretne p\u0142ytkie obszary. Ka\u017cda sesja dodaje 5-15 wymiar\u00f3w. Wpisz <code>/done</code> aby zakonczyc wczesniej.' },
-  cmd_import_desc:  { en: 'Import and upgrade existing custom instructions from ChatGPT, Claude, Cursor, or any AI. Meport analyzes what you have, identifies gaps, and offers to fill them via scan + targeted questions.', pl: 'Importuj i ulepsz istniej\u0105ce custom instructions z ChatGPT, Claude, Cursor lub innego AI. Meport analizuje co masz, identyfikuje luki i oferuje ich uzupe\u0142nienie przez skan + celowane pytania.' },
-  import_any:       { en: 'Any text file or pasted content', pl: 'Dowolny plik tekstowy lub wklejony tekst' },
-  cmd_discover_desc:{ en: 'Find existing AI config files on your computer. Scans common project directories for CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, copilot-instructions.md. Offers to track found projects for global deploy.', pl: 'Znajdz istniej\u0105ce pliki konfiguracyjne AI na komputerze. Skanuje katalogi projekt\u00f3w w poszukiwaniu CLAUDE.md, .cursorrules, .windsurfrules, AGENTS.md, copilot-instructions.md.' },
-  discover_cwd:     { en: 'Current working directory', pl: 'Bie\u017c\u0105cy katalog roboczy' },
-  cmd_demo_desc:    { en: 'See how AI responds with vs without your profile. Sends the same prompt twice \u2014 once as generic AI, once with your personalization rules \u2014 and shows a side-by-side comparison. Requires AI configuration.', pl: 'Zobacz jak AI odpowiada z profilem vs bez. Wysy\u0142a ten sam prompt dwa razy \u2014 raz jako generyczne AI, raz z Twoimi regu\u0142ami \u2014 i pokazuje por\u00f3wnanie. Wymaga konfiguracji AI.' },
-  cmd_demo_prompts: { en: 'Choose from built-in test prompts or type your own. Available in both English and Polish.', pl: 'Wybierz z wbudowanych prompt\u00f3w testowych lub wpisz w\u0142asny. Dost\u0119pne po angielsku i polsku.' },
-  cmd_report_desc:  { en: 'Generate a Me Report \u2014 AI-powered personal insights. Shows who you are, your superpowers, behavioral patterns, blind spots, and actionable suggestions. Works with or without AI (AI version is much richer).', pl: 'Generuj Me Report \u2014 osobiste wnioski wspierane AI. Pokazuje kim jestes, Twoje supermoce, wzorce zachowan, slepe punkty i sugestie. Dzia\u0142a z AI lub bez (wersja AI jest bogatsza).' },
-  report_s1:        { en: '<strong>Who You Are</strong> \u2014 narrative summary', pl: '<strong>Kim jeste\u015b</strong> \u2014 podsumowanie narracyjne' },
-  report_s2:        { en: '<strong>Your Superpowers</strong> \u2014 what makes you unique', pl: '<strong>Twoje supermoce</strong> \u2014 co Ci\u0119 wyr\u00f3\u017cnia' },
-  report_s3:        { en: '<strong>Your Patterns</strong> \u2014 work + communication + energy patterns', pl: '<strong>Twoje wzorce</strong> \u2014 praca + komunikacja + energia' },
-  report_s4:        { en: '<strong>Blind Spots</strong> \u2014 things to watch out for', pl: '<strong>\u015alepe punkty</strong> \u2014 na co uwa\u017ca\u0107' },
-  report_s5:        { en: '<strong>How AI Should Work With You</strong> \u2014 top 5 rules', pl: '<strong>Jak AI powinno z Tob\u0105 pracowa\u0107</strong> \u2014 top 5 regu\u0142' },
-  report_s6:        { en: '<strong>One Thing to Try</strong> \u2014 actionable suggestion', pl: '<strong>Jedna rzecz do wyprobowania</strong> \u2014 konkretna sugestia' },
-  cmd_card_desc:    { en: 'Show your visual personality card in the terminal. An ASCII art summary of your profile including name, occupation, tech stack, energy type, communication style, achievements, and completeness bar. Great for screenshots.', pl: 'Pokaz karte osobowosci w terminalu. ASCII art z podsumowaniem profilu: imie, zawod, tech stack, typ energii, styl komunikacji, osiagniecia i pasek kompletnosci.' },
-  cmd_config_desc:  { en: 'Configure AI provider and API keys. Supports Claude (Anthropic), OpenAI (GPT), and Ollama (local). Config is stored securely in <code>~/.meport/config.json</code> with restricted file permissions (600).', pl: 'Konfiguruj dostawce AI i klucze API. Wspiera Claude (Anthropic), OpenAI (GPT) i Ollama (lokalne). Konfiguracja w <code>~/.meport/config.json</code> z ograniczonymi uprawnieniami (600).' },
-  config_a1:        { en: 'Set up AI provider (Claude / OpenAI / Ollama)', pl: 'Skonfiguruj dostawce AI (Claude / OpenAI / Ollama)' },
-  config_a2:        { en: 'Show current configuration', pl: 'Pokaz bie\u017c\u0105c\u0105 konfiguracj\u0119' },
-  config_a3:        { en: 'Reset configuration', pl: 'Resetuj konfiguracj\u0119' },
-  cmd_config_test:  { en: 'After configuring, meport tests the connection automatically.', pl: 'Po konfiguracji meport automatycznie testuje po\u0142\u0105czenie.' },
-  cmd_packs_desc:   { en: 'Manage profile question packs. Packs are modular sets of questions that target specific areas of your personality. You can add, remove, and list packs after initial profiling.', pl: 'Zarz\u0105dzaj pakietami pytan. Pakiety to modulowe zestawy pytan celujace w konkretne obszary Twojej osobowo\u015bci. Mozesz dodawac, usuwac i listowac pakiety po profilowaniu.' },
-  packs_list_desc:  { en: 'Show all packs and their active/available status', pl: 'Pokaz wszystkie pakiety i ich status' },
-  packs_add_desc:   { en: 'Run a pack\'s questions and merge into profile', pl: 'Uruchom pytania pakietu i scal z profilem' },
-  packs_remove_desc:{ en: 'Remove a pack\'s dimensions from profile', pl: 'Usun wymiary pakietu z profilu' },
-  cmd_projects_desc:{ en: 'Manage tracked projects for multi-deploy. Every time you run <code>meport deploy</code>, the current directory is auto-tracked. Use <code>meport deploy --global</code> to push to all tracked projects at once.', pl: 'Zarz\u0105dzaj sledzonymi projektami. Za ka\u017cdym razem gdy uruchomisz <code>meport deploy</code>, bie\u017c\u0105cy katalog jest automatycznie sledzony. <code>meport deploy --global</code> pushuje do wszystkich naraz.' },
-  projects_a1:      { en: 'Add current directory', pl: 'Dodaj bie\u017c\u0105cy katalog' },
-  projects_a2:      { en: 'Add another directory by path', pl: 'Dodaj inny katalog po \u015bcie\u017cce' },
-  projects_a3:      { en: 'Remove a tracked project', pl: 'Usun sledzony projekt' },
-  cmd_projects_storage: { en: 'Projects list is stored in <code>~/.meport/projects.json</code>.', pl: 'Lista projekt\u00f3w w <code>~/.meport/projects.json</code>.' },
-  cmd_history_desc: { en: 'Show profile version history and changes over time. Every profile save, refresh, and edit creates a snapshot. Shows a timeline with diffs \u2014 dimensions added, changed, and removed.', pl: 'Pokaz historie wersji profilu i zmiany w czasie. Ka\u017cdy zapis, refresh i edycja tworzy snapshot. Pokazuje timeline z diffami \u2014 wymiary dodane, zmienione i usuniete.' },
-  cmd_history_storage: { en: 'History snapshots are stored in <code>~/.meport/history/</code>. Shows up to 10 most recent entries.', pl: 'Snapshoty w <code>~/.meport/history/</code>. Pokazuje do 10 najnowszych.' },
-  cmd_feedback_desc:{ en: 'Rate how well AI responds with your profile. Quick 1-10 rating with an optional note. Feedback is saved in your profile and tracked over time. Low scores trigger suggestions to run <code>meport deepen</code>.', pl: 'Ocen jak dobrze AI odpowiada z Twoim profilem. Szybka ocena 1-10 z opcjonaln\u0105 notatk\u0105. Feedback zapisywany w profilu i sledzony w czasie.' },
-  cmd_scan_desc:    { en: 'Scan files and folders to preview what meport can detect \u2014 without creating a profile. Useful for checking what data is available before running <code>meport profile --scan</code>.', pl: 'Skanuj pliki i foldery aby podejrzec co meport moze wykryc \u2014 bez tworzenia profilu. Przydatne przed uruchomieniem <code>meport profile --scan</code>.' },
-  cmd_continue_desc:{ en: 'Resume an interrupted profiling session. If you press Ctrl+C during <code>meport profile</code>, your progress is auto-saved to <code>.meport-session.json</code>. This command picks up exactly where you left off.', pl: 'Wznow przerwan\u0105 sesje profilowania. Jesli nacisniesz Ctrl+C podczas <code>meport profile</code>, postep jest zapisywany do <code>.meport-session.json</code>. Ta komenda zaczyna dokladnie tam gdzie skonczyles.' },
-  cmd_sync_desc:    { en: 'Sync profile to file-based platform configs (Claude Code, Cursor, Ollama). Also supports clipboard copy for web platforms. This is a lower-level alternative to <code>meport deploy</code>.', pl: 'Synchronizuj profil z plikami konfiguracyjnymi platform (Claude Code, Cursor, Ollama). Wsparcie dla schowka dla platform webowych. Niskopoziomowa alternatywa dla <code>meport deploy</code>.' },
-  cmd_update_desc:  { en: 'Quick tune-up \u2014 confirm key settings (verbosity, directness, anti-patterns, name), then re-sync all exports. Faster than a full refresh when you just want to tweak settings.', pl: 'Szybkie dostrojenie \u2014 potwierdz kluczowe ustawienia (gadatliwosc, bezposredniosc, anty-wzorce, imie), potem re-sync eksportow. Szybsze niz pe\u0142ny refresh.' },
-  cmd_shell_desc:   { en: 'Running <code>meport</code> with no arguments opens the interactive shell. This is the default command. It detects whether you have a profile and shows the appropriate menu: first-time setup or the main menu with all available actions.', pl: 'Uruchomienie <code>meport</code> bez argument\u00f3w otwiera interaktywn\u0105 pow\u0142ok\u0119. To domyslna komenda. Wykrywa czy masz profil i pokazuje odpowiednie menu.' },
+  cmd_export_desc:    { en: 'Export your profile to a specific platform or all platforms at once. Uses rule-based compilers that generate actionable AI instructions.', pl: 'Eksportuj profil na konkretną platformę lub wszystkie platformy naraz. Używa kompilatorów opartych na regułach generujących akcjonalne instrukcje AI.' },
+  cmd_export_platform: { en: 'Target: chatgpt, claude, claude-code, cursor, copilot, windsurf, ollama, gemini, grok, perplexity, agents-md, openclaw, generic, json', pl: 'Cel: chatgpt, claude, claude-code, cursor, copilot, windsurf, ollama, gemini, grok, perplexity, agents-md, openclaw, generic, json' },
+  cmd_export_o:     { en: 'Output file path', pl: 'Ścieżka pliku wyjściowego' },
+  cmd_export_a:     { en: 'Export to all available platforms', pl: 'Eksportuj na wszystkie dostępne platformy' },
+  cmd_export_c:     { en: 'Copy export to clipboard (single platform)', pl: 'Skopiuj eksport do schowka (jedna platforma)' },
+  cmd_export_legacy: { en: 'Use legacy description-based compilers', pl: 'Użyj starszych kompilatorów opisowych' },
+  cmd_common_profile: { en: 'Profile JSON path (default: ./meport-profile.json)', pl: 'Ścieżka JSON profilu (domyślnie: ./meport-profile.json)' },
+  cmd_common_lang:  { en: 'Language for UI: en or pl', pl: 'Język interfejsu: en lub pl' },
 
-  // Deepen categories
-  cat_identity:     { en: 'Name, background, achievements, vision', pl: 'Imie, t\u0142o, osi\u0105gniecia, wizja' },
-  cat_comm:         { en: 'Verbosity, directness, anti-patterns, pet peeves', pl: 'Gadatliwosc, bezposredniosc, anty-wzorce' },
-  cat_work:         { en: 'Energy, deadlines, perfectionism, collaboration', pl: 'Energia, deadline\'y, perfekcjonizm, wsp\u00f3\u0142praca' },
-  cat_cognitive:    { en: 'Learning style, decision style, attention span', pl: 'Styl uczenia, decydowania, skupienie' },
-  cat_context:      { en: 'Occupation, industry, life stage, focus', pl: 'Zaw\u00f3d, bran\u017ca, etap \u017cycia, fokus' },
-  cat_motivation:   { en: 'Drives, fears, vision, primary need', pl: 'Motywacje, obawy, wizja, potrzeba' },
-  cat_ai:           { en: 'Relationship model, correction style, proactivity', pl: 'Model relacji, styl korekty, proaktywnosc' },
-  cat_lifestyle:    { en: 'Routine, social energy, risk tolerance', pl: 'Rutyna, energia spo\u0142eczna, tolerancja ryzyka' },
+  cmd_deploy_desc:  { en: 'Push profile to all platforms automatically. Writes files directly to Cursor, Claude Code, Copilot, Windsurf, AGENTS.md, and Ollama. Shows clipboard instructions for ChatGPT, Claude web, Gemini, Grok, and Perplexity.', pl: 'Wypchnij profil na wszystkie platformy automatycznie. Zapisuje pliki bezpośrednio do Cursor, Claude Code, Copilot, Windsurf, AGENTS.md i Ollama. Pokazuje instrukcje kopiowania dla ChatGPT, Claude web, Gemini, Grok i Perplexity.' },
+  cmd_deploy_a:     { en: 'Deploy to all targets without asking', pl: 'Wdróż na wszystkie cele bez pytania' },
+  cmd_deploy_g:     { en: 'Deploy to ALL tracked projects (from meport projects)', pl: 'Wdróż do WSZYSTKICH śledzonych projektów (z meport projects)' },
 
-  // Packs
-  s_packs_title:    { en: 'Question Packs', pl: 'Pakiety pytan' },
-  s_packs_p1:       { en: 'Packs are modular question sets that target specific areas of your personality and preferences. During profiling, you choose which packs to answer. You can add or remove packs at any time.', pl: 'Pakiety to modulowe zestawy pytan celuj\u0105ce w konkretne obszary Twojej osobowo\u015bci. Podczas profilowania wybierasz, kt\u00f3re pakiety odpowiedziec. Mo\u017cesz dodawac i usuwac pakiety w dowolnym momencie.' },
-  s_packs_p2:       { en: 'Each pack contains 5-10 scenario-based questions with multiple choice answers. Questions are designed to reveal behavioral patterns, not just preferences.', pl: 'Ka\u017cdy pakiet zawiera 5-10 pytan scenariuszowych z odpowiedziami wielokrotnego wyboru. Pytania s\u0105 zaprojektowane aby ujawnic wzorce zachowan, nie tylko preferencje.' },
-  s_packslist_title: { en: 'All Packs', pl: 'Wszystkie pakiety' },
-  pack_micro:       { en: 'Auto-loaded. Name, intro, pack selection. Always runs first.', pl: 'Auto-ladowany. Imie, intro, wyb\u00f3r pakiet\u00f3w. Zawsze uruchamiany pierwszy.' },
-  pack_core:        { en: 'Communication DNA \u2014 how you like AI to talk to you. Verbosity, directness, anti-patterns, feedback style.', pl: 'DNA komunikacji \u2014 jak lubisz \u017ceby AI z Tob\u0105 m\u00f3wi\u0142o. Gadatliwo\u015b\u0107, bezpo\u015bredninosc, anty-wzorce, styl feedbacku.' },
-  pack_context:     { en: 'Life Context \u2014 job, location, current focus, tools, industry.', pl: 'Kontekst \u017cyciowy \u2014 praca, lokalizacja, fokus, narz\u0119dzia, bran\u017ca.' },
-  pack_work:        { en: 'Work Style \u2014 energy patterns, deadline behavior, perfectionism, task preferences.', pl: 'Styl pracy \u2014 wzorce energii, zachowanie przy deadline\'ach, perfekcjonizm.' },
-  pack_lifestyle:   { en: 'Lifestyle \u2014 daily rhythm, social energy, routine preference, travel, food.', pl: 'Styl \u017cycia \u2014 rytm dnia, energia spo\u0142eczna, rutyna, podr\u00f3\u017ce, jedzenie.' },
-  pack_health:      { en: 'Health (sensitive) \u2014 fitness level, sleep patterns, conditions. Data is privacy-filtered.', pl: 'Zdrowie (wra\u017cliwe) \u2014 kondycja, sen, schorzenia. Dane filtrowane pod k\u0105tem prywatno\u015bci.' },
-  pack_finance:     { en: 'Finance (sensitive) \u2014 money style, budgeting, financial goals. Data is privacy-filtered.', pl: 'Finanse (wra\u017cliwe) \u2014 styl pieni\u0119\u017cny, bud\u017cet, cele finansowe. Dane filtrowane.' },
-  pack_learning:    { en: 'Learning \u2014 how you learn, study preferences, format preference, time commitment.', pl: 'Uczenie si\u0119 \u2014 jak si\u0119 uczysz, preferencje, format, zaanga\u017cowanie czasowe.' },
-  packs_sensitive_title: { en: 'Sensitive packs', pl: 'Wra\u017cliwe pakiety' },
-  packs_sensitive_body:  { en: 'Health and Finance packs are marked as sensitive. They show privacy notes before questions and their data goes through privacy filtering in exports. You can skip individual questions or entire packs.', pl: 'Pakiety Zdrowie i Finanse s\u0105 oznaczone jako wra\u017cliwe. Pokazuj\u0105 informacje o prywatno\u015bci przed pytaniami, a dane przechodz\u0105 filtrowanie w eksportach. Mo\u017cesz pomijac pojedyncze pytania lub ca\u0142e pakiety.' },
+  cmd_view_desc:    { en: 'View a visual summary of your profile — dimensions, completeness, and key personality traits.', pl: 'Wyświetl wizualne podsumowanie profilu — wymiary, kompletność i kluczowe cechy osobowości.' },
+  cmd_edit_desc:    { en: 'Edit individual profile dimensions interactively. Select a dimension and change its value.', pl: 'Edytuj poszczególne wymiary profilu interaktywnie. Wybierz wymiar i zmień jego wartość.' },
+  cmd_deepen_desc:  { en: 'Go deeper — targeted questions about shallow or unexplored areas of your profile. Requires AI provider.', pl: 'Zagłęb się — celowane pytania o płytkie lub niezbadane obszary profilu. Wymaga dostawcy AI.' },
+  cmd_refresh_desc: { en: 'Refresh your profile — re-scan system, detect changes, update dimensions, and re-export to all platforms.', pl: 'Odśwież profil — ponownie skanuj system, wykryj zmiany, zaktualizuj wymiary i ponownie eksportuj na wszystkie platformy.' },
+  cmd_history_desc: { en: 'Show profile version history and changes over time. Track how your profile evolved.', pl: 'Pokaż historię wersji profilu i zmiany w czasie. Śledź ewolucję profilu.' },
+  cmd_config_desc:  { en: 'Configure AI provider and API keys. Choose between Claude (Anthropic), OpenAI (GPT), or Ollama (local, free). Config stored in ~/.meport/config.json.', pl: 'Skonfiguruj dostawcę AI i klucze API. Wybierz między Claude (Anthropic), OpenAI (GPT) lub Ollama (lokalny, darmowy). Konfiguracja w ~/.meport/config.json.' },
+  cmd_scan_desc:    { en: 'Scan files or folders to preview what Meport can detect without modifying your profile. Shows detected dimensions and their sources.', pl: 'Skanuj pliki lub foldery, aby zobaczyć co Meport może wykryć bez modyfikowania profilu. Pokazuje wykryte wymiary i ich źródła.' },
+  cmd_packs_desc:   { en: 'Manage question packs. List shows available packs and their status (active/inactive). Add enables a pack and asks its questions. Remove deactivates a pack (dimensions already collected are kept).', pl: 'Zarządzaj pakietami pytań. List pokazuje dostępne pakiety i ich status. Add aktywuje pakiet i zadaje pytania. Remove dezaktywuje pakiet (zebrane wymiary są zachowane).' },
+  cmd_import_desc:  { en: 'Import and upgrade existing custom instructions from ChatGPT, Claude, or Cursor into a Meport profile. Analyzes your existing instructions and maps them to Meport dimensions.', pl: 'Importuj i ulepsz istniejące niestandardowe instrukcje z ChatGPT, Claude lub Cursor do profilu Meport. Analizuje Twoje istniejące instrukcje i mapuje je na wymiary Meport.' },
+  cmd_import_f:     { en: 'Import from file instead of clipboard', pl: 'Importuj z pliku zamiast ze schowka' },
+  cmd_discover_desc: { en: 'Find existing AI config files (CLAUDE.md, .cursorrules, .github/copilot-instructions.md, etc.) on your computer and optionally import them.', pl: 'Znajdź istniejące pliki konfiguracyjne AI (CLAUDE.md, .cursorrules, .github/copilot-instructions.md, itp.) na komputerze i opcjonalnie zaimportuj je.' },
+  cmd_projects_desc: { en: 'Manage tracked projects for multi-deploy. Add, remove, or list project directories. Used with <code>meport deploy --global</code>.', pl: 'Zarządzaj śledzonymi projektami do multi-deploy. Dodawaj, usuwaj lub listuj katalogi projektów. Używane z <code>meport deploy --global</code>.' },
+  cmd_card_desc:    { en: 'Show a visual personality card in the terminal — a colorful summary of your key traits.', pl: 'Pokaż wizualną kartę osobowości w terminalu — kolorowe podsumowanie Twoich kluczowych cech.' },
+  cmd_report_desc:  { en: 'Generate a Me Report — AI-powered personal insights based on your profile. Requires AI provider.', pl: 'Wygeneruj Me Report — spersonalizowane spostrzeżenia oparte na AI na podstawie Twojego profilu. Wymaga dostawcy AI.' },
+  cmd_report_o:     { en: 'Save report to file', pl: 'Zapisz raport do pliku' },
+  cmd_demo_desc:    { en: 'See a side-by-side comparison of how AI responds with vs without your profile. Demonstrates the value of profiling.', pl: 'Zobacz porównanie jak AI odpowiada z profilem vs bez profilu. Demonstruje wartość profilowania.' },
+  cmd_feedback_desc: { en: 'Rate how well AI responds with your profile. Scores are stored in profile history to track improvement over time.', pl: 'Oceń jak dobrze AI odpowiada z Twoim profilem. Wyniki są zapisywane w historii profilu do śledzenia postępu.' },
 
-  // Export formats
-  s_export_title:   { en: 'Export Formats', pl: 'Formaty eksportu' },
-  s_export_p1:      { en: 'Meport compiles your profile into platform-specific formats. Each compiler understands the target platform\'s constraints (character limits, format requirements, feature support).', pl: 'Meport kompiluje profil do format\u00f3w specyficznych dla platform. Ka\u017cdy kompilator rozumie ograniczenia platformy docelowej (limity znak\u00f3w, wymagania formatu).' },
-  s_export_auto_title: { en: 'Auto-deploy Platforms', pl: 'Platformy auto-deploy' },
-  s_export_auto_p1: { en: 'These platforms support file-based configuration. Meport writes the file directly to the correct location in your project:', pl: 'Te platformy wspieraj\u0105 konfiguracj\u0119 plikow\u0105. Meport zapisuje plik bezpo\u015brednio we w\u0142a\u015bciwej lokalizacji w projekcie:' },
-  s_export_manual_title: { en: 'Manual Platforms (Clipboard)', pl: 'Platformy r\u0119czne (schowek)' },
-  s_export_manual_p1: { en: 'Web-based platforms require manual pasting. Meport copies the content to your clipboard and shows where to paste:', pl: 'Platformy webowe wymagaj\u0105 r\u0119cznego wklejania. Meport kopiuje tre\u015b\u0107 do schowka i pokazuje gdzie wklei\u0107:' },
+  // ═══════ SECTION: QUESTION PACKS ═══════
+  s_packs_title:    { en: 'Question Packs', pl: 'Pakiety pytań' },
+  s_packs_intro:    { en: 'Meport organizes questions into <strong>9 packs</strong>. During profiling you choose which packs to complete. Two packs are required (Micro Setup and Communication DNA), the rest are optional.', pl: 'Meport organizuje pytania w <strong>9 pakietów</strong>. Podczas profilowania wybierasz, które pakiety ukończyć. Dwa pakiety są wymagane (Micro Setup i Communication DNA), reszta jest opcjonalna.' },
+  s_packs_manage_title: { en: 'Managing packs', pl: 'Zarządzanie pakietami' },
+  s_packs_manage_body:  { en: 'You can add or remove packs anytime after initial profiling:', pl: 'Możesz dodawać lub usuwać pakiety w dowolnym momencie po profilowaniu:' },
 
-  // Scanning
-  s_scan_title:     { en: 'Scanning', pl: 'Skanowanie' },
-  s_scan_p1:        { en: 'Meport can auto-detect information about you from your system and files. This happens automatically during profiling (Phase 0) and can also be triggered manually.', pl: 'Meport mo\u017ce automatycznie wykrywa\u0107 informacje o Tobie z systemu i plik\u00f3w. Dzieje si\u0119 to automatycznie podczas profilowania (Faza 0) i mo\u017ce by\u0107 te\u017c uruchomione r\u0119cznie.' },
-  s_scan_system:    { en: 'Runs silently at the start of every profiling session. Detects:', pl: 'Uruchamia si\u0119 cicho na pocz\u0105tku ka\u017cdej sesji profilowania. Wykrywa:' },
-  scan_os:          { en: 'Operating system, timezone, locale', pl: 'System operacyjny, strefa czasowa, j\u0119zyk' },
-  scan_name:        { en: 'Username / preferred name (from git config or OS)', pl: 'Nazwa u\u017cytkownika / preferowane imi\u0119 (z git config lub OS)' },
-  scan_tools:       { en: 'Installed tools (editors, languages, frameworks)', pl: 'Zainstalowane narz\u0119dzia (edytory, j\u0119zyki, frameworki)' },
-  scan_stack:       { en: 'Tech stack (from package.json, Cargo.toml, etc.)', pl: 'Tech stack (z package.json, Cargo.toml, itp.)' },
-  scan_ai:          { en: 'AI tools in use (Cursor, Claude Code, Copilot, etc.)', pl: 'U\u017cywane narz\u0119dzia AI (Cursor, Claude Code, Copilot, itp.)' },
-  s_scan_file:      { en: 'Scan specific files or directories for additional profile data. Useful for resumes, portfolios, project files.', pl: 'Skanuj konkretne pliki lub katalogi w poszukiwaniu dodatkowych danych. Przydatne dla CV, portfolio, plik\u00f3w projekt\u00f3w.' },
-  s_scan_privacy:   { en: 'Sensitive data (health conditions, financial details) is marked as sensitive and goes through privacy filtering before export. Dimensions starting with <code>_</code> are internal and never exported. You can review all detected dimensions with <code>meport view</code>.', pl: 'Wra\u017cliwe dane (zdrowie, finanse) s\u0105 oznaczane i przechodz\u0105 filtrowanie prywatno\u015bci przed eksportem. Wymiary zaczynaj\u0105ce si\u0119 od <code>_</code> s\u0105 wewn\u0119trzne i nigdy nie eksportowane. Przejrzyj wykryte wymiary: <code>meport view</code>.' },
+  s_packs_dev_intro: { en: 'Packs are JSON files in <code>packages/core/questions/packs/</code>. Each has an English version and a Polish translation in the <code>pl/</code> subdirectory. Question types: <code>select</code>, <code>multi_select</code>, <code>open_text</code>, <code>scale</code>, <code>scenario</code>, <code>spectrum</code>, <code>ranking</code>, <code>matrix</code>.', pl: 'Pakiety to pliki JSON w <code>packages/core/questions/packs/</code>. Każdy ma wersję angielską i polskie tłumaczenie w podkatalogu <code>pl/</code>. Typy pytań: <code>select</code>, <code>multi_select</code>, <code>open_text</code>, <code>scale</code>, <code>scenario</code>, <code>spectrum</code>, <code>ranking</code>, <code>matrix</code>.' },
+  s_packs_dev_types: { en: 'Key pack fields: <code>meta_profiling</code> enables behavioral signal capture (e.g., response_time). <code>export_rule</code> on each option becomes a concrete AI instruction. <code>maps_to</code> defines which profile dimension the answer fills. <code>skip_if</code> skips the question when a scan already detected the dimension with high confidence. <code>sensitive</code> marks packs with personal data (health, finance).', pl: 'Kluczowe pola pakietu: <code>meta_profiling</code> włącza przechwytywanie sygnałów behawioralnych (np. response_time). <code>export_rule</code> na każdej opcji staje się konkretną instrukcją AI. <code>maps_to</code> definiuje, który wymiar profilu wypełnia odpowiedź. <code>skip_if</code> pomija pytanie gdy skan już wykrył wymiar z wysoką pewnością. <code>sensitive</code> oznacza pakiety z danymi osobistymi (zdrowie, finanse).' },
 
-  // AI Providers
+  // ═══════ SECTION: EXPORT FORMATS ═══════
+  s_export_title:       { en: 'Export Formats', pl: 'Formaty eksportu' },
+  s_export_intro:       { en: 'Meport compiles your profile into <strong>14 platform-specific formats</strong>. Each compiler respects the platform\'s character limits, file format, and instruction style.', pl: 'Meport kompiluje Twój profil do <strong>14 formatów specyficznych dla platform</strong>. Każdy kompilator respektuje limity znaków platformy, format pliku i styl instrukcji.' },
+  s_export_auto_title:  { en: 'Auto-deploy targets', pl: 'Cele auto-deploy' },
+  s_export_auto_body:   { en: '<code>meport deploy</code> writes files directly for: <strong>Cursor</strong> (.cursor/rules/meport.mdc), <strong>Claude Code</strong> (CLAUDE.md), <strong>Copilot</strong> (.github/copilot-instructions.md), <strong>Windsurf</strong> (.windsurfrules), <strong>AGENTS.md</strong> (project root), <strong>Ollama</strong> (Modelfile + ollama create).', pl: '<code>meport deploy</code> zapisuje pliki bezpośrednio dla: <strong>Cursor</strong> (.cursor/rules/meport.mdc), <strong>Claude Code</strong> (CLAUDE.md), <strong>Copilot</strong> (.github/copilot-instructions.md), <strong>Windsurf</strong> (.windsurfrules), <strong>AGENTS.md</strong> (root projektu), <strong>Ollama</strong> (Modelfile + ollama create).' },
+  s_export_manual_title: { en: 'Manual targets (clipboard)', pl: 'Cele ręczne (schowek)' },
+  s_export_manual_body:  { en: 'For platforms without config files, use <code>meport export &lt;platform&gt; --copy</code> and paste into the platform\'s custom instructions: <strong>ChatGPT</strong> (Settings > Personalization > Custom instructions), <strong>Claude</strong> (Account > Profile), <strong>Gemini</strong>, <strong>Grok</strong>, <strong>Perplexity</strong>.', pl: 'Dla platform bez plików konfiguracyjnych użyj <code>meport export &lt;platform&gt; --copy</code> i wklej do instrukcji niestandardowych platformy: <strong>ChatGPT</strong> (Ustawienia > Personalizacja), <strong>Claude</strong> (Konto > Profil), <strong>Gemini</strong>, <strong>Grok</strong>, <strong>Perplexity</strong>.' },
+
+  s_export_dev_intro:   { en: 'The compiler system uses a two-phase architecture: <strong>collect</strong> (gather rules from all sources) and <strong>format</strong> (platform-specific output). All 14 compilers extend <code>BaseCompiler</code> and are registered in <code>packages/core/src/compiler/index.ts</code>.', pl: 'System kompilatorów używa dwufazowej architektury: <strong>collect</strong> (zbierz reguły ze wszystkich źródeł) i <strong>format</strong> (wyjście specyficzne dla platformy). Wszystkie 14 kompilatorów rozszerza <code>BaseCompiler</code> i jest zarejestrowanych w <code>packages/core/src/compiler/index.ts</code>.' },
+
+  // ═══════ SECTION: SCANNING ═══════
+  s_scan_title:         { en: 'Scanning', pl: 'Skanowanie' },
+  s_scan_intro:         { en: 'Meport can automatically detect information about you from your system and files. This pre-fills profile dimensions so you answer fewer questions.', pl: 'Meport może automatycznie wykryć informacje o Tobie z systemu i plików. To wypełnia wcześniej wymiary profilu, dzięki czemu odpowiadasz na mniej pytań.' },
+  s_scan_sys_title:     { en: 'System scan (automatic)', pl: 'Skan systemowy (automatyczny)' },
+  s_scan_sys_body:      { en: 'Runs automatically when you start profiling. Detects: <strong>language</strong> (from system locale), <strong>timezone</strong>, <strong>name</strong> (from .gitconfig), <strong>tech stack</strong> (from project files like package.json, Cargo.toml), <strong>AI tools</strong> (by checking if .claude, .cursor, .ollama directories exist). No file contents are read — only existence checks and config values.', pl: 'Uruchamiany automatycznie przy profilowaniu. Wykrywa: <strong>język</strong> (z ustawień regionalnych), <strong>strefę czasową</strong>, <strong>imię</strong> (z .gitconfig), <strong>tech stack</strong> (z plików projektu jak package.json, Cargo.toml), <strong>narzędzia AI</strong> (sprawdzając czy katalogi .claude, .cursor, .ollama istnieją). Zawartość plików nie jest czytana — tylko sprawdzanie istnienia i wartości konfiguracyjne.' },
+  s_scan_file_title:    { en: 'File scan (opt-in)', pl: 'Skan plików (opt-in)' },
+  s_scan_file_body:     { en: 'Only runs when you explicitly provide paths with <code>--scan</code>. Supported file types: CV/resume, LinkedIn export (CSV/JSON), bio/about pages, calendar (.ics), browser bookmarks (HTML), notes and todo lists. Maximum file size: 1MB. Supported extensions: .txt, .md, .json, .csv, .html, .htm, .ics. All extraction happens locally using regex patterns — no data is sent anywhere.', pl: 'Uruchamiany tylko gdy jawnie podasz ścieżki z <code>--scan</code>. Obsługiwane typy: CV/resume, eksport LinkedIn (CSV/JSON), strony bio/about, kalendarz (.ics), zakładki przeglądarki (HTML), notatki i listy todo. Maksymalny rozmiar pliku: 1MB. Obsługiwane rozszerzenia: .txt, .md, .json, .csv, .html, .htm, .ics. Cała ekstrakcja odbywa się lokalnie za pomocą wyrażeń regularnych — żadne dane nie są wysyłane nigdzie.' },
+  s_scan_privacy_title: { en: 'Privacy note', pl: 'Informacja o prywatności' },
+  s_scan_privacy_body:  { en: 'File scanning never uploads your data. All extraction uses local regex patterns. Files over 1MB are skipped. You always see what was detected and can reject any value.', pl: 'Skanowanie plików nigdy nie wysyła Twoich danych. Cała ekstrakcja używa lokalnych wyrażeń regularnych. Pliki powyżej 1MB są pomijane. Zawsze widzisz co zostało wykryte i możesz odrzucić każdą wartość.' },
+  s_scan_dev_intro:     { en: 'Scanner architecture in <code>packages/core/src/profiler/scanner.ts</code>. Two main functions: <code>runSystemScan()</code> and <code>runFileScan()</code>. Both return a <code>ScanContext</code> with a Map of detected dimensions (with confidence scores). The profiling engine uses confidence thresholds to decide: >0.8 = skip question, 0.5-0.8 = confirm mode, <0.5 = ask full question.', pl: 'Architektura skanera w <code>packages/core/src/profiler/scanner.ts</code>. Dwie główne funkcje: <code>runSystemScan()</code> i <code>runFileScan()</code>. Obie zwracają <code>ScanContext</code> z Mapą wykrytych wymiarów (ze współczynnikami pewności). Silnik profilowania używa progów pewności: >0.8 = pomiń pytanie, 0.5-0.8 = tryb potwierdzenia, <0.5 = zadaj pełne pytanie.' },
+
+  // ═══════ SECTION: AI PROVIDERS ═══════
   s_ai_title:       { en: 'AI Providers', pl: 'Dostawcy AI' },
-  s_ai_p1:          { en: 'Meport uses AI for three features: conversational profiling (<code>--ai</code>), deepening sessions, and report generation. Configure via <code>meport config</code>.', pl: 'Meport u\u017cywa AI do trzech funkcji: profilowanie konwersacyjne (<code>--ai</code>), sesje pog\u0142\u0119biania i generowanie raport\u00f3w. Konfiguracja przez <code>meport config</code>.' },
-  s_ai_claude:      { en: 'Best quality. Requires an Anthropic API key. Default model: <code>claude-sonnet-4-20250514</code>.', pl: 'Najlepsza jako\u015b\u0107. Wymaga klucza API Anthropic. Domy\u015blny model: <code>claude-sonnet-4-20250514</code>.' },
-  s_ai_openai:      { en: 'Good quality. Requires an OpenAI API key. Default model: <code>gpt-4o-mini</code>.', pl: 'Dobra jako\u015b\u0107. Wymaga klucza API OpenAI. Domy\u015blny model: <code>gpt-4o-mini</code>.' },
-  s_ai_ollama:      { en: 'Free, runs on your machine. No API key needed. Default model: <code>llama3.1</code>. Default URL: <code>http://localhost:11434</code>.', pl: 'Darmowe, dzia\u0142a na Twoim komputerze. Bez klucza API. Domy\u015blny model: <code>llama3.1</code>. URL: <code>http://localhost:11434</code>.' },
-  s_ai_tip_title:   { en: 'Without AI', pl: 'Bez AI' },
-  s_ai_tip_body:    { en: 'Meport works fine without any AI provider. Quiz mode (<code>meport profile</code>) uses pre-built question packs with multiple choice answers. AI just unlocks conversational interviews, deeper reports, and smarter gap-filling.', pl: 'Meport dzia\u0142a dobrze bez AI. Tryb quiz (<code>meport profile</code>) u\u017cywa gotowych pakiet\u00f3w pytan z odpowiedziami wielokrotnego wyboru. AI odblokowuje wywiady konwersacyjne, g\u0142\u0119bsze raporty i sprytniejsze uzupe\u0142nianie luk.' },
+  s_ai_intro:       { en: 'Meport can use AI for conversational profiling (instead of fixed questions). Three providers are supported. AI is optional — pack-based profiling works without any AI configuration.', pl: 'Meport może używać AI do konwersacyjnego profilowania (zamiast stałych pytań). Trzech dostawców jest obsługiwanych. AI jest opcjonalne — profilowanie pakietowe działa bez konfiguracji AI.' },
+  s_ai_claude:      { en: 'Best quality. Get an API key from <a href="https://console.anthropic.com">console.anthropic.com</a>. Paid usage (charged per token).', pl: 'Najlepsza jakość. Pobierz klucz API z <a href="https://console.anthropic.com">console.anthropic.com</a>. Płatne użycie (opłata za token).' },
+  s_ai_openai:      { en: 'Good quality. Get an API key from <a href="https://platform.openai.com">platform.openai.com</a>. Paid usage.', pl: 'Dobra jakość. Pobierz klucz API z <a href="https://platform.openai.com">platform.openai.com</a>. Płatne użycie.' },
+  s_ai_ollama:      { en: '<strong>Free and 100% private.</strong> Ollama runs AI models locally on your machine. Nothing is sent to any server. Great for privacy-conscious users. Requires: <a href="https://ollama.com">Ollama</a> installed, a model downloaded (llama3.1 recommended).', pl: '<strong>Darmowe i 100% prywatne.</strong> Ollama uruchamia modele AI lokalnie na Twoim komputerze. Nic nie jest wysyłane na żaden serwer. Świetne dla osób dbających o prywatność. Wymaga: <a href="https://ollama.com">Ollama</a> zainstalowane, pobrany model (zalecany llama3.1).' },
+  s_ai_dev_intro:   { en: 'Config stored in <code>~/.meport/config.json</code> with restrictive file permissions (0o600). The config directory is created with 0o700 permissions.', pl: 'Konfiguracja w <code>~/.meport/config.json</code> z restrykcyjnymi uprawnieniami pliku (0o600). Katalog konfiguracyjny jest tworzony z uprawnieniami 0o700.' },
 
-  // Profile Management
-  s_pm_title:       { en: 'Profile Management', pl: 'Zarz\u0105dzanie profilem' },
-  s_pm_p1:          { en: 'Your profile is a living document. Here is the recommended lifecycle:', pl: 'Tw\u00f3j profil to \u017cywy dokument. Oto zalecany cykl \u017cycia:' },
-  pm_create:        { en: 'Create', pl: 'Stw\u00f3rz' },
-  pm_create_desc:   { en: '\u2014 <code>meport profile</code> to build your initial profile.', pl: '\u2014 <code>meport profile</code> aby zbudowa\u0107 pocz\u0105tkowy profil.' },
-  pm_deploy_step:   { en: 'Deploy', pl: 'Wdro\u017c' },
-  pm_deploy_desc:   { en: '\u2014 <code>meport deploy</code> to push to all your AI tools.', pl: '\u2014 <code>meport deploy</code> aby wgra\u0107 do wszystkich narz\u0119dzi AI.' },
-  pm_deepen:        { en: 'Deepen', pl: 'Pog\u0142\u0119b' },
-  pm_deepen_desc:   { en: '\u2014 <code>meport deepen</code> to fill shallow areas (run 2-3 times).', pl: '\u2014 <code>meport deepen</code> aby wype\u0142ni\u0107 p\u0142ytkie obszary (uruchom 2-3 razy).' },
-  pm_refresh:       { en: 'Refresh', pl: 'Od\u015bwie\u017c' },
-  pm_refresh_desc:  { en: '\u2014 <code>meport refresh</code> periodically to keep your profile current.', pl: '\u2014 <code>meport refresh</code> okresowo aby profil by\u0142 aktualny.' },
-  pm_feedback:      { en: 'Feedback', pl: 'Ocen' },
-  pm_feedback_desc: { en: '\u2014 <code>meport feedback</code> to rate and track improvement over time.', pl: '\u2014 <code>meport feedback</code> aby oceniac i sledzic popraw\u0119 w czasie.' },
-  file_profile:     { en: 'Your profile (in project directory)', pl: 'Tw\u00f3j profil (w katalogu projektu)' },
-  file_exports:     { en: 'All platform exports', pl: 'Eksporty wszystkich platform' },
-  file_config:      { en: 'AI provider config', pl: 'Konfiguracja dostawcy AI' },
-  file_history:     { en: 'Version history snapshots', pl: 'Snapshoty historii wersji' },
-  file_projects:    { en: 'Tracked projects list', pl: 'Lista sledzonych projekt\u00f3w' },
-  file_session:     { en: 'Interrupted session state', pl: 'Stan przerwanej sesji' },
+  // ═══════ SECTION: PROFILE MANAGEMENT ═══════
+  s_mgmt_title:     { en: 'Profile Management', pl: 'Zarządzanie profilem' },
+  s_mgmt_intro:     { en: 'Your profile is a living document. It evolves as you use Meport. Here are the tools to manage it:', pl: 'Twój profil to żywy dokument. Ewoluuje w miarę używania Meport. Oto narzędzia do zarządzania nim:' },
 
-  // Deployment section
-  s_deploy_title:   { en: 'Deployment', pl: 'Wdra\u017canie' },
-  s_deploy_p1:      { en: 'Meport is your <strong>management center</strong> for all AI profiles. Update once, deploy everywhere.', pl: 'Meport to Twoje <strong>centrum zarz\u0105dzania</strong> profilami AI. Zaktualizuj raz, wdro\u017c wsz\u0119dzie.' },
-  deploy_s1:        { en: 'Compiles profile to all 14 platform formats', pl: 'Kompiluje profil do 14 format\u00f3w platform' },
-  deploy_s2:        { en: 'Auto-writes to file-based platforms (Cursor, Claude Code, Copilot, Windsurf, AGENTS.md)', pl: 'Auto-zapisuje do platform plikowych (Cursor, Claude Code, Copilot, Windsurf, AGENTS.md)' },
-  deploy_s3:        { en: 'Copies ChatGPT export to clipboard', pl: 'Kopiuje eksport ChatGPT do schowka' },
-  deploy_s4:        { en: 'Shows instructions for web platforms (Claude, Gemini, Grok, Perplexity)', pl: 'Pokazuje instrukcje dla platform webowych (Claude, Gemini, Grok, Perplexity)' },
-  deploy_s5:        { en: 'Auto-tracks the project directory for future global deploys', pl: 'Auto-sledzi katalog projektu dla przysz\u0142ych globalnych deploy\u00f3w' },
-  s_deploy_global:  { en: 'Use <code>meport deploy --global</code> to push your profile to ALL tracked projects at once. Combine with <code>meport discover</code> to find and track existing projects first.', pl: 'U\u017cyj <code>meport deploy --global</code> aby wgra\u0107 profil do WSZYSTKICH sledzonych projekt\u00f3w naraz. Po\u0142\u0105cz z <code>meport discover</code> aby najpierw znale\u017a\u0107 i doda\u0107 projekty.' },
+  // ═══════ SECTION: DEPLOYMENT ═══════
+  s_deploy_title:          { en: 'Deployment', pl: 'Wdrażanie' },
+  s_deploy_intro:          { en: '<code>meport deploy</code> makes Meport the management center for all your AI profiles. One command pushes your personality to every tool you use.', pl: '<code>meport deploy</code> czyni Meport centrum zarządzania wszystkimi profilami AI. Jedna komenda wypycha Twoją osobowość do każdego narzędzia.' },
+  s_deploy_auto_title:     { en: 'Auto-deploy (writes files)', pl: 'Auto-deploy (zapisuje pliki)' },
+  s_deploy_auto_body:      { en: 'Deploy writes config files directly to your project or home directory. Each platform has a specific file path and format that Meport knows about.', pl: 'Deploy zapisuje pliki konfiguracyjne bezpośrednio do katalogu projektu lub domowego. Każda platforma ma konkretną ścieżkę pliku i format, który Meport zna.' },
+  s_deploy_projects_title: { en: 'Multi-project deploy', pl: 'Deploy do wielu projektów' },
+  s_deploy_projects_body:  { en: 'Track multiple projects with <code>meport projects</code>, then deploy to all of them at once with <code>meport deploy --global</code>. Every project gets updated Cursor rules, CLAUDE.md, Copilot instructions, etc.', pl: 'Śledź wiele projektów za pomocą <code>meport projects</code>, a następnie wdróż do wszystkich naraz z <code>meport deploy --global</code>. Każdy projekt otrzymuje zaktualizowane reguły Cursor, CLAUDE.md, instrukcje Copilot, itp.' },
+  s_deploy_manual_title:   { en: 'Manual deploy (clipboard)', pl: 'Ręczny deploy (schowek)' },
+  s_deploy_manual_body:    { en: 'For web-based AI platforms (ChatGPT, Claude, Gemini, Grok, Perplexity), deploy shows the export content and copies it to your clipboard. You then paste it into the platform\'s custom instructions settings.', pl: 'Dla webowych platform AI (ChatGPT, Claude, Gemini, Grok, Perplexity) deploy pokazuje treść eksportu i kopiuje ją do schowka. Następnie wklejasz ją w ustawieniach instrukcji niestandardowych platformy.' },
 
-  // Configuration section
-  s_config_title:   { en: 'Configuration', pl: 'Konfiguracja' },
-  s_config_p1:      { en: 'Meport stores configuration in <code>~/.meport/config.json</code>. The file has restricted permissions (mode 600) so only you can read it.', pl: 'Meport przechowuje konfiguracj\u0119 w <code>~/.meport/config.json</code>. Plik ma ograniczone uprawnienia (mode 600), wi\u0119c tylko Ty mo\u017cesz go czyta\u0107.' },
-  config_env_lang:  { en: 'Auto-detected for language. Set to <code>pl</code> prefix for Polish.', pl: 'Auto-wykrywany dla j\u0119zyka. Ustaw prefix <code>pl</code> dla polskiego.' },
-  config_loc_config:  { en: 'AI provider settings', pl: 'Ustawienia dostawcy AI' },
-  config_loc_history: { en: 'Profile version history', pl: 'Historia wersji profilu' },
-  config_loc_projects:{ en: 'Tracked project directories', pl: 'Sledzone katalogi projekt\u00f3w' },
-  config_loc_profile: { en: 'Profile data (per project)', pl: 'Dane profilu (per projekt)' },
-  config_loc_exports: { en: 'Generated platform files', pl: 'Wygenerowane pliki platform' },
-  config_loc_session: { en: 'Auto-saved interrupted session', pl: 'Auto-zapisana przerwana sesja' },
+  // ═══════ SECTION: CONFIGURATION ═══════
+  s_config_title:      { en: 'Configuration', pl: 'Konfiguracja' },
+  s_config_intro:      { en: 'Meport stores configuration in two files:', pl: 'Meport przechowuje konfigurację w dwóch plikach:' },
+  s_config_file1:      { en: 'AI provider settings and API keys', pl: 'Ustawienia dostawcy AI i klucze API' },
+  s_config_file2:      { en: 'Your personality profile (current directory)', pl: 'Twój profil osobowości (bieżący katalog)' },
+  s_config_dev_intro:  { en: 'All config operations are in <code>packages/cli/src/commands/config.ts</code>. The <code>loadConfig()</code> and <code>saveConfig()</code> functions handle file I/O with proper permissions.', pl: 'Wszystkie operacje konfiguracyjne są w <code>packages/cli/src/commands/config.ts</code>. Funkcje <code>loadConfig()</code> i <code>saveConfig()</code> obsługują I/O pliku z właściwymi uprawnieniami.' },
 
-  // FAQ
-  faq_q1:  { en: 'Do I need an API key to use meport?', pl: 'Czy potrzebuj\u0119 klucza API?' },
-  faq_a1:  { en: 'No. Quiz mode works without any API key. AI features (conversational interview, deepening, reports, demo) require an API key from Claude, OpenAI, or a local Ollama installation.', pl: 'Nie. Tryb quiz dzia\u0142a bez klucza API. Funkcje AI (wywiad konwersacyjny, pog\u0142\u0119bianie, raporty, demo) wymagaj\u0105 klucza od Claude, OpenAI lub lokalnej instalacji Ollama.' },
-  faq_q2:  { en: 'Is my data sent anywhere?', pl: 'Czy moje dane s\u0105 gdzies wysy\u0142ane?' },
-  faq_a2:  { en: 'Your profile stays on your machine in <code>meport-profile.json</code>. If you use AI features, your answers are sent to the configured AI provider (Claude/OpenAI/Ollama). With Ollama, everything stays local.', pl: 'Tw\u00f3j profil zostaje na Twoim komputerze w <code>meport-profile.json</code>. Je\u015bli u\u017cywasz funkcji AI, odpowiedzi s\u0105 wysy\u0142ane do skonfigurowanego dostawcy (Claude/OpenAI/Ollama). Z Ollam\u0105 wszystko zostaje lokalnie.' },
-  faq_q3:  { en: 'How long does profiling take?', pl: 'Jak d\u0142ugo trwa profilowanie?' },
-  faq_a3:  { en: 'Quick mode: 5 minutes. Full profiling: 15-30 minutes. AI-driven interview: 10-20 minutes. You can interrupt at any time (Ctrl+C) and resume later with <code>meport continue</code>.', pl: 'Quick mode: 5 minut. Pe\u0142ne profilowanie: 15-30 minut. Wywiad AI: 10-20 minut. Mo\u017cesz przerwa\u0107 w dowolnym momencie (Ctrl+C) i wznaowi\u0107 p\u00f3\u017aniej: <code>meport continue</code>.' },
-  faq_q4:  { en: 'Can I use meport for work and personal profiles?', pl: 'Czy mog\u0119 u\u017cywa\u0107 meport do profili roboczych i osobistych?' },
-  faq_a4:  { en: 'Yes. Use <code>-o</code> to save to different files: <code>meport profile -o work-profile.json</code> and <code>meport profile -o personal.json</code>. Then export each separately.', pl: 'Tak. U\u017cyj <code>-o</code> aby zapisywa\u0107 do r\u00f3\u017cnych plik\u00f3w: <code>meport profile -o work-profile.json</code> i <code>meport profile -o personal.json</code>.' },
-  faq_q5:  { en: 'How often should I refresh my profile?', pl: 'Jak cz\u0119sto od\u015bwie\u017ca\u0107 profil?' },
-  faq_a5:  { en: 'Run <code>meport refresh</code> every 2-4 weeks, or whenever something significant changes (new job, new tools, new goals). Meport will detect changes and ask for confirmation.', pl: 'Uruchom <code>meport refresh</code> co 2-4 tygodnie lub gdy zmieni si\u0119 co\u015b wa\u017cnego (nowa praca, nowe narz\u0119dzia, nowe cele). Meport wykryje zmiany i poprosi o potwierdzenie.' },
-  faq_q6:  { en: 'What happens if I skip questions?', pl: 'Co je\u015bli pomin\u0119 pytania?' },
-  faq_a6:  { en: 'Skipped questions reduce profile completeness but don\'t break anything. You can always come back later with <code>meport deepen</code> or <code>meport packs add &lt;pack&gt;</code> to fill gaps.', pl: 'Pomini\u0119te pytania zmniejszaj\u0105 kompletno\u015b\u0107 profilu, ale nic nie psuj\u0105. Mo\u017cesz wr\u00f3ci\u0107 p\u00f3\u017aniej: <code>meport deepen</code> lub <code>meport packs add &lt;pack&gt;</code>.' },
-  faq_q7:  { en: 'Can I manually edit the profile JSON?', pl: 'Czy mog\u0119 r\u0119cznie edytowa\u0107 JSON profilu?' },
-  faq_a7:  { en: 'Yes, but use <code>meport edit</code> instead \u2014 it validates changes and auto-saves snapshots. If you edit the JSON directly, run <code>meport refresh</code> afterward to recompute derived signals.', pl: 'Tak, ale u\u017cyj <code>meport edit</code> \u2014 waliduje zmiany i auto-zapisuje snapshoty. Je\u015bli edytujesz JSON r\u0119cznie, uruchom <code>meport refresh</code> aby przeliczy\u0107 sygna\u0142y pochodne.' },
-  faq_q8:  { en: 'What is the difference between deploy and export?', pl: 'Jaka jest r\u00f3\u017cnica mi\u0119dzy deploy a export?' },
-  faq_a8:  { en: '<code>meport export</code> generates files. <code>meport deploy</code> generates files AND writes them to the correct locations in your project (Cursor rules, CLAUDE.md, etc.). Deploy is the recommended workflow.', pl: '<code>meport export</code> generuje pliki. <code>meport deploy</code> generuje pliki I zapisuje je we w\u0142a\u015bciwych lokalizacjach w projekcie (regu\u0142y Cursor, CLAUDE.md, itp.). Deploy to zalecany workflow.' },
-  faq_q9:  { en: 'How does the smart merge work for CLAUDE.md?', pl: 'Jak dzia\u0142a smart merge dla CLAUDE.md?' },
-  faq_a9:  { en: 'When deploying to a file that already has content, meport appends a <code># --- meport profile ---</code> section. On subsequent deploys, only that section is replaced. Your custom content above it is preserved.', pl: 'Przy deploy do pliku z istniej\u0105c\u0105 tre\u015bci\u0105, meport dodaje sekcj\u0119 <code># --- meport profile ---</code>. Przy kolejnych deployach tylko ta sekcja jest podmieniana. Twoja w\u0142asna tre\u015b\u0107 powy\u017cej jest zachowana.' },
-  faq_q10: { en: 'Which AI provider is best?', pl: 'Kt\u00f3ry dostawca AI jest najlepszy?' },
-  faq_a10: { en: 'Claude (Anthropic) gives the best quality for interviews and reports. GPT-4o-mini is a good budget option. Ollama is free but quality depends on the model. For profiling without AI, quiz mode is excellent.', pl: 'Claude (Anthropic) daje najlepsz\u0105 jako\u015b\u0107 wywiad\u00f3w i raport\u00f3w. GPT-4o-mini to dobra opcja bud\u017cetowa. Ollama jest darmowa ale jako\u015b\u0107 zale\u017cy od modelu. Do profilowania bez AI tryb quiz jest doskona\u0142y.' },
+  // ═══════ SECTION: PRIVACY & SECURITY ═══════
+  s_privacy_title:   { en: 'Privacy & Security', pl: 'Prywatność i bezpieczeństwo' },
+
+  // Beginner
+  s_privacy_b_p1:    { en: 'Meport is designed with privacy as a priority. Here is exactly what happens with your data:', pl: 'Meport jest zaprojektowany z priorytetem prywatności. Oto dokładnie co się dzieje z Twoimi danymi:' },
+  s_privacy_b_read_title: { en: 'What Meport reads', pl: 'Co Meport czyta' },
+  s_privacy_b_read_body:  { en: '<strong>Automatically:</strong> your system language, timezone, and whether you have certain developer tools installed. It does NOT read your browser history, emails, messages, or any personal files. <strong>Only if you ask:</strong> files you specifically point to with the <code>--scan</code> flag (like a CV or notes file).', pl: '<strong>Automatycznie:</strong> język systemowy, strefę czasową i czy masz zainstalowane określone narzędzia deweloperskie. NIE czyta historii przeglądarki, e-maili, wiadomości ani żadnych osobistych plików. <strong>Tylko gdy poprosisz:</strong> pliki, które jawnie wskażesz flagą <code>--scan</code> (jak CV lub plik notatek).' },
+  s_privacy_b_send_title: { en: 'What leaves your computer', pl: 'Co opuszcza Twój komputer' },
+  s_privacy_b_send_body:  { en: '<strong>Without AI mode:</strong> nothing. All questions are local, all processing is local. <strong>With AI mode (--ai):</strong> your answers to interview questions are sent to the AI provider you chose (Claude, OpenAI, or Ollama). If you use Ollama, even this stays on your machine.', pl: '<strong>Bez trybu AI:</strong> nic. Wszystkie pytania są lokalne, całe przetwarzanie jest lokalne. <strong>Z trybem AI (--ai):</strong> Twoje odpowiedzi na pytania wywiadu są wysyłane do wybranego dostawcy AI (Claude, OpenAI lub Ollama). Jeśli używasz Ollama, nawet to zostaje na Twoim komputerze.' },
+  s_privacy_b_store_title: { en: 'Where data is stored', pl: 'Gdzie dane są przechowywane' },
+  s_privacy_b_store_body:  { en: 'Your profile is saved as a file (<code>meport-profile.json</code>) on your computer, in the folder where you ran the command. Your AI API key (if configured) is stored in <code>~/.meport/config.json</code> with restricted permissions so only you can read it. Meport has <strong>no cloud, no accounts, no telemetry, no analytics</strong>.', pl: 'Twój profil jest zapisywany jako plik (<code>meport-profile.json</code>) na komputerze, w folderze w którym uruchomiłeś komendę. Klucz API AI (jeśli skonfigurowany) jest w <code>~/.meport/config.json</code> z ograniczonymi uprawnieniami, więc tylko Ty możesz go odczytać. Meport <strong>nie ma chmury, kont, telemetrii ani analityki</strong>.' },
+  s_privacy_b_ollama_title: { en: '100% offline option', pl: 'Opcja 100% offline' },
+  s_privacy_b_ollama_body:  { en: 'If you use Ollama as your AI provider, absolutely nothing leaves your computer. Ollama runs AI models locally. Combined with pack-based profiling (no --ai flag), Meport works entirely offline.', pl: 'Jeśli używasz Ollama jako dostawcy AI, absolutnie nic nie opuszcza Twojego komputera. Ollama uruchamia modele AI lokalnie. W połączeniu z profilowaniem pakietowym (bez flagi --ai), Meport działa całkowicie offline.' },
+
+  // Power
+  s_privacy_pw_p1:       { en: 'Detailed breakdown of data handling:', pl: 'Szczegółowy opis obsługi danych:' },
+  s_privacy_pw_sys_title: { en: 'System scan (automatic, no consent)', pl: 'Skan systemowy (automatyczny, bez zgody)' },
+  s_privacy_pw_sys1:     { en: '<code>LANG</code> / <code>LC_ALL</code> env vars &rarr; language detection', pl: '<code>LANG</code> / <code>LC_ALL</code> zmienne env &rarr; wykrywanie języka' },
+  s_privacy_pw_sys2:     { en: '<code>Intl.DateTimeFormat</code> API &rarr; timezone', pl: '<code>Intl.DateTimeFormat</code> API &rarr; strefa czasowa' },
+  s_privacy_pw_sys3:     { en: '<code>~/.gitconfig</code> &rarr; name, email domain (personal emails filtered)', pl: '<code>~/.gitconfig</code> &rarr; imię, domena email (osobiste emaile filtrowane)' },
+  s_privacy_pw_sys4:     { en: 'Project config files (package.json, Cargo.toml, etc.) &rarr; tech stack', pl: 'Pliki konfiguracyjne projektu (package.json, Cargo.toml, itp.) &rarr; tech stack' },
+  s_privacy_pw_sys5:     { en: 'AI tool directories existence check (~/.claude, ~/.cursor, ~/.ollama) &rarr; tools used', pl: 'Sprawdzenie istnienia katalogów narzędzi AI (~/.claude, ~/.cursor, ~/.ollama) &rarr; używane narzędzia' },
+
+  s_privacy_pw_file_title: { en: 'File scan (opt-in only)', pl: 'Skan plików (tylko opt-in)' },
+  s_privacy_pw_file1:    { en: 'Only processes paths you explicitly provide with <code>--scan</code>', pl: 'Przetwarza tylko ścieżki jawnie podane z <code>--scan</code>' },
+  s_privacy_pw_file2:    { en: 'Max file size: 1MB (larger files silently skipped)', pl: 'Max rozmiar pliku: 1MB (większe pliki cicho pomijane)' },
+  s_privacy_pw_file3:    { en: 'Extraction uses local regex patterns — no AI is involved in file scanning', pl: 'Ekstrakcja używa lokalnych wyrażeń regularnych — AI nie jest zaangażowane w skanowaniu plików' },
+
+  s_privacy_pw_net_title: { en: 'Network activity', pl: 'Aktywność sieciowa' },
+  s_privacy_pw_net1:     { en: 'Without <code>--ai</code>: zero network requests. Everything is local.', pl: 'Bez <code>--ai</code>: zero żądań sieciowych. Wszystko jest lokalne.' },
+  s_privacy_pw_net2:     { en: 'With <code>--ai</code>: sends questions + answers to chosen provider (Claude/OpenAI API). Does NOT send file contents or scan results.', pl: 'Z <code>--ai</code>: wysyła pytania + odpowiedzi do wybranego dostawcy (Claude/OpenAI API). NIE wysyła zawartości plików ani wyników skanowania.' },
+  s_privacy_pw_net3:     { en: 'Ollama: all AI processing runs on localhost:11434. Zero external connections.', pl: 'Ollama: całe przetwarzanie AI działa na localhost:11434. Zero połączeń zewnętrznych.' },
+
+  s_privacy_pw_store_title: { en: 'Storage & permissions', pl: 'Przechowywanie i uprawnienia' },
+  s_privacy_pw_store1:   { en: '<code>~/.meport/config.json</code> — API keys, file permissions 0o600 (owner read/write only)', pl: '<code>~/.meport/config.json</code> — klucze API, uprawnienia pliku 0o600 (tylko odczyt/zapis właściciela)' },
+  s_privacy_pw_store2:   { en: '<code>~/.meport/</code> directory — permissions 0o700 (owner only)', pl: '<code>~/.meport/</code> katalog — uprawnienia 0o700 (tylko właściciel)' },
+  s_privacy_pw_store3:   { en: 'No telemetry, no analytics, no usage tracking, no cloud sync, no accounts', pl: 'Brak telemetrii, analityki, śledzenia użycia, synchronizacji chmurowej, kont' },
+
+  s_privacy_dev_intro:   { en: 'Full privacy architecture for code audit:', pl: 'Pełna architektura prywatności do audytu kodu:' },
+
+  // ═══════ SECTION: ARCHITECTURE (Dev) ═══════
+  s_arch_title:     { en: 'Architecture', pl: 'Architektura' },
+  s_arch_intro:     { en: 'Meport is a TypeScript monorepo using pnpm workspaces. The project is structured into three packages with clear boundaries:', pl: 'Meport to monorepo TypeScript używające pnpm workspaces. Projekt jest podzielony na trzy pakiety z jasnymi granicami:' },
+
+  // ═══════ SECTION: SCHEMA (Dev) ═══════
+  s_schema_title:       { en: 'Schema Reference', pl: 'Schemat' },
+  s_schema_intro:       { en: 'The <code>PersonaProfile</code> type (schema v1.0) is the core data structure. It has 5 data layers and a meta section:', pl: 'Typ <code>PersonaProfile</code> (schemat v1.0) to główna struktura danych. Ma 5 warstw danych i sekcję meta:' },
+  s_schema_weights_title: { en: 'Dimension weights', pl: 'Wagi wymiarów' },
+  s_schema_weights_body:  { en: 'Every dimension has a weight (1-10) that determines its priority in exports. Higher-weight dimensions are always included; lower-weight ones may be dropped to fit character limits:', pl: 'Każdy wymiar ma wagę (1-10) określającą priorytet w eksportach. Wymiary o wyższej wadze są zawsze uwzględniane; niższej wagi mogą być pomijane aby zmieścić się w limitach znaków:' },
+
+  // ═══════ SECTION: INFERENCE (Dev) ═══════
+  s_inference_title:      { en: 'Inference Engine', pl: 'Silnik inferencji' },
+  s_inference_intro:      { en: 'Meport builds profiles through three inference layers. Each layer adds increasing depth with decreasing confidence:', pl: 'Meport buduje profile przez trzy warstwy inferencji. Każda warstwa dodaje rosnącą głębokość z malejącą pewnością:' },
+  s_inference_l1_title:   { en: 'Layer 1: Explicit (confidence: 1.0)', pl: 'Warstwa 1: Jawna (pewność: 1.0)' },
+  s_inference_l1_body:    { en: 'Direct answers from the user. Each question option has a <code>maps_to</code> field that maps to a profile dimension. Explicit values always have confidence 1.0 and can never be overridden by inference.', pl: 'Bezpośrednie odpowiedzi użytkownika. Każda opcja pytania ma pole <code>maps_to</code> mapujące na wymiar profilu. Jawne wartości zawsze mają pewność 1.0 i nigdy nie mogą być nadpisane przez inferencję.' },
+  s_inference_l2a_title:  { en: 'Layer 2A: Behavioral (confidence: 0.5-0.7)', pl: 'Warstwa 2A: Behawioralna (pewność: 0.5-0.7)' },
+  s_inference_l2a_body:   { en: 'Observes HOW the user answered (timing, text length, emoji usage, skip patterns). Fully deterministic, no AI needed. 6 behavioral signals in <code>packages/core/src/inference/behavioral.ts</code>:', pl: 'Obserwuje JAK użytkownik odpowiedział (czas, długość tekstu, użycie emoji, wzorce pomijania). W pełni deterministyczne, bez AI. 6 sygnałów behawioralnych w <code>packages/core/src/inference/behavioral.ts</code>:' },
+  s_inference_l2b_title:  { en: 'Layer 2B: Compound (confidence: 0.5-0.95)', pl: 'Warstwa 2B: Złożona (pewność: 0.5-0.95)' },
+  s_inference_l2b_body:   { en: 'Cross-tier pattern matching. Fires AFTER all explicit answers are collected. Combines multiple dimensions to detect composite patterns. 9 compound rules in <code>packages/core/src/inference/compound.ts</code>:', pl: 'Wykrywanie wzorców międzywarstwowych. Uruchamiane PO zebraniu wszystkich jawnych odpowiedzi. Łączy wiele wymiarów aby wykryć złożone wzorce. 9 reguł złożonych w <code>packages/core/src/inference/compound.ts</code>:' },
+  s_inference_l3_title:   { en: 'Layer 3: Emergent (confidence: 0.3-0.7)', pl: 'Warstwa 3: Emergentna (pewność: 0.3-0.7)' },
+  s_inference_l3_body:    { en: 'AI-generated observations that require user review before becoming active. Categories: personality_pattern, cognitive_pattern, behavioral_pattern, compound_signal, contradiction, hidden_strength, risk_flag. Status tracking: pending_review, accepted, edited, removed.', pl: 'Obserwacje generowane przez AI wymagające przeglądu użytkownika przed aktywacją. Kategorie: personality_pattern, cognitive_pattern, behavioral_pattern, compound_signal, contradiction, hidden_strength, risk_flag. Śledzenie statusu: pending_review, accepted, edited, removed.' },
+
+  // ═══════ SECTION: COMPILER SYSTEM (Dev) ═══════
+  s_compiler_title:         { en: 'Compiler System', pl: 'System kompilatorów' },
+  s_compiler_intro:         { en: 'The compiler system is the critical component that turns profile data into actionable AI instructions. The key insight: generating rules ("Max 5 lines for simple questions" ~85% compliance) outperforms descriptions ("User prefers brevity" ~50% compliance).', pl: 'System kompilatorów to krytyczny komponent zamieniający dane profilu w akcjonalne instrukcje AI. Kluczowy insight: generowanie reguł ("Max 5 linii na proste pytania" ~85% skuteczności) przewyższa opisy ("Użytkownik preferuje zwięzłość" ~50% skuteczności).' },
+  s_compiler_pipeline_title: { en: 'Rule compilation pipeline', pl: 'Pipeline kompilacji reguł' },
+  s_compiler_generic_title: { en: 'Generic rule filtering', pl: 'Filtrowanie reguł generycznych' },
+  s_compiler_generic_body:  { en: 'The compiler filters out generic rules ("be helpful", "be accurate", "use clear language") that every AI does by default. Rules are kept only if they contain specificity signals: IF/THEN patterns, concrete numbers, tool names, occupation references, or strong directives (NEVER/ALWAYS/MUST). Near-duplicates are detected using Jaccard similarity (threshold >= 0.45) on keyword overlap.', pl: 'Kompilator filtruje generyczne reguły ("bądź pomocny", "bądź dokładny", "używaj jasnego języka") które każde AI robi domyślnie. Reguły są zachowywane tylko jeśli zawierają sygnały specyficzności: wzorce IF/THEN, konkretne liczby, nazwy narzędzi, odniesienia do zawodu lub silne dyrektywy (NEVER/ALWAYS/MUST). Duplikaty wykrywane są za pomocą podobieństwa Jaccarda (próg >= 0.45) na nakładce słów kluczowych.' },
+  s_compiler_add_title:     { en: 'Adding a new compiler', pl: 'Dodawanie nowego kompilatora' },
+  s_compiler_add_body:      { en: 'To add support for a new platform, create a new compiler class, extend <code>BaseCompiler</code>, and register it in the <code>ruleCompilerRegistry</code>:', pl: 'Aby dodać obsługę nowej platformy, stwórz nową klasę kompilatora, rozszerz <code>BaseCompiler</code> i zarejestruj ją w <code>ruleCompilerRegistry</code>:' },
+
+  // ═══════ SECTION: CONTRIBUTING (Dev) ═══════
+  s_contrib_title:       { en: 'Contributing', pl: 'Współtworzenie' },
+  s_contrib_intro:       { en: 'Meport is open source. Here\'s how to set up a development environment:', pl: 'Meport jest open source. Oto jak skonfigurować środowisko deweloperskie:' },
+  s_contrib_areas_title: { en: 'Key contribution areas', pl: 'Kluczowe obszary współpracy' },
+  s_contrib_area1:       { en: '<strong>New compilers</strong> — add export support for more AI platforms', pl: '<strong>Nowe kompilatory</strong> — dodaj obsługę eksportu dla nowych platform AI' },
+  s_contrib_area2:       { en: '<strong>Question packs</strong> — create new packs or translate existing ones to more languages', pl: '<strong>Pakiety pytań</strong> — twórz nowe pakiety lub tłumacz istniejące na więcej języków' },
+  s_contrib_area3:       { en: '<strong>Inference rules</strong> — add new behavioral signals or compound patterns', pl: '<strong>Reguły inferencji</strong> — dodaj nowe sygnały behawioralne lub wzorce złożone' },
+  s_contrib_area4:       { en: '<strong>Scanner detectors</strong> — add new file types or system scan targets', pl: '<strong>Detektory skanera</strong> — dodaj nowe typy plików lub cele skanowania systemowego' },
+  s_contrib_area5:       { en: '<strong>Fallback rules</strong> — expand the FALLBACK_RULES map in rules.ts for better dimension coverage', pl: '<strong>Reguły zapasowe</strong> — rozszerz mapę FALLBACK_RULES w rules.ts dla lepszego pokrycia wymiarów' },
+
+  // ═══════ SECTION: FAQ ═══════
+  s_faq_title:      { en: 'FAQ', pl: 'FAQ' },
+
+  // ═══════ SECTION: COMMON ISSUES ═══════
+  s_issues_title:   { en: 'Common Issues', pl: 'Częste problemy' },
 };
 
-// ─── App logic ──────────────────────────────────────────
+// ─── Glossary items (beginner only) ─────────────────────
+
+const GLOSSARY = [
+  { term: { en: 'Profile', pl: 'Profil' }, def: { en: 'A JSON file containing your personality dimensions, preferences, and communication style. Created by answering questions.', pl: 'Plik JSON zawierający Twoje wymiary osobowości, preferencje i styl komunikacji. Tworzony przez odpowiadanie na pytania.' } },
+  { term: { en: 'Dimension', pl: 'Wymiar' }, def: { en: 'A single trait about you, like "communication.verbosity_preference" or "work.energy_archetype". Your profile can have 30+ dimensions.', pl: 'Pojedyncza cecha o Tobie, jak "preferencja zwięzłości" lub "archetyp energii pracy". Twój profil może mieć 30+ wymiarów.' } },
+  { term: { en: 'Pack', pl: 'Pakiet' }, def: { en: 'A group of related questions. For example, the "Work Patterns" pack asks about deadlines, energy, and focus. You pick which packs to answer.', pl: 'Grupa powiązanych pytań. Na przykład pakiet "Wzorce pracy" pyta o terminy, energię i skupienie. Wybierasz które pakiety odpowiedzieć.' } },
+  { term: { en: 'Export', pl: 'Eksport' }, def: { en: 'Converting your profile into instructions for a specific AI platform. Meport speaks ChatGPT, Claude, Cursor, and 11 other formats.', pl: 'Konwersja profilu do instrukcji dla konkretnej platformy AI. Meport mówi w formacie ChatGPT, Claude, Cursor i 11 innych.' } },
+  { term: { en: 'Compiler', pl: 'Kompilator' }, def: { en: 'The code that converts your profile into a platform-specific format. Each platform has its own compiler that knows the right format and limits.', pl: 'Kod konwertujący profil do formatu specyficznego dla platformy. Każda platforma ma swój kompilator znający właściwy format i limity.' } },
+  { term: { en: 'Deploy', pl: 'Wdrożenie' }, def: { en: 'Automatically writing your profile to AI tool config files (like .cursorrules or CLAUDE.md) so they pick it up immediately.', pl: 'Automatyczne zapisywanie profilu do plików konfiguracyjnych narzędzi AI (jak .cursorrules lub CLAUDE.md) aby natychmiast go podchwyciły.' } },
+];
+
+// ─── Pack descriptions ──────────────────────────────────
+
+const PACKS = [
+  { id: 'micro-setup', name: { en: 'Micro Setup', pl: 'Micro Setup' }, desc: { en: 'Your name, primary AI use case, verbosity preference, and language. 4 questions, required.', pl: 'Twoje imię, główne zastosowanie AI, preferencja zwięzłości i język. 4 pytania, wymagany.' }, required: true, sensitive: false },
+  { id: 'core', name: { en: 'Communication DNA', pl: 'DNA Komunikacji' }, desc: { en: 'Feedback style, format preferences, AI relationship model, anti-patterns (what AI should NEVER do). Required.', pl: 'Styl feedbacku, preferencje formatu, model relacji z AI, anty-wzorce (czego AI NIGDY nie powinno robić). Wymagany.' }, required: true, sensitive: false },
+  { id: 'work', name: { en: 'Work Patterns', pl: 'Wzorce pracy' }, desc: { en: 'Deadlines, energy archetype, focus style, expertise level, break patterns. Shapes how AI structures tasks.', pl: 'Terminy, archetyp energii, styl skupienia, poziom ekspertyzy, wzorce przerw. Kształtuje jak AI strukturyzuje zadania.' }, required: false, sensitive: false },
+  { id: 'context', name: { en: 'Life Context', pl: 'Kontekst życiowy' }, desc: { en: 'Occupation, location, life stage, current focus. Helps AI give relevant, specific advice.', pl: 'Zawód, lokalizacja, etap życia, bieżące cele. Pomaga AI dawać trafne, specyficzne porady.' }, required: false, sensitive: false },
+  { id: 'story', name: { en: 'Your Story', pl: 'Twoja historia' }, desc: { en: 'Motivations, values, past experiences. Adds depth to how AI understands your perspective.', pl: 'Motywacje, wartości, doświadczenia. Dodaje głębi w rozumieniu Twojej perspektywy przez AI.' }, required: false, sensitive: false },
+  { id: 'lifestyle', name: { en: 'Lifestyle', pl: 'Styl życia' }, desc: { en: 'Daily routines, hobbies, social preferences. Helps AI match your vibe.', pl: 'Codzienne rutyny, hobby, preferencje społeczne. Pomaga AI dopasować się do Twojego stylu.' }, required: false, sensitive: false },
+  { id: 'learning', name: { en: 'Learning Style', pl: 'Styl uczenia' }, desc: { en: 'How you learn best, preferred explanation depth, knowledge domains.', pl: 'Jak uczysz się najlepiej, preferowana głębokość wyjaśnień, domeny wiedzy.' }, required: false, sensitive: false },
+  { id: 'health', name: { en: 'Health & Wellbeing', pl: 'Zdrowie' }, desc: { en: 'Energy levels, stress patterns, accessibility needs. Marked as sensitive — not exported by default.', pl: 'Poziomy energii, wzorce stresu, potrzeby dostępności. Oznaczony jako wrażliwy — nie eksportowany domyślnie.' }, required: false, sensitive: true },
+  { id: 'finance', name: { en: 'Financial Context', pl: 'Kontekst finansowy' }, desc: { en: 'Budget awareness, spending style, financial goals. Marked as sensitive — not exported by default.', pl: 'Świadomość budżetu, styl wydatków, cele finansowe. Oznaczony jako wrażliwy — nie eksportowany domyślnie.' }, required: false, sensitive: true },
+];
+
+// ─── Platform list ──────────────────────────────────────
+
+const PLATFORMS = [
+  { id: 'chatgpt', name: 'ChatGPT', file: { en: 'Custom instructions text', pl: 'Tekst instrukcji' }, type: 'clipboard' },
+  { id: 'claude', name: 'Claude', file: { en: 'Profile text for claude.ai', pl: 'Tekst profilu dla claude.ai' }, type: 'clipboard' },
+  { id: 'claude-code', name: 'Claude Code', file: 'CLAUDE.md', type: 'auto' },
+  { id: 'cursor', name: 'Cursor', file: '.cursor/rules/meport.mdc', type: 'auto' },
+  { id: 'copilot', name: 'GitHub Copilot', file: '.github/copilot-instructions.md', type: 'auto' },
+  { id: 'windsurf', name: 'Windsurf', file: '.windsurfrules', type: 'auto' },
+  { id: 'agents-md', name: 'AGENTS.md', file: 'AGENTS.md', type: 'auto' },
+  { id: 'ollama', name: 'Ollama', file: 'Modelfile', type: 'auto' },
+  { id: 'gemini', name: 'Gemini', file: { en: 'Custom instructions text', pl: 'Tekst instrukcji' }, type: 'clipboard' },
+  { id: 'grok', name: 'Grok', file: { en: 'Custom instructions text', pl: 'Tekst instrukcji' }, type: 'clipboard' },
+  { id: 'perplexity', name: 'Perplexity', file: { en: 'Custom instructions text', pl: 'Tekst instrukcji' }, type: 'clipboard' },
+  { id: 'openclaw', name: 'OpenClaw', file: { en: 'Identity + agents-md bundle', pl: 'Identity + agents-md bundle' }, type: 'auto' },
+  { id: 'generic', name: 'Generic', file: { en: 'Markdown rules (works anywhere)', pl: 'Reguły Markdown (działają wszędzie)' }, type: 'clipboard' },
+  { id: 'json', name: 'JSON', file: { en: 'Raw JSON profile data', pl: 'Surowe dane JSON profilu' }, type: 'clipboard' },
+];
+
+// ─── FAQ items ──────────────────────────────────────────
+
+const FAQ_BEGINNER = [
+  { q: { en: 'Is Meport free?', pl: 'Czy Meport jest darmowy?' }, a: { en: 'Yes. Meport is completely free and open source. The AI-driven interview mode requires an API key from Claude, OpenAI, or a free local Ollama setup, but pack-based profiling (the default) needs nothing.', pl: 'Tak. Meport jest całkowicie darmowy i open source. Tryb wywiadu z AI wymaga klucza API od Claude, OpenAI lub darmowej lokalnej instalacji Ollama, ale profilowanie pakietowe (domyślne) nie wymaga niczego.' } },
+  { q: { en: 'Do I need to be technical to use it?', pl: 'Czy muszę być techniczny aby używać?' }, a: { en: 'You need to be comfortable opening a terminal and typing commands. But the questions themselves are about you — no technical knowledge needed. If you can copy and paste text, you can use Meport.', pl: 'Musisz umieć otworzyć terminal i wpisywać komendy. Ale same pytania dotyczą Ciebie — nie jest potrzebna wiedza techniczna. Jeśli umiesz kopiować i wklejać tekst, możesz używać Meport.' } },
+  { q: { en: 'How long does profiling take?', pl: 'Ile trwa profilowanie?' }, a: { en: 'Quick mode: about 5 minutes. Full profiling: 15-30 minutes depending on how many packs you choose. You can stop anytime and continue later.', pl: 'Tryb szybki: ok. 5 minut. Pełne profilowanie: 15-30 minut w zależności od liczby wybranych pakietów. Możesz przerwać w dowolnym momencie i kontynuować później.' } },
+  { q: { en: 'What happens to my data?', pl: 'Co się dzieje z moimi danymi?' }, a: { en: 'Your profile stays on your computer as a local file. Nothing is uploaded to any cloud. If you use Ollama, even the AI processing is local. There are no accounts, no analytics, no tracking.', pl: 'Twój profil zostaje na Twoim komputerze jako plik lokalny. Nic nie jest wysyłane do chmury. Jeśli używasz Ollama, nawet przetwarzanie AI jest lokalne. Nie ma kont, analityki ani śledzenia.' } },
+  { q: { en: 'Can I change my profile later?', pl: 'Czy mogę później zmienić profil?' }, a: { en: 'Yes! Use <code>meport edit</code> to change individual answers, <code>meport deepen</code> to add more detail, or <code>meport refresh</code> to update everything and re-export.', pl: 'Tak! Użyj <code>meport edit</code> aby zmienić pojedyncze odpowiedzi, <code>meport deepen</code> aby dodać więcej szczegółów, lub <code>meport refresh</code> aby wszystko zaktualizować i ponownie eksportować.' } },
+  { q: { en: 'Which AI platforms are supported?', pl: 'Które platformy AI są obsługiwane?' }, a: { en: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, OpenClaw — 14 platforms total, with more coming.', pl: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, OpenClaw — 14 platform łącznie, więcej w drodze.' } },
+];
+
+const FAQ_POWER = [
+  { q: { en: 'Rule-based vs description-based exports?', pl: 'Eksporty oparte na regułach vs opisowe?' }, a: { en: 'Rule-based (default, recommended) generates actionable IF/THEN instructions like "Max 5 lines for simple questions" (~85% AI compliance). Description-based (--legacy) generates prose descriptions like "User prefers brevity" (~50% compliance). Always use rule-based unless debugging.', pl: 'Oparte na regułach (domyślne, zalecane) generują akcjonalne instrukcje IF/THEN jak "Max 5 linii na proste pytania" (~85% skuteczności). Opisowe (--legacy) generują opisy prozą jak "Użytkownik preferuje zwięzłość" (~50% skuteczności). Zawsze używaj reguł chyba że debugujesz.' } },
+  { q: { en: 'How does AI-driven profiling differ from pack-based?', pl: 'Jak profilowanie z AI różni się od pakietowego?' }, a: { en: 'Pack-based uses fixed questions with predefined options — fast, deterministic, works offline. AI-driven is conversational — the AI asks follow-up questions based on your answers, resulting in richer profiles but requiring an API key.', pl: 'Pakietowe używa stałych pytań z predefiniowanymi opcjami — szybkie, deterministyczne, działa offline. Z AI jest konwersacyjne — AI zadaje pytania uzupełniające na podstawie Twoich odpowiedzi, dając bogatsze profile ale wymagając klucza API.' } },
+  { q: { en: 'Can I use Meport in CI/CD?', pl: 'Czy mogę używać Meport w CI/CD?' }, a: { en: 'Yes. Export with <code>meport export cursor -o .cursor/rules/meport.mdc</code> in your pipeline. The profile JSON can be committed to your repo (it contains no secrets). Deploy with <code>meport deploy --all</code>.', pl: 'Tak. Eksportuj z <code>meport export cursor -o .cursor/rules/meport.mdc</code> w pipeline. JSON profilu może być commitowany do repo (nie zawiera sekretów). Wdróż z <code>meport deploy --all</code>.' } },
+  { q: { en: 'What if I use multiple AI tools?', pl: 'Co jeśli używam wielu narzędzi AI?' }, a: { en: 'That\'s the whole point. One profile, 14 exports. Run <code>meport deploy --all</code> and every tool gets your personality. Use <code>meport projects</code> to track multiple project directories.', pl: 'O to właśnie chodzi. Jeden profil, 14 eksportów. Uruchom <code>meport deploy --all</code> i każde narzędzie dostaje Twoją osobowość. Użyj <code>meport projects</code> do śledzenia wielu katalogów projektów.' } },
+  { q: { en: 'What are sensitive packs?', pl: 'Co to są wrażliwe pakiety?' }, a: { en: 'Health and Finance packs are marked sensitive. Their dimensions are stored in your profile but excluded from exports by default. You must explicitly opt-in to include them in platform exports.', pl: 'Pakiety Zdrowie i Finanse są oznaczone jako wrażliwe. Ich wymiary są przechowywane w profilu ale domyślnie wyłączone z eksportów. Musisz jawnie wyrazić zgodę na ich uwzględnienie w eksportach platformowych.' } },
+];
+
+const FAQ_DEV = [
+  { q: { en: 'How do compound signals work?', pl: 'Jak działają sygnały złożone?' }, a: { en: 'Compound signals fire after all explicit answers are collected. Each rule checks multiple question answers (using countMatching) and triggers when a threshold is met (usually 2-3 matching signals). Example: compound_adhd checks 16 different questions from multiple packs and fires when 2+ match. The confidence is based on match count, not ratio, so adding more checks doesn\'t penalize confidence.', pl: 'Sygnały złożone uruchamiają się po zebraniu wszystkich jawnych odpowiedzi. Każda reguła sprawdza wiele odpowiedzi na pytania (używając countMatching) i wyzwala się gdy próg jest osiągnięty (zwykle 2-3 pasujące sygnały). Przykład: compound_adhd sprawdza 16 różnych pytań z wielu pakietów i wyzwala się gdy 2+ pasuje. Pewność oparta jest na liczbie dopasowań, nie proporcji.' } },
+  { q: { en: 'How does rule deduplication work?', pl: 'Jak działa deduplikacja reguł?' }, a: { en: 'Two-pass filtering: (1) generic rule removal — checks against GENERIC_RULE_PATTERNS regex list, but keeps rules with specificity signals (IF/THEN, concrete numbers, tool names). (2) Near-duplicate removal — extracts keywords (>3 chars, stop words removed), computes Jaccard similarity between all rule pairs, drops duplicates with similarity >= 0.45.', pl: 'Dwuprzejściowe filtrowanie: (1) usuwanie generycznych reguł — sprawdzanie z listą regex GENERIC_RULE_PATTERNS, ale zachowanie reguł z sygnałami specyficzności (IF/THEN, konkretne liczby, nazwy narzędzi). (2) Usuwanie bliskich duplikatów — ekstrakcja słów kluczowych (>3 znaki, stop words usunięte), obliczanie podobieństwa Jaccarda, usuwanie duplikatów z podobieństwem >= 0.45.' } },
+  { q: { en: 'How do I add a new question pack?', pl: 'Jak dodać nowy pakiet pytań?' }, a: { en: 'Create a JSON file in <code>packages/core/questions/packs/</code> following the existing pack format. Add the pack ID to <code>getAvailablePackIds()</code> in the pack loader. Create a Polish translation in the <code>pl/</code> subdirectory. Each question needs: id, pack, question, type, dimension, skippable, and options with maps_to and export_rule fields.', pl: 'Stwórz plik JSON w <code>packages/core/questions/packs/</code> zgodnie z istniejącym formatem pakietów. Dodaj ID pakietu do <code>getAvailablePackIds()</code> w loaderze pakietów. Stwórz polskie tłumaczenie w podkatalogu <code>pl/</code>. Każde pytanie wymaga: id, pack, question, type, dimension, skippable oraz options z polami maps_to i export_rule.' } },
+  { q: { en: 'What testing framework is used?', pl: 'Jaki framework testowy jest używany?' }, a: { en: 'Vitest. Run <code>pnpm test</code> from the monorepo root. Tests are co-located with source files.', pl: 'Vitest. Uruchom <code>pnpm test</code> z roota monorepo. Testy są umieszczone obok plików źródłowych.' } },
+];
+
+// ─── Issue items (beginner only) ────────────────────────
+
+const ISSUES = [
+  { title: { en: '"command not found: meport"', pl: '"command not found: meport"' }, fix: { en: 'Use <code>npx meport</code> instead, or install globally with <code>npm install -g meport</code>. Make sure Node.js 18+ is installed.', pl: 'Użyj <code>npx meport</code> zamiast tego, lub zainstaluj globalnie z <code>npm install -g meport</code>. Upewnij się że Node.js 18+ jest zainstalowany.' } },
+  { title: { en: '"No profile found"', pl: '"No profile found" / "Brak profilu"' }, fix: { en: 'You need to create a profile first with <code>meport profile</code>. The profile file (<code>meport-profile.json</code>) is created in the folder where you run the command. Make sure you\'re in the same folder when running other commands.', pl: 'Musisz najpierw stworzyć profil komendą <code>meport profile</code>. Plik profilu (<code>meport-profile.json</code>) jest tworzony w folderze, w którym uruchamiasz komendę. Upewnij się że jesteś w tym samym folderze przy innych komendach.' } },
+  { title: { en: 'AI mode not working', pl: 'Tryb AI nie działa' }, fix: { en: 'Run <code>meport config</code> first to set up your AI provider. For Claude/OpenAI, you need a valid API key. For Ollama, make sure Ollama is running (<code>ollama serve</code>) and you have a model downloaded (<code>ollama pull llama3.1</code>).', pl: 'Uruchom najpierw <code>meport config</code> aby skonfigurować dostawcę AI. Dla Claude/OpenAI potrzebujesz prawidłowego klucza API. Dla Ollama upewnij się że Ollama działa (<code>ollama serve</code>) i masz pobrany model (<code>ollama pull llama3.1</code>).' } },
+  { title: { en: 'Export looks different than expected', pl: 'Eksport wygląda inaczej niż oczekiwany' }, fix: { en: 'Make sure you\'re not using <code>--legacy</code> flag. The default rule-based export generates actionable instructions. If your profile is thin (few answers), try <code>meport deepen</code> to add more dimensions.', pl: 'Upewnij się że nie używasz flagi <code>--legacy</code>. Domyślny eksport oparty na regułach generuje akcjonalne instrukcje. Jeśli profil jest cienki (mało odpowiedzi), spróbuj <code>meport deepen</code> aby dodać więcej wymiarów.' } },
+];
+
+// ─── Navigation structure ───────────────────────────────
+
+const NAV_STRUCTURE = {
+  beginner: [
+    { group: 'nav_start', items: [
+      { key: 'nav_what', href: '#what' },
+      { key: 'nav_install', href: '#install' },
+      { key: 'nav_quickstart', href: '#quickstart' },
+      { key: 'nav_glossary', href: '#glossary' },
+    ]},
+    { group: 'nav_help', items: [
+      { key: 'nav_privacy', href: '#privacy' },
+      { key: 'nav_faq', href: '#faq' },
+      { key: 'nav_issues', href: '#issues' },
+    ]},
+  ],
+  power: [
+    { group: 'nav_start', items: [
+      { key: 'nav_what', href: '#what' },
+      { key: 'nav_install', href: '#install' },
+      { key: 'nav_quickstart', href: '#quickstart' },
+    ]},
+    { group: 'nav_reference', items: [
+      { key: 'nav_commands', href: '#commands' },
+      { key: 'nav_packs', href: '#packs' },
+      { key: 'nav_exports', href: '#exports' },
+    ]},
+    { group: 'nav_advanced', items: [
+      { key: 'nav_scanning', href: '#scanning' },
+      { key: 'nav_ai', href: '#ai-providers' },
+      { key: 'nav_profile_mgmt', href: '#profile-mgmt' },
+      { key: 'nav_deployment', href: '#deployment' },
+      { key: 'nav_config', href: '#configuration' },
+    ]},
+    { group: 'nav_help', items: [
+      { key: 'nav_privacy', href: '#privacy' },
+      { key: 'nav_faq', href: '#faq' },
+    ]},
+  ],
+  dev: [
+    { group: 'nav_start', items: [
+      { key: 'nav_what', href: '#what' },
+      { key: 'nav_install', href: '#install' },
+      { key: 'nav_quickstart', href: '#quickstart' },
+    ]},
+    { group: 'nav_reference', items: [
+      { key: 'nav_commands', href: '#commands' },
+      { key: 'nav_packs', href: '#packs' },
+      { key: 'nav_exports', href: '#exports' },
+      { key: 'nav_scanning', href: '#scanning' },
+      { key: 'nav_ai', href: '#ai-providers' },
+      { key: 'nav_config', href: '#configuration' },
+    ]},
+    { group: 'nav_internals', items: [
+      { key: 'nav_architecture', href: '#architecture' },
+      { key: 'nav_schema', href: '#schema' },
+      { key: 'nav_inference', href: '#inference' },
+      { key: 'nav_compilers', href: '#compilers' },
+      { key: 'nav_contributing', href: '#contributing' },
+    ]},
+    { group: 'nav_help', items: [
+      { key: 'nav_privacy', href: '#privacy' },
+      { key: 'nav_faq', href: '#faq' },
+    ]},
+  ],
+};
+
+// ─── State ──────────────────────────────────────────────
+
+let currentLang = 'en';
+let currentLevel = 'beginner';
+
+// ─── Init ───────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Detect language from URL hash or browser
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('lang') === 'pl') currentLang = 'pl';
+  else if (navigator.language?.startsWith('pl')) currentLang = 'pl';
 
-  // ---- Level Selector ----
-  const levelPills = document.querySelectorAll('.level-pill');
-  let currentLevel = localStorage.getItem('meport-docs-level') || 'beginner';
-  setLevel(currentLevel);
+  // Detect level from URL hash
+  if (params.get('level')) currentLevel = params.get('level');
 
-  levelPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      const level = pill.dataset.level;
-      if (level !== currentLevel) {
-        currentLevel = level;
-        localStorage.setItem('meport-docs-level', level);
-        setLevel(level);
-      }
-    });
+  applyAll();
+  setupListeners();
+});
+
+// ─── Apply everything ───────────────────────────────────
+
+function applyAll() {
+  document.documentElement.setAttribute('data-lang', currentLang);
+  document.documentElement.setAttribute('data-level', currentLevel);
+
+  applyTranslations();
+  buildNav();
+  buildGlossary();
+  buildPacksList();
+  buildPlatformList();
+  buildFAQs();
+  buildIssues();
+  applyLevelContent();
+  applySectionVisibility();
+  updateLangSwitch();
+  updateLevelPills();
+}
+
+// ─── Translation ────────────────────────────────────────
+
+function applyTranslations() {
+  // data-i18n (text content)
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[key]) el.textContent = T[key][currentLang] || T[key].en;
   });
+  // data-i18n-html (innerHTML)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (T[key]) el.innerHTML = T[key][currentLang] || T[key].en;
+  });
+}
 
-  function setLevel(level) {
-    document.documentElement.setAttribute('data-level', level);
+// ─── Level content ──────────────────────────────────────
 
-    levelPills.forEach(p => {
-      p.classList.toggle('active', p.dataset.level === level);
-    });
+function applyLevelContent() {
+  document.querySelectorAll('.level-content').forEach(el => {
+    const forLevel = el.getAttribute('data-for');
+    el.classList.toggle('visible', forLevel === currentLevel);
+  });
+}
 
-    // Show/hide level content
-    document.querySelectorAll('.level-content').forEach(el => {
-      const showFor = el.dataset.show;
-      el.classList.toggle('visible', showFor === level);
-    });
+function applySectionVisibility() {
+  document.querySelectorAll('.doc-section').forEach(section => {
+    const levels = section.getAttribute('data-levels');
+    if (!levels) return;
+    const levelList = levels.split(' ');
+    section.style.display = levelList.includes(currentLevel) ? '' : 'none';
+  });
+}
 
-    // Show/hide min-level sections
-    document.querySelectorAll('[data-min-level]').forEach(el => {
-      const minLevel = el.dataset.minLevel;
-      const levels = ['beginner', 'power', 'dev'];
-      const currentIdx = levels.indexOf(level);
-      const minIdx = levels.indexOf(minLevel);
-      el.style.display = currentIdx >= minIdx ? '' : 'none';
-    });
+// ─── Navigation ─────────────────────────────────────────
+
+function buildNav() {
+  const nav = document.getElementById('docs-nav');
+  const structure = NAV_STRUCTURE[currentLevel] || NAV_STRUCTURE.beginner;
+  let html = '';
+
+  for (const group of structure) {
+    const groupLabel = T[group.group]?.[currentLang] || T[group.group]?.en || group.group;
+    html += `<div class="docs-nav-group"><h4>${groupLabel}</h4>`;
+    for (const item of group.items) {
+      const label = T[item.key]?.[currentLang] || T[item.key]?.en || item.key;
+      html += `<a href="${item.href}" class="docs-link" data-section="${item.href.slice(1)}">${label}</a>`;
+    }
+    html += '</div>';
   }
 
-  // ---- Active sidebar link on scroll ----
-  const sections = document.querySelectorAll('.doc-section');
-  const navLinks = document.querySelectorAll('.docs-link');
+  nav.innerHTML = html;
 
-  const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
-
-  sections.forEach(s => scrollObserver.observe(s));
-
-  // ---- Smooth scroll for sidebar links ----
-  navLinks.forEach(link => {
+  // Attach click handlers
+  nav.querySelectorAll('.docs-link').forEach(link => {
     link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          document.getElementById('sidebar')?.classList.remove('open');
-        }
-      }
+      nav.querySelectorAll('.docs-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      // Close mobile sidebar
+      document.getElementById('sidebar')?.classList.remove('open');
     });
   });
 
-  // ---- Mobile sidebar toggle ----
+  // Set first item active
+  const first = nav.querySelector('.docs-link');
+  if (first) first.classList.add('active');
+}
+
+// ─── Glossary ───────────────────────────────────────────
+
+function buildGlossary() {
+  const grid = document.getElementById('glossary-grid');
+  if (!grid) return;
+
+  grid.innerHTML = GLOSSARY.map(item => `
+    <div class="doc-file-item">
+      <strong>${item.term[currentLang] || item.term.en}</strong>
+      <span>${item.def[currentLang] || item.def.en}</span>
+    </div>
+  `).join('');
+}
+
+// ─── Packs list ─────────────────────────────────────────
+
+function buildPacksList() {
+  const container = document.getElementById('packs-list');
+  if (!container) return;
+
+  container.innerHTML = PACKS.map(pack => {
+    let badge = '';
+    if (pack.required) badge = `<span class="doc-badge doc-badge-required">${currentLang === 'pl' ? 'Wymagany' : 'Required'}</span>`;
+    else if (pack.sensitive) badge = `<span class="doc-badge doc-badge-sensitive">${currentLang === 'pl' ? 'Wrażliwy' : 'Sensitive'}</span>`;
+    else badge = `<span class="doc-badge doc-badge-optional">${currentLang === 'pl' ? 'Opcjonalny' : 'Optional'}</span>`;
+
+    return `<div class="doc-plat-row">
+      <strong>${pack.name[currentLang] || pack.name.en} ${badge}</strong>
+      <span>${pack.desc[currentLang] || pack.desc.en}</span>
+    </div>`;
+  }).join('');
+}
+
+// ─── Platform list ──────────────────────────────────────
+
+function buildPlatformList() {
+  const container = document.getElementById('platform-list');
+  if (!container) return;
+
+  container.innerHTML = PLATFORMS.map(p => {
+    const file = typeof p.file === 'object' ? (p.file[currentLang] || p.file.en) : p.file;
+    const typeLabel = p.type === 'auto'
+      ? `<span style="color:var(--accent);font-weight:600">${currentLang === 'pl' ? 'Auto-deploy' : 'Auto-deploy'}</span>`
+      : `<span>${currentLang === 'pl' ? 'Schowek' : 'Clipboard'}</span>`;
+
+    return `<div class="doc-plat-row">
+      <strong>${p.name}</strong>
+      <span>${file} &middot; ${typeLabel}</span>
+    </div>`;
+  }).join('');
+}
+
+// ─── FAQ ────────────────────────────────────────────────
+
+function buildFAQs() {
+  buildFAQ('faq-beginner', FAQ_BEGINNER);
+  buildFAQ('faq-power', FAQ_POWER);
+  buildFAQ('faq-dev', FAQ_DEV);
+}
+
+function buildFAQ(containerId, items) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container.innerHTML = items.map(item => `
+    <details class="doc-faq-item">
+      <summary>${item.q[currentLang] || item.q.en}</summary>
+      <p>${item.a[currentLang] || item.a.en}</p>
+    </details>
+  `).join('');
+}
+
+// ─── Issues ─────────────────────────────────────────────
+
+function buildIssues() {
+  const container = document.getElementById('issues-list');
+  if (!container) return;
+
+  container.innerHTML = ISSUES.map(issue => `
+    <div class="doc-cmd-block">
+      <h4>${issue.title[currentLang] || issue.title.en}</h4>
+      <p>${issue.fix[currentLang] || issue.fix.en}</p>
+    </div>
+  `).join('');
+}
+
+// ─── UI state ───────────────────────────────────────────
+
+function updateLangSwitch() {
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-lang') === currentLang);
+  });
+}
+
+function updateLevelPills() {
+  document.querySelectorAll('.level-pill').forEach(pill => {
+    pill.classList.toggle('active', pill.getAttribute('data-level') === currentLevel);
+  });
+}
+
+// ─── Listeners ──────────────────────────────────────────
+
+function setupListeners() {
+  // Language switch
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.addEventListener('click', () => {
+      currentLang = el.getAttribute('data-lang');
+      applyAll();
+    });
+  });
+
+  // Level pills
+  document.querySelectorAll('.level-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      currentLevel = pill.getAttribute('data-level');
+      applyAll();
+      // Scroll to top
+      document.getElementById('docs-main')?.scrollTo(0, 0);
+    });
+  });
+
+  // Mobile toggle
   const toggle = document.getElementById('nav-toggle');
   const sidebar = document.getElementById('sidebar');
-
-  toggle?.addEventListener('click', () => {
-    sidebar?.classList.toggle('open');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (sidebar?.classList.contains('open') &&
-        !sidebar.contains(e.target) &&
-        !toggle?.contains(e.target)) {
-      sidebar.classList.remove('open');
-    }
-  });
-
-  // ---- Language switch ----
-  const langSwitch = document.getElementById('lang-switch');
-  let lang = localStorage.getItem('meport-lang') || 'en';
-  applyLang(lang);
-
-  langSwitch?.addEventListener('click', (e) => {
-    const option = e.target.closest('.lang-option');
-    if (option) {
-      const newLang = option.dataset.lang;
-      if (newLang && newLang !== lang) {
-        lang = newLang;
-        localStorage.setItem('meport-lang', lang);
-        applyLang(lang);
-      }
-    }
-  });
-
-  function applyLang(l) {
-    document.documentElement.setAttribute('data-lang', l);
-    document.documentElement.setAttribute('lang', l);
-
-    // Update lang switch UI
-    document.querySelectorAll('.lang-option').forEach(el => {
-      el.classList.toggle('active', el.dataset.lang === l);
-    });
-
-    // Translate all data-i18n elements
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const entry = T[key];
-      if (entry && entry[l]) {
-        el.innerHTML = entry[l];
-      }
+  if (toggle && sidebar) {
+    toggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
     });
   }
 
-});
+  // Scroll spy
+  const main = document.getElementById('docs-main');
+  if (main) {
+    main.addEventListener('scroll', debounce(() => {
+      const sections = document.querySelectorAll('.doc-section');
+      let activeId = '';
+      for (const section of sections) {
+        if (section.style.display === 'none') continue;
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100) activeId = section.id;
+      }
+      if (activeId) {
+        document.querySelectorAll('.docs-link').forEach(link => {
+          link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+        });
+      }
+    }, 100));
+  }
+
+  // Also listen to window scroll for non-scrollable main
+  window.addEventListener('scroll', debounce(() => {
+    const sections = document.querySelectorAll('.doc-section');
+    let activeId = '';
+    for (const section of sections) {
+      if (section.style.display === 'none') continue;
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 100) activeId = section.id;
+    }
+    if (activeId) {
+      document.querySelectorAll('.docs-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-section') === activeId);
+      });
+    }
+  }, 100));
+}
+
+function debounce(fn, ms) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), ms);
+  };
+}
