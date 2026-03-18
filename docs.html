@@ -133,7 +133,7 @@
       <!-- Sidebar footer -->
       <div class="sidebar-footer">
         <a href="index.html" class="sidebar-link" data-i18n="nav_home"></a>
-        <a href="https://github.com/anthropics/meport" class="sidebar-link">GitHub</a>
+        <a href="https://github.com/zmrlk/meport-cli" class="sidebar-link">GitHub</a>
       </div>
     </aside>
 
@@ -212,7 +212,7 @@ meport --version</code></pre>
 npm install -g meport
 
 <span style="color:var(--text-3)"># Or build from source</span>
-git clone https://github.com/anthropics/meport.git
+git clone https://github.com/zmrlk/meport-cli.git
 cd meport
 pnpm install
 pnpm build
@@ -263,6 +263,65 @@ pnpm link --global</code></pre>
             <strong data-i18n="s_quick_b_output_title"></strong>
             <span data-i18n-html="s_quick_b_output_body"></span>
           </div>
+
+          <h2>What it looks like</h2>
+          <div class="doc-code" style="max-width:640px">
+            <div class="doc-code-bar">Step 1: System Scan</div>
+            <pre><code>$ npx meport profile
+
+  ⠋ System scan...
+  ✓ 8 system dimensions detected
+    Language: pl (locale)
+    Timezone: Europe/Warsaw (system)
+    Name: Karol (gitconfig)
+    AI tools: Claude Code, Cursor (ai-configs)
+    Tech: TypeScript, Svelte, Docker (project-files)</code></pre>
+          </div>
+
+          <div class="doc-code" style="max-width:640px">
+            <div class="doc-code-bar">Step 2: Pack Selection</div>
+            <pre><code>  ┌ Meport — Full Session
+  │
+  ◆ What areas should your profile cover?
+  │ ◻ Story — your background and motivations
+  │ ◼ Work — habits, energy, deadlines
+  │ ◼ Context — occupation, location, priorities
+  │ ◻ Lifestyle — routines, hobbies
+  │ ◻ Health — neurodivergent traits (sensitive)
+  │ ◻ Finance — budget awareness (sensitive)
+  │ ◼ Learning — how you learn best
+  └</code></pre>
+          </div>
+
+          <div class="doc-code" style="max-width:640px">
+            <div class="doc-code-bar">Step 3: Answer Questions</div>
+            <pre><code>  ┌ Core Pack (3/8)
+  │
+  ◆ How do you prefer AI to communicate?
+  │ ○ Detailed — explain everything
+  │ ○ Balanced — some context, some brevity
+  │ ● Minimal — just the answer, no fluff
+  │ ○ It depends on the topic
+  └
+
+  → Rule: "Max 5 lines for simple questions. Skip praise."</code></pre>
+          </div>
+
+          <div class="doc-code" style="max-width:640px">
+            <div class="doc-code-bar">Step 4: Profile Ready</div>
+            <pre><code>  ✓ Profile complete!
+
+    Dimensions: 34 (28 explicit + 6 inferred)
+    Packs: core, work, context, learning
+    Completeness: 72%
+    Time: 8 minutes
+
+  ? What next?
+  ❯ Deploy to all tools    Write to Cursor, Claude Code, etc.
+    Export to clipboard     Copy for ChatGPT/Claude web
+    View profile            See what was generated
+    Deepen                  Answer more questions</code></pre>
+          </div>
         </div>
 
         <div class="level-content" data-for="power">
@@ -276,7 +335,7 @@ meport profile
 meport profile --quick
 
 <span style="color:var(--text-3)"># AI-driven conversational profiling</span>
-meport config  <span style="color:var(--text-3)"># set up Claude/OpenAI/Ollama first</span>
+meport config  <span style="color:var(--text-3)"># set up AI provider (6 supported)</span>
 meport profile --ai
 
 <span style="color:var(--text-3)"># Profile with file scanning</span>
@@ -305,6 +364,52 @@ meport deploy --global
 
 <span style="color:var(--text-3)"># View profile as JSON</span>
 meport export json | jq '.explicit'</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: INTERACTIVE SHELL ═══════ -->
+      <section class="doc-section" id="shell" data-levels="beginner power">
+        <h1>Interactive Shell</h1>
+
+        <div class="level-content" data-for="beginner">
+          <p>When you run <code>npx meport</code> without any command, you get an <strong>interactive menu</strong>. No need to remember commands or flags — just pick what you want to do.</p>
+
+          <div class="doc-code">
+            <div class="doc-code-bar">Terminal</div>
+            <pre><code>$ npx meport
+
+  ╭──────────────────────────────╮
+  │       Welcome to Meport      │
+  │   Your AI personality engine │
+  ╰──────────────────────────────╯
+
+  ? What would you like to do?
+
+  ❯ Create profile     Start profiling from scratch
+    View profile       See your current profile
+    Export             Export to a specific platform
+    Deploy             Push to all your AI tools
+    Edit               Change individual dimensions
+    Deepen             Answer more questions
+    Config             Set up AI provider
+    ─────────
+    Exit</code></pre>
+          </div>
+
+          <div class="doc-callout doc-callout-tip">
+            <strong>Tip</strong>
+            <span>The interactive shell is the easiest way to use Meport. Just run <code>npx meport</code> and follow the prompts. You can always switch to specific commands later.</span>
+          </div>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p>Running <code>meport</code> with no arguments launches the interactive shell — a menu-driven interface for all Meport operations. Useful when you don't remember exact command names.</p>
+          <div class="doc-code">
+            <div class="doc-code-bar">Terminal</div>
+            <pre><code>npx meport          # Interactive shell (default)
+meport profile      # Skip shell, go straight to profiling
+meport deploy       # Skip shell, deploy immediately</code></pre>
           </div>
         </div>
       </section>
@@ -753,7 +858,25 @@ isTodoOrNotes()     <span style="color:var(--text-3)">// Notes/todos -> context.
 <span style="color:var(--text-3)"># Select "OpenAI (GPT)"</span>
 <span style="color:var(--text-3)"># Paste your OpenAI API key</span></code></pre></div>
 
-          <h3>Ollama</h3>
+          <h3>Gemini (Google)</h3>
+          <p>Google AI Studio API key. Good for multilingual profiling. Get a key from <a href="https://aistudio.google.com">aistudio.google.com</a>.</p>
+          <div class="doc-code"><pre><code>meport config
+<span style="color:var(--text-3)"># Select "Gemini (Google)"</span>
+<span style="color:var(--text-3)"># Paste your Google AI API key</span></code></pre></div>
+
+          <h3>Grok (xAI)</h3>
+          <p>xAI's Grok models. Get an API key from <a href="https://console.x.ai">console.x.ai</a>.</p>
+          <div class="doc-code"><pre><code>meport config
+<span style="color:var(--text-3)"># Select "Grok (xAI)"</span>
+<span style="color:var(--text-3)"># Paste your xAI API key</span></code></pre></div>
+
+          <h3>OpenRouter</h3>
+          <p>Access 100+ models through a single API. Get a key from <a href="https://openrouter.ai">openrouter.ai</a>.</p>
+          <div class="doc-code"><pre><code>meport config
+<span style="color:var(--text-3)"># Select "OpenRouter"</span>
+<span style="color:var(--text-3)"># Paste your OpenRouter API key</span></code></pre></div>
+
+          <h3>Ollama (local)</h3>
           <p data-i18n-html="s_ai_ollama"></p>
           <div class="doc-code"><pre><code><span style="color:var(--text-3)"># Install Ollama: https://ollama.com</span>
 ollama pull llama3.1
@@ -770,7 +893,7 @@ meport config
             <div class="doc-code-bar">~/.meport/config.json</div>
             <pre><code>{
   "ai": {
-    "provider": "claude",           <span style="color:var(--text-3)">// "claude" | "openai" | "ollama"</span>
+    "provider": "claude",           <span style="color:var(--text-3)">// "claude" | "openai" | "gemini" | "grok" | "openrouter" | "ollama"</span>
     "apiKey": "sk-ant-...",         <span style="color:var(--text-3)">// stored with 0o600 permissions</span>
     "model": "claude-sonnet-4-20250514",  <span style="color:var(--text-3)">// optional, uses default</span>
     "baseUrl": "http://localhost:11434"  <span style="color:var(--text-3)">// ollama only</span>
@@ -837,6 +960,42 @@ meport deploy --global</code></pre></div>
 
           <h3 data-i18n="s_deploy_manual_title"></h3>
           <p data-i18n-html="s_deploy_manual_body"></p>
+
+          <div class="doc-code" style="max-width:640px">
+            <div class="doc-code-bar">meport deploy</div>
+            <pre><code>$ meport deploy
+
+  ⠋ Compiling exports... ✓ 14 platforms
+
+  ━━━ Deploy Profile ━━━
+
+  Auto-deploy:
+    ● Cursor     → .cursor/rules/meport.mdc
+    ● Claude Code → CLAUDE.md (merged)
+    ● Copilot    → .github/copilot-instructions.md (new)
+    ● Windsurf   → .windsurfrules (new)
+    ● AGENTS.md  → AGENTS.md (new)
+
+  Manual (clipboard):
+    ○ ChatGPT — Settings → Personalization
+    ○ Claude  — Projects → Instructions
+    ○ Gemini  — Gems → Instructions
+    ○ Grok    — Settings → Custom Instructions
+    ○ Perplexity — Profile → AI Profile
+
+  ? Deploy? (Y/n)
+
+  ✓ Cursor → .cursor/rules/meport.mdc
+  ✓ Claude Code → CLAUDE.md (merged)
+  ✓ Copilot → .github/copilot-instructions.md (new)
+  ✓ Windsurf → .windsurfrules (new)
+  ✓ AGENTS.md → AGENTS.md (new)
+
+  📋 ChatGPT copied to clipboard!
+     → Open ChatGPT → Settings → Personalization → Paste
+
+  ✓ Deploy complete!</code></pre>
+          </div>
         </div>
       </section>
 
@@ -995,6 +1154,122 @@ meport deploy --global</code></pre></div>
         commands/           <span style="color:var(--text-3)">// 23 command files</span>
     app/                   <span style="color:var(--text-3)">// @meport/app — Electron app (future)</span>
   site/                    <span style="color:var(--text-3)">// Marketing site + docs</span></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: PROFILE ARCHITECTURE ═══════ -->
+      <section class="doc-section" id="profile-architecture" data-levels="dev">
+        <h1>Profile Architecture</h1>
+
+        <div class="level-content" data-for="dev">
+          <p>Meport profiles use a 4-layer confidence architecture. Each layer adds depth, and exports prioritize high-confidence, high-weight dimensions.</p>
+
+          <div class="doc-code">
+            <div class="doc-code-bar">meport-profile.json</div>
+            <pre><code>{
+  "schema_version": "1.0",
+  "profile_type": "personal",
+  "completeness": 72,
+
+  "explicit": {          // Layer 1: From your answers (confidence: 1.0)
+    "communication.verbosity_preference": {
+      "value": "minimal",
+      "confidence": 1.0,
+      "source": "explicit",
+      "question_id": "core_q02"
+    }
+  },
+
+  "inferred": {          // Layer 2: Rules + signals (0.5-0.95)
+    "compound.directness": {
+      "value": "very_direct",
+      "confidence": 0.85,
+      "source": "compound",
+      "signal_id": "COMPOUND_DIRECTNESS"
+    }
+  },
+
+  "compound": {          // Layer 2B: Cross-dimension signals
+    "compound.adhd_pattern": {
+      "value": "hyperfocus_burst",
+      "confidence": 0.8,
+      "rule_id": "ADHD_PATTERN",
+      "export_instruction": "Break tasks into 15-25 min chunks..."
+    }
+  },
+
+  "emergent": [          // Layer 3: AI-generated (0.3-0.7, needs review)
+    {
+      "category": "personality_pattern",
+      "title": "Pattern: Builder mentality",
+      "observation": "Prefers creating over maintaining...",
+      "status": "pending_review"
+    }
+  ],
+
+  "synthesis": {         // Layer 4: AI narrative (optional)
+    "archetype": "The Direct Builder",
+    "narrative": "...",
+    "exportRules": ["Be extremely direct...", "Skip praise..."]
+  }
+}</code></pre>
+          </div>
+
+          <h2>Dimension Weights</h2>
+          <p>Each dimension has a weight (1-10) that determines export priority. When a platform has token limits, high-weight dimensions are included first.</p>
+          <table class="doc-table">
+            <thead><tr><th>Weight</th><th>Category</th><th>Examples</th></tr></thead>
+            <tbody>
+              <tr><td>10</td><td>Identity</td><td>preferred_name, language, pronouns</td></tr>
+              <tr><td>9</td><td>Communication</td><td>verbosity, directness, format, feedback style</td></tr>
+              <tr><td>8</td><td>AI Relationship</td><td>correction style, proactivity, memory</td></tr>
+              <tr><td>7</td><td>Compound</td><td>directness, cognitive style, ADHD pattern</td></tr>
+              <tr><td>6</td><td>Work</td><td>energy archetype, peak hours, task granularity</td></tr>
+              <tr><td>5</td><td>Cognitive</td><td>learning style, decision style, abstraction</td></tr>
+              <tr><td>4</td><td>Personality</td><td>core motivation, stress response</td></tr>
+              <tr><td>3</td><td>Neurodivergent</td><td>ADHD adaptations, time perception</td></tr>
+              <tr><td>2</td><td>Life</td><td>life stage, financial context, priorities</td></tr>
+              <tr><td>1</td><td>Expertise</td><td>tech stack, industries</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Inference Engine</h2>
+          <p>After you answer questions, Meport runs 3 inference passes:</p>
+          <div class="doc-steps">
+            <div class="doc-step">
+              <div class="doc-step-num">1</div>
+              <div>
+                <p><strong>Behavioral signals</strong> — response time, skip patterns, text length analysis. Example: fast responses + short text → infers "direct communicator" (confidence 0.7).</p>
+              </div>
+            </div>
+            <div class="doc-step">
+              <div class="doc-step-num">2</div>
+              <div>
+                <p><strong>Compound signals</strong> — cross-references multiple answers. Example: "minimal verbosity" + "direct feedback" + "skip small talk" → creates "compound.directness: very_direct" (confidence 0.85).</p>
+              </div>
+            </div>
+            <div class="doc-step">
+              <div class="doc-step-num">3</div>
+              <div>
+                <p><strong>Contradiction detection</strong> — finds conflicting answers. Example: "likes detailed explanations" + "minimal verbosity" → flags for nuanced export: "Detailed for new topics, minimal for familiar ones."</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>Rule-Based Exports</h2>
+          <p>Exports use <strong>direct rules</strong>, not descriptions. This is key to ~85-95% AI compliance:</p>
+          <div class="doc-code">
+            <div class="doc-code-bar">Description-based (old, ~50% compliance)</div>
+            <pre><code>The user prefers direct communication and doesn't like
+excessive praise or filler words.</code></pre>
+          </div>
+          <div class="doc-code">
+            <div class="doc-code-bar">Rule-based (Meport, ~85-95% compliance)</div>
+            <pre><code>- Be extremely direct. No softening, no hedging.
+- Max 5 lines for simple questions. Skip praise.
+- Never start with "Great question!" — go straight to the answer.
+- If I write in Polish, respond in Polish.</code></pre>
           </div>
         </div>
       </section>
@@ -1184,7 +1459,7 @@ export class MyPlatformRuleCompiler extends BaseCompiler {
           <p data-i18n-html="s_contrib_intro"></p>
           <div class="doc-code">
             <div class="doc-code-bar">Development setup</div>
-            <pre><code>git clone https://github.com/anthropics/meport.git
+            <pre><code>git clone https://github.com/zmrlk/meport-cli.git
 cd meport
 pnpm install
 pnpm build
