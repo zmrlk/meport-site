@@ -94,7 +94,7 @@
     <aside class="docs-sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="nav-logo">
-          <div class="logo-icon">M</div>
+          <img src="meport-sygnet.png" alt="" style="width:28px;height:28px;border-radius:7px">
           <span class="logo-text">Meport</span>
         </a>
         <div class="sidebar-actions">
@@ -133,7 +133,7 @@
       <!-- Sidebar footer -->
       <div class="sidebar-footer">
         <a href="index.html" class="sidebar-link" data-i18n="nav_home"></a>
-        <a href="https://github.com/zmrlk/meport-cli" class="sidebar-link">GitHub</a>
+        <a href="https://github.com/zmrlk/meport" class="sidebar-link">GitHub</a>
       </div>
     </aside>
 
@@ -165,6 +165,234 @@
         <div class="level-content" data-for="dev">
           <p data-i18n-html="s_what_d_p1"></p>
           <p data-i18n-html="s_what_d_p2"></p>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: DESKTOP APP ═══════ -->
+      <section class="doc-section" id="desktop-app" data-levels="beginner power dev">
+        <h1 data-i18n="s_app_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_app_b_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/01-welcome.png" alt="Meport welcome screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <div class="doc-callout doc-callout-info">
+            <strong data-i18n="s_app_callout_title"></strong>
+            <span data-i18n-html="s_app_callout_body"></span>
+          </div>
+          <p data-i18n-html="s_app_b_platforms"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_app_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/01-welcome.png" alt="Meport welcome screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_app_p_features"></p>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_app_d_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/01-welcome.png" alt="Meport welcome screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_app_d_stack"></p>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: ONBOARDING ═══════ -->
+      <section class="doc-section" id="onboarding" data-levels="beginner power dev">
+        <h1 data-i18n="s_onboard_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_onboard_b_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/02-choose-ai.png" alt="Choose AI provider" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <h2 data-i18n="s_onboard_step1"></h2>
+          <p data-i18n-html="s_onboard_b_step1"></p>
+          <h2 data-i18n="s_onboard_step2"></h2>
+          <p data-i18n-html="s_onboard_b_step2"></p>
+          <h2 data-i18n="s_onboard_step3"></h2>
+          <p data-i18n-html="s_onboard_b_step3"></p>
+          <div class="doc-callout doc-callout-tip">
+            <strong data-i18n="s_onboard_ollama_title"></strong>
+            <span data-i18n-html="s_onboard_ollama_body"></span>
+          </div>
+          <h2 data-i18n="s_onboard_step4"></h2>
+          <p data-i18n-html="s_onboard_b_step4"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_onboard_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/02-choose-ai.png" alt="Choose AI provider" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_onboard_p_models"></p>
+          <table class="doc-table">
+            <thead><tr><th>Model</th><th data-i18n="tbl_size">Size</th><th>RAM</th><th data-i18n="tbl_desc"></th></tr></thead>
+            <tbody>
+              <tr><td>llama3.1:8b</td><td>4.7 GB</td><td>8 GB</td><td data-i18n="s_onboard_model_llama"></td></tr>
+              <tr><td>gemma2:9b</td><td>5.4 GB</td><td>10 GB</td><td data-i18n="s_onboard_model_gemma"></td></tr>
+              <tr><td>mistral:7b</td><td>4.1 GB</td><td>8 GB</td><td data-i18n="s_onboard_model_mistral"></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_onboard_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/02-choose-ai.png" alt="Choose AI provider" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: PROFILING (APP) ═══════ -->
+      <section class="doc-section" id="app-profiling" data-levels="beginner power dev">
+        <h1 data-i18n="s_profiling_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_profiling_b_intro"></p>
+          <h2 data-i18n="s_profiling_scan"></h2>
+          <p data-i18n-html="s_profiling_b_scan"></p>
+          <h2 data-i18n="s_profiling_quiz"></h2>
+          <p data-i18n-html="s_profiling_b_quiz"></p>
+          <h2 data-i18n="s_profiling_ai_chat"></h2>
+          <p data-i18n-html="s_profiling_b_ai"></p>
+          <h2 data-i18n="s_profiling_deepen"></h2>
+          <p data-i18n-html="s_profiling_b_deepen"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_profiling_p_intro"></p>
+          <p data-i18n-html="s_profiling_p_methods"></p>
+          <p data-i18n-html="s_profiling_p_tips"></p>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_profiling_d_intro"></p>
+          <p data-i18n-html="s_profiling_d_engine"></p>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: PROFILE VIEW ═══════ -->
+      <section class="doc-section" id="app-profile" data-levels="beginner power dev">
+        <h1 data-i18n="s_profile_view_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_profile_view_b_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/06-profile-overview.png" alt="Profile overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_profile_view_b_tabs"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/05-home-dashboard.png" alt="Home dashboard" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_profile_view_b_edit"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_profile_view_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/06-profile-overview.png" alt="Profile overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_profile_view_p_report"></p>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_profile_view_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/06-profile-overview.png" alt="Profile overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: EXPORT (APP) ═══════ -->
+      <section class="doc-section" id="app-export" data-levels="beginner power dev">
+        <h1 data-i18n="s_app_export_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_app_export_b_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/08-export-platforms.png" alt="Platform exports" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_app_export_b_json"></p>
+          <p data-i18n-html="s_app_export_b_platforms"></p>
+          <p data-i18n-html="s_app_export_b_ai_refine"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_app_export_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/08-export-platforms.png" alt="Platform exports" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_app_export_p_formats"></p>
+          <p data-i18n-html="s_app_export_p_refine"></p>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_app_export_d_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/08-export-platforms.png" alt="Platform exports" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_app_export_d_schema"></p>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: DEMO ═══════ -->
+      <section class="doc-section" id="app-demo" data-levels="beginner power dev">
+        <h1 data-i18n="s_demo_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_demo_b_intro"></p>
+          <p data-i18n-html="s_demo_b_how"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_demo_p_intro"></p>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_demo_p_intro"></p>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: SETTINGS ═══════ -->
+      <section class="doc-section" id="app-settings" data-levels="beginner power dev">
+        <h1 data-i18n="s_settings_title"></h1>
+
+        <div class="level-content" data-for="beginner">
+          <p data-i18n-html="s_settings_b_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/09-settings.png" alt="Settings screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+          <p data-i18n-html="s_settings_b_sections"></p>
+          <p data-i18n-html="s_settings_b_delete"></p>
+        </div>
+
+        <div class="level-content" data-for="power">
+          <p data-i18n-html="s_settings_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/09-settings.png" alt="Settings screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+        </div>
+
+        <div class="level-content" data-for="dev">
+          <p data-i18n-html="s_settings_p_intro"></p>
+          <div class="doc-screenshot">
+            <img src="screenshots/09-settings.png" alt="Settings screen" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.06);margin:16px 0">
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════ SECTION: COMMON ISSUES ═══════ -->
+      <section class="doc-section" id="issues" data-levels="beginner power dev">
+        <h1 data-i18n="s_issues_title"></h1>
+        <div class="level-content" data-for="beginner">
+          <div id="issues-list">
+            <!-- populated by JS -->
+          </div>
         </div>
       </section>
 
@@ -212,7 +440,7 @@ meport --version</code></pre>
 npm install -g meport
 
 <span style="color:var(--text-3)"># Or build from source</span>
-git clone https://github.com/zmrlk/meport-cli.git
+git clone https://github.com/zmrlk/meport.git
 cd meport
 pnpm install
 pnpm build
@@ -1459,7 +1687,7 @@ export class MyPlatformRuleCompiler extends BaseCompiler {
           <p data-i18n-html="s_contrib_intro"></p>
           <div class="doc-code">
             <div class="doc-code-bar">Development setup</div>
-            <pre><code>git clone https://github.com/zmrlk/meport-cli.git
+            <pre><code>git clone https://github.com/zmrlk/meport.git
 cd meport
 pnpm install
 pnpm build
@@ -1505,16 +1733,6 @@ pnpm typecheck</code></pre>
 
         <div class="level-content" data-for="dev">
           <div class="doc-faq" id="faq-dev">
-            <!-- populated by JS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- ═══════ SECTION: COMMON ISSUES (Beginner only) ═══════ -->
-      <section class="doc-section" id="issues" data-levels="beginner">
-        <h1 data-i18n="s_issues_title"></h1>
-        <div class="level-content" data-for="beginner">
-          <div id="issues-list">
             <!-- populated by JS -->
           </div>
         </div>

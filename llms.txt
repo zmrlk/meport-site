@@ -1,7 +1,7 @@
 # Meport — Teach every AI who you are.
 
 ## What is Meport?
-Meport is an open-source CLI tool (v0.1.5) that creates AI personality profiles from your files and exports them to 14 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
+Meport is an open-source CLI tool (v0.1.6) that creates AI personality profiles from your files and exports them to 14 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
 
 ## Key Facts
 - Free forever, MIT license, open source
@@ -35,7 +35,7 @@ Cursor (.cursor/rules/meport.mdc), Claude Code (CLAUDE.md section), Copilot (.gi
 
 ## Links
 - Website: https://meport.app
-- GitHub: https://github.com/zmrlk/meport-cli
+- GitHub: https://github.com/zmrlk/meport
 - npm: https://www.npmjs.com/package/meport
 - CLI: npx meport
 - Documentation: https://meport.app/docs.html
