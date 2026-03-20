@@ -1,7 +1,7 @@
 # Meport — Teach every AI who you are.
 
 ## What is Meport?
-Meport is an open-source CLI tool (v0.1.6) that creates AI personality profiles from your files and exports them to 14 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
+Meport is an open-source CLI tool (v0.2.0) that creates AI personality profiles from your files and exports them to 12 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
 
 ## Key Facts
 - Free forever, MIT license, open source
@@ -11,10 +11,10 @@ Meport is an open-source CLI tool (v0.1.6) that creates AI personality profiles 
 - Pack-based profiling: 9 question packs (personal) + 7 business packs
 - System scanner pre-fills answers from .gitconfig, project files, AI configs, locale, timezone
 - 6 AI providers: Claude (Anthropic), OpenAI, Gemini (Google), Grok (xAI), OpenRouter, Ollama (local/offline)
-- Available as CLI (npx meport), desktop app and web app coming soon
+- Available as CLI (npx meport), desktop app (Mac/Win/Linux) available at github.com/zmrlk/meport/releases. Web app at meport.app
 
-## Supported Export Platforms (14 compilers)
-ChatGPT, Claude, Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini, Grok, Perplexity, Ollama, AGENTS.md, OpenClaw, JSON, Generic
+## Supported Export Platforms (12 compilers)
+ChatGPT, Claude, Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini, Grok, Perplexity, Ollama, AGENTS.md, JSON, Generic
 
 ## Auto-deploy targets (5)
 Cursor (.cursor/rules/meport.mdc), Claude Code (CLAUDE.md section), Copilot (.github/copilot-instructions.md), Windsurf (.windsurfrules), AGENTS.md (project root)
