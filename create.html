@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meport — Profile Creator</title>
+  <meta name="description" content="Create your .meport.md profile by clicking options. No Markdown knowledge needed. Export to ChatGPT, Claude, Cursor, Copilot and 9 more platforms.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://meport.app/create.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meport.app/create.html">
+  <meta property="og:title" content="Create Your AI Profile — Meport">
+  <meta property="og:description" content="Build your .meport.md profile in 2 minutes. Click through options, get your portable AI profile. No download needed.">
+  <meta property="og:image" content="https://meport.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#050507">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="meport-sygnet.png">
+  <style>
+    /* ── WIZARD LAYOUT ── */
+    .wizard-section { padding: 120px 0 80px; }
+    .wizard-wrap { max-width: 680px; margin: 0 auto; }
+
+    /* ── PROGRESS ── */
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .progress-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .72rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.3);
+      cursor: default;
+      transition: all .25s cubic-bezier(.16,1,.3,1);
+      font-family: var(--mono);
+      flex-shrink: 0;
+      background: none;
+    }
+    .progress-num.done {
+      background: rgba(41,239,130,.15);
+      border-color: rgba(41,239,130,.35);
+      color: var(--accent);
+      cursor: pointer;
+    }
+    .progress-num.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      box-shadow: 0 0 16px rgba(41,239,130,.3);
+    }
+    .progress-num.done:hover {
+      background: rgba(41,239,130,.25);
+      border-color: var(--accent);
+    }
+    .progress-connector {
+      width: 20px;
+      height: 1.5px;
+      background: rgba(255,255,255,.08);
+      flex-shrink: 0;
+    }
+    .progress-connector.done {
+      background: rgba(41,239,130,.3);
+    }
+
+    /* ── STEP CARD ── */
+    .step-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 18px;
+      padding: 40px 36px;
+      backdrop-filter: blur(28px) saturate(1.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04);
+      display: none;
+      animation: stepIn .35s cubic-bezier(.16,1,.3,1);
+    }
+    .step-card.active { display: block; }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .step-label {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: var(--mono);
+    }
+    .step-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+
+    /* ── FIELD GROUP ── */
+    .field-group { margin-bottom: 26px; }
+    .field-label {
+      font-size: .78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 10px;
+      display: block;
+      letter-spacing: .01em;
+    }
+
+    /* ── TEXT INPUT ── */
+    .field-input {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-family: var(--font);
+      font-size: .9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .field-input:focus { border-color: rgba(41,239,130,.4); }
+    .field-input::placeholder { color: rgba(255,255,255,.2); }
+
+    /* ── TEXTAREA ── */
+    .field-textarea {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: .82rem;
+      color: var(--text);
+      outline: none;
+      resize: vertical;
+      min-height: 110px;
+      transition: border-color .2s;
+      line-height: 1.7;
+    }
+    .field-textarea:focus { border-color: rgba(41,239,130,.4); }
+    .field-textarea::placeholder { color: rgba(255,255,255,.18); white-space: pre; }
+
+    /* ── OPTION PILLS ── */
+    .opt-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .opt-pill {
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: .82rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.5);
+      cursor: pointer;
+      transition: all .2s cubic-bezier(.16,1,.3,1);
+      background: none;
+      font-family: var(--font);
+      user-select: none;
+    }
+    .opt-pill:hover {
+      border-color: rgba(255,255,255,.22);
+      color: var(--text);
+    }
+    .opt-pill.selected {
+      background: rgba(41,239,130,.12);
+      border-color: rgba(41,239,130,.35);
+      color: var(--accent);
+    }
+
+    /* ── NAVIGATION BUTTONS ── */
+    .step-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      gap: 12px;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: .85rem;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.09);
+      background: none;
+      color: rgba(255,255,255,.4);
+      font-family: var(--font);
+      transition: all .2s;
+    }
+    .btn-back:hover {
+      border-color: rgba(255,255,255,.18);
+      color: var(--text);
+    }
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      cursor: pointer;
+      border: none;
+      background: var(--accent2);
+      color: #000;
+      font-family: var(--font);
+      transition: all .25s cubic-bezier(.16,1,.3,1);
+      box-shadow: 0 0 16px rgba(41,239,130,.18);
+    }
+    .btn-next:hover {
+      background: var(--accent3);
+      box-shadow: 0 0 28px rgba(41,239,130,.25);
+      transform: translateY(-1px);
+    }
+    .step-counter {
+      font-size: .75rem;
+      color: rgba(255,255,255,.25);
+      font-family: var(--mono);
+    }
+
+    /* ── PREVIEW BLOCK ── */
+    .preview-block {
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .preview-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: rgba(255,255,255,.025);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .preview-bar-title {
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.3);
+      font-family: var(--mono);
+    }
+    .char-badge {
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: rgba(41,239,130,.1);
+      color: var(--accent);
+      border: 1px solid rgba(41,239,130,.15);
+      font-family: var(--mono);
+    }
+    /* preview output uses textContent — no innerHTML on user data */
+    .preview-code {
+      padding: 20px 22px;
+      font-family: var(--mono);
+      font-size: .75rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,.55);
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    /* ── EXPORT BUTTONS ── */
+    .export-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .export-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: .83rem;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-family: var(--font);
+      transition: all .2s;
+      position: relative;
+    }
+    .export-btn:hover {
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.07);
+    }
+    .export-btn.primary {
+      background: var(--accent2);
+      border-color: var(--accent2);
+      color: #000;
+      box-shadow: 0 0 16px rgba(41,239,130,.2);
+    }
+    .export-btn.primary:hover {
+      background: var(--accent3);
+      box-shadow: 0 0 24px rgba(41,239,130,.28);
+    }
+    .export-btn.copied::after {
+      content: 'Copied!';
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(8,10,9,.95);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.1);
+      animation: pop .3s cubic-bezier(.16,1,.3,1);
+      pointer-events: none;
+    }
+    .export-hint {
+      font-size: .75rem;
+      color: rgba(255,255,255,.28);
+      text-align: center;
+      margin-top: 16px;
+    }
+    .export-hint a {
+      color: rgba(255,255,255,.4);
+    }
+    .export-hint a:hover {
+      color: var(--accent);
+    }
+
+    /* ── OPTIONAL BADGE ── */
+    .opt-label {
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 2px 8px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.25);
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 640px) {
+      .step-card { padding: 28px 22px; }
+      .progress-connector { width: 10px; }
+      .export-grid { grid-template-columns: 1fr; }
+      .wizard-section { padding: 100px 0 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="meport-logo.png" alt="Meport" class="nav-logo-img">
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#platforms">Platforms</a>
+        <a href="create.html" style="color:var(--white)">Create</a>
+        <a href="standard.html">Standard</a>
+        <a href="docs.html">Docs</a>
+        <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
+        <button class="lang-switch" id="lang-switch" aria-label="Switch language">
+          <span class="lang-option active" data-lang="en">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-option" data-lang="pl">PL</span>
+        </button>
+        <a href="index.html#download" class="btn btn-nav">Download</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:120px 0 0; position:relative; overflow:hidden;">
+    <div class="hero-ambient"></div>
+    <div class="container hero-content" style="margin-bottom:0">
+      <div class="reveal">
+        <p class="eyebrow">Profile Creator</p>
+      </div>
+      <div class="reveal r1">
+        <h1 class="hero-h1">Create your <span class="grad">profile.</span></h1>
+      </div>
+      <div class="reveal r2">
+        <p class="hero-p">Click through the options. Get your .meport.md in 2 minutes. No AI needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEB APP PROMO -->
+  <div style="text-align:center;padding:0 0 32px;">
+    <p style="color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:10px;">Want file scanning, AI interview &amp; auto-export?</p>
+    <a href="/app/" class="btn btn-outline" style="font-size:.85rem;">Try the full Web App &rarr;</a>
+  </div>
+
+  <!-- WIZARD -->
+  <section class="wizard-section">
+    <div class="container">
+      <div class="wizard-wrap reveal">
+
+        <!-- PROGRESS INDICATOR -->
+        <div class="progress-bar" id="progress-bar" role="navigation" aria-label="Form steps"></div>
+
+        <!-- ══ STEP 1: IDENTITY ══ -->
+        <div class="step-card active" id="step-1" role="region" aria-label="Step 1: Identity">
+          <div class="step-label">01 / 07</div>
+          <h2 class="step-title">Identity</h2>
+
+          <div class="field-group">
+            <label class="field-label" for="f-name">Name</label>
+            <input class="field-input" id="f-name" type="text" placeholder="Alex Chen" autocomplete="given-name">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-location">Location <span class="opt-label">optional</span></label>
+            <input class="field-input" id="f-location" type="text" placeholder="San Francisco, CA" autocomplete="off">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-tz">Timezone</label>
+            <input class="field-input" id="f-tz" type="text" placeholder="Auto-detecting..." autocomplete="off">
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Language</span>
+            <div class="opt-pills" id="pills-language">
+              <button class="opt-pill" data-val="en">English</button>
+              <button class="opt-pill" data-val="pl">Polish</button>
+              <button class="opt-pill" data-val="de">German</button>
+              <button class="opt-pill" data-val="es">Spanish</button>
+              <button class="opt-pill" data-val="fr">French</button>
+              <button class="opt-pill" data-val="pt">Portuguese</button>
+              <button class="opt-pill" data-val="other">Other...</button>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <div class="step-counter">Step 1 of 7</div>
+            <button class="btn-next" id="btn-next-1">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 2: COMMUNICATION STYLE ══ -->
+        <div class="step-card" id="step-2" role="region" aria-label="Step 2: Communication Style">
+          <div class="step-label">02 / 07</div>
+          <h2 class="step-title">Communication style</h2>
+
+          <div class="field-group">
+            <span class="field-label">Directness</span>
+            <div class="opt-pills" id="pills-directness">
+              <button class="opt-pill" data-val="very_direct">Very direct</button>
+              <button class="opt-pill" data-val="direct">Direct</button>
+              <button class="opt-pill" data-val="balanced">Balanced</button>
+              <button class="opt-pill" data-val="indirect">Indirect</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Verbosity</span>
+            <div class="opt-pills" id="pills-verbosity">
+              <button class="opt-pill" data-val="minimal">Minimal</button>
+              <button class="opt-pill" data-val="concise">Concise</button>
+              <button class="opt-pill" data-val="balanced">Balanced</button>
+              <button class="opt-pill" data-val="detailed">Detailed</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Formality</span>
+            <div class="opt-pills" id="pills-formality">
+              <button class="opt-pill" data-val="casual">Casual</button>
+              <button class="opt-pill" data-val="semi_formal">Semi-formal</button>
+              <button class="opt-pill" data-val="formal">Formal</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Feedback style</span>
+            <div class="opt-pills" id="pills-feedback">
+              <button class="opt-pill" data-val="blunt">Blunt</button>
+              <button class="opt-pill" data-val="direct">Direct</button>
+              <button class="opt-pill" data-val="constructive">Constructive</button>
+              <button class="opt-pill" data-val="gentle">Gentle</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Humor</span>
+            <div class="opt-pills" id="pills-humor">
+              <button class="opt-pill" data-val="none">None</button>
+              <button class="opt-pill" data-val="occasional">Occasional</button>
+              <button class="opt-pill" data-val="dry">Dry</button>
+              <button class="opt-pill" data-val="playful">Playful</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Format preference</span>
+            <div class="opt-pills" id="pills-format">
+              <button class="opt-pill" data-val="prose">Prose</button>
+              <button class="opt-pill" data-val="bullets">Bullets</button>
+              <button class="opt-pill" data-val="structured">Structured</button>
+              <button class="opt-pill" data-val="code_first">Code-first</button>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" data-goto="1">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="step-counter">Step 2 of 7</div>
+            <button class="btn-next" data-goto="3">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 3: AI PREFERENCES ══ -->
+        <div class="step-card" id="step-3" role="region" aria-label="Step 3: AI Preferences">
+          <div class="step-label">03 / 07</div>
+          <h2 class="step-title">AI preferences</h2>
+
+          <div class="field-group">
+            <span class="field-label">How do you see AI?</span>
+            <div class="opt-pills" id="pills-relationship">
+              <button class="opt-pill" data-val="tool">Tool</button>
+              <button class="opt-pill" data-val="collaborator">Collaborator</button>
+              <button class="opt-pill" data-val="mentor">Mentor</button>
+              <button class="opt-pill" data-val="coach">Coach</button>
+              <button class="opt-pill" data-val="assistant">Assistant</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Proactivity</span>
+            <div class="opt-pills" id="pills-proactivity">
+              <button class="opt-pill" data-val="reactive">Reactive — only when asked</button>
+              <button class="opt-pill" data-val="balanced">Balanced</button>
+              <button class="opt-pill" data-val="proactive">Proactive — suggest often</button>
+              <button class="opt-pill" data-val="autonomous">Autonomous — just do it</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">When AI should correct me</span>
+            <div class="opt-pills" id="pills-correction">
+              <button class="opt-pill" data-val="direct">Direct — just say it</button>
+              <button class="opt-pill" data-val="explain_then">Explain, then correct</button>
+              <button class="opt-pill" data-val="ask_first">Ask first</button>
+              <button class="opt-pill" data-val="suggest">Suggest, let me decide</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Explanation depth</span>
+            <div class="opt-pills" id="pills-depth">
+              <button class="opt-pill" data-val="surface">Surface — just the answer</button>
+              <button class="opt-pill" data-val="practical">Practical — enough to use it</button>
+              <button class="opt-pill" data-val="thorough">Thorough — include reasoning</button>
+              <button class="opt-pill" data-val="deep">Deep — full mental model</button>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" data-goto="2">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="step-counter">Step 3 of 7</div>
+            <button class="btn-next" data-goto="4">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 4: WORK STYLE ══ -->
+        <div class="step-card" id="step-4" role="region" aria-label="Step 4: Work Style">
+          <div class="step-label">04 / 07</div>
+          <h2 class="step-title">Work style</h2>
+
+          <div class="field-group">
+            <span class="field-label">Energy pattern</span>
+            <div class="opt-pills" id="pills-energy">
+              <button class="opt-pill" data-val="steady">Steady</button>
+              <button class="opt-pill" data-val="burst">Burst</button>
+              <button class="opt-pill" data-val="nocturnal">Nocturnal</button>
+              <button class="opt-pill" data-val="early_bird">Early bird</button>
+              <button class="opt-pill" data-val="variable">Variable</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Peak hours</span>
+            <div class="opt-pills" id="pills-peak">
+              <button class="opt-pill" data-val="morning">Morning 6–10</button>
+              <button class="opt-pill" data-val="late_morning">Late morning 9–13</button>
+              <button class="opt-pill" data-val="afternoon">Afternoon 13–17</button>
+              <button class="opt-pill" data-val="evening">Evening 17–22</button>
+              <button class="opt-pill" data-val="night">Night 22–6</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Preferred task size</span>
+            <div class="opt-pills" id="pills-tasksize">
+              <button class="opt-pill" data-val="micro">Micro (&lt;15 min)</button>
+              <button class="opt-pill" data-val="small">Small (&lt;1 h)</button>
+              <button class="opt-pill" data-val="medium">Medium (1–3 h)</button>
+              <button class="opt-pill" data-val="large">Large (3+ h)</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Collaboration preference</span>
+            <div class="opt-pills" id="pills-collab">
+              <button class="opt-pill" data-val="solo">Solo</button>
+              <button class="opt-pill" data-val="pair">Pair</button>
+              <button class="opt-pill" data-val="small_team">Small team</button>
+              <button class="opt-pill" data-val="flexible">Flexible</button>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" data-goto="3">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="step-counter">Step 4 of 7</div>
+            <button class="btn-next" data-goto="5">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 5: INSTRUCTIONS & NEVER ══ -->
+        <div class="step-card" id="step-5" role="region" aria-label="Step 5: Instructions and Never rules">
+          <div class="step-label">05 / 07</div>
+          <h2 class="step-title">Instructions &amp; Never</h2>
+
+          <div class="field-group">
+            <label class="field-label" for="f-instructions">Instructions for AI <span class="opt-label">optional</span></label>
+            <textarea class="field-textarea" id="f-instructions" rows="5" placeholder="Add rules for AI — one per line. e.g.
+- Use TypeScript for examples
+- Action first, explanation second
+- Skip preambles"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-never">Never rules <span class="opt-label">optional</span></label>
+            <textarea class="field-textarea" id="f-never" rows="5" placeholder="What should AI NEVER do? One per line:
+- Explain basic concepts
+- Use emoji
+- Apologize for being direct"></textarea>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" data-goto="4">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="step-counter">Step 5 of 7</div>
+            <button class="btn-next" data-goto="6">
+              Continue
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 6: GOALS ══ -->
+        <div class="step-card" id="step-6" role="region" aria-label="Step 6: Goals">
+          <div class="step-label">06 / 07</div>
+          <h2 class="step-title">Goals <span class="opt-label" style="font-size:.7rem;vertical-align:middle">optional</span></h2>
+
+          <div class="field-group">
+            <label class="field-label" for="f-goals">What are you working toward?</label>
+            <textarea class="field-textarea" id="f-goals" rows="5" placeholder="What are you working toward?
+- Ship v2.0
+- Learn Rust
+- Build a side business"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="f-antigoals">Anti-goals</label>
+            <textarea class="field-textarea" id="f-antigoals" rows="4" placeholder="What do you explicitly NOT want?
+- Managing 50+ people
+- Corporate politics
+- Meetings without agendas"></textarea>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn-back" data-goto="5">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+            <div class="step-counter">Step 6 of 7</div>
+            <button class="btn-next" data-goto="7">
+              Preview profile
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ STEP 7: PREVIEW & EXPORT ══ -->
+        <div class="step-card" id="step-7" role="region" aria-label="Step 7: Preview and Export">
+          <div class="step-label">07 / 07</div>
+          <h2 class="step-title">Your profile is ready.</h2>
+
+          <div class="preview-block">
+            <div class="preview-bar">
+              <span class="preview-bar-title">.meport.md</span>
+              <span class="char-badge" id="char-count">0 chars</span>
+            </div>
+            <!-- textContent only — no user-data innerHTML -->
+            <div class="preview-code" id="preview-output"></div>
+          </div>
+
+          <div class="export-grid" style="margin-top:24px">
+            <button class="export-btn primary" id="btn-copy-full" data-format="full">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+              Copy Full (.meport.md)
+            </button>
+            <button class="export-btn" id="btn-copy-dense" data-format="dense">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+              Copy Dense (800 chars)
+            </button>
+            <button class="export-btn" id="btn-copy-compact" data-format="compact">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
+              Copy Compact (1500 chars)
+            </button>
+            <button class="export-btn" id="btn-download">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M4 7l4 4 4-4M3 13h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download .meport.md
+            </button>
+          </div>
+
+          <p class="export-hint">
+            Want a deeper profile?
+            <a href="index.html#download">Try the Desktop App or CLI &rarr;</a>
+          </p>
+
+          <div class="step-nav" style="justify-content:flex-start">
+            <button class="btn-back" data-goto="6">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /wizard-wrap -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><img src="meport-logo.png" alt="Meport" class="nav-logo-img"></a>
+        <p>Your AI identity. Portable. Private. Free.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="index.html#download">Download</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#platforms">Platforms</a>
+          <a href="create.html">Profile Creator</a>
+        </div>
+        <div>
+          <h4>Developers</h4>
+          <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
+          <a href="docs.html">Documentation</a>
+          <a href="standard.html">Standard v1.0</a>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a>
+          <a href="https://x.com/meportapp" target="_blank" rel="noopener">@meportapp</a>
+          <a href="https://buycoffee.to/zmrlk" target="_blank" rel="noopener">Buy us a coffee</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Created by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> with <a href="https://github.com/zmrlk/bOS" target="_blank" rel="noopener">bOS CLI</a> &middot; meport.app &middot; 2026</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════ SCRIPT ═══════════════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ── STATE ── */
+    const state = {
+      name: '',
+      location: '',
+      timezone: '',
+      language: '',
+      directness: '',
+      verbosity: '',
+      formality: '',
+      feedback: '',
+      humor: '',
+      format: '',
+      relationship: '',
+      proactivity: '',
+      correction: '',
+      depth: '',
+      energy: '',
+      peak: '',
+      tasksize: '',
+      collab: '',
+      instructions: '',
+      never: '',
+      goals: '',
+      antigoals: ''
+    };
+
+    let currentStep = 1;
+    const TOTAL_STEPS = 7;
+
+    /* ── BEHAVIORAL MAPPINGS ── */
+    const COMM_MAP = {
+      directness: {
+        very_direct: 'Be very direct. Skip qualifiers, hedging, and filler.',
+        direct: 'Be direct. Minimal softening.',
+        balanced: 'Balance directness with tact when appropriate.',
+        indirect: 'Prefer a diplomatic, considerate tone.'
+      },
+      verbosity: {
+        minimal: 'Keep responses minimal — max 5\u20138 lines per block. No padding.',
+        concise: "Be concise. Cut anything that doesn't add value.",
+        balanced: 'Match response length to question complexity.',
+        detailed: 'Provide thorough responses. Include context and examples.'
+      },
+      formality: {
+        casual: 'Casual tone. Talk to me like a peer, not a customer.',
+        semi_formal: 'Semi-formal tone. Professional but approachable.',
+        formal: 'Professional, formal tone throughout.'
+      },
+      feedback: {
+        blunt: "Give feedback bluntly. Don't soften criticism.",
+        direct: 'Give direct feedback without unnecessary padding.',
+        constructive: 'Frame feedback constructively with actionable suggestions.',
+        gentle: 'Deliver feedback gently, emphasizing positives alongside corrections.'
+      },
+      humor: {
+        none: 'No humor. Keep it strictly professional.',
+        occasional: 'Light humor is fine occasionally when appropriate.',
+        dry: 'Dry humor welcome.',
+        playful: 'Playful and witty tone is welcome.'
+      },
+      format: {
+        prose: 'Prefer prose paragraphs over bullet lists.',
+        bullets: 'Prefer bullet lists and structured points.',
+        structured: 'Use headers, sections, and structured formatting.',
+        code_first: 'Lead with code examples when applicable. Explain after.'
+      }
+    };
+
+    const AI_MAP = {
+      relationship: {
+        tool: 'Treat me as someone using a tool. Functional and efficient.',
+        collaborator: 'Treat me as a collaborator. Think with me, not for me.',
+        mentor: 'Act as a mentor. Challenge my thinking, share knowledge proactively.',
+        coach: 'Act as a coach. Help me improve, ask useful questions.',
+        assistant: 'Act as an assistant. Prioritize execution over discussion.'
+      },
+      proactivity: {
+        reactive: 'Be reactive. Only act on what I explicitly ask.',
+        balanced: "Balanced proactivity \u2014 suggest when it's clearly useful.",
+        proactive: 'Be proactive. Surface relevant insights, edge cases, and next steps.',
+        autonomous: 'Act autonomously. Make reasonable decisions without asking for permission.'
+      },
+      correction: {
+        direct: "When I'm wrong, correct me directly without preamble.",
+        explain_then: 'When correcting me, briefly explain why, then give the fix.',
+        ask_first: 'Before correcting, ask if I want the correction.',
+        suggest: 'Offer corrections as suggestions, not corrections.'
+      },
+      depth: {
+        surface: 'Surface-level explanations only. Give me the answer, not the theory.',
+        practical: 'Practical depth \u2014 enough to use it, not more.',
+        thorough: 'Thorough explanations with reasoning. Help me understand, not just use.',
+        deep: 'Deep explanations that build a full mental model.'
+      }
+    };
+
+    const WORK_MAP = {
+      energy: {
+        steady: 'I work at a steady pace throughout the day.',
+        burst: 'I work in bursts of intensity followed by rest.',
+        nocturnal: 'I do my best work late at night.',
+        early_bird: 'I am most productive in the early morning.',
+        variable: 'My energy pattern varies day to day.'
+      },
+      peak: {
+        morning: 'Peak hours: 6\u201310 (morning)',
+        late_morning: 'Peak hours: 9\u201313 (late morning)',
+        afternoon: 'Peak hours: 13\u201317 (afternoon)',
+        evening: 'Peak hours: 17\u201322 (evening)',
+        night: 'Peak hours: 22\u20136 (night)'
+      },
+      tasksize: {
+        micro: 'Preferred task size: micro (under 15 min)',
+        small: 'Preferred task size: small (under 1 hour)',
+        medium: 'Preferred task size: medium (1\u20133 hours)',
+        large: 'Preferred task size: large (3+ hours)'
+      },
+      collab: {
+        solo: 'I prefer working solo.',
+        pair: 'I prefer pair work.',
+        small_team: 'I work best in small teams.',
+        flexible: 'Flexible \u2014 comfortable with solo or team.'
+      }
+    };
+
+    /* ── INIT ── */
+    function init() {
+      // Auto-detect timezone
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      const tzInput = document.getElementById('f-tz');
+      if (tzInput) {
+        tzInput.value = tz;
+        state.timezone = tz;
+      }
+
+      // Bind text inputs
+      bindInput('f-name', 'name');
+      bindInput('f-location', 'location');
+      bindInput('f-tz', 'timezone');
+      bindTextarea('f-instructions', 'instructions');
+      bindTextarea('f-never', 'never');
+      bindTextarea('f-goals', 'goals');
+      bindTextarea('f-antigoals', 'antigoals');
+
+      // Bind pill groups
+      [
+        ['pills-language', 'language'],
+        ['pills-directness', 'directness'],
+        ['pills-verbosity', 'verbosity'],
+        ['pills-formality', 'formality'],
+        ['pills-feedback', 'feedback'],
+        ['pills-humor', 'humor'],
+        ['pills-format', 'format'],
+        ['pills-relationship', 'relationship'],
+        ['pills-proactivity', 'proactivity'],
+        ['pills-correction', 'correction'],
+        ['pills-depth', 'depth'],
+        ['pills-energy', 'energy'],
+        ['pills-peak', 'peak'],
+        ['pills-tasksize', 'tasksize'],
+        ['pills-collab', 'collab']
+      ].forEach(function(pair) { bindPills(pair[0], pair[1]); });
+
+      // Nav buttons via data-goto attribute (no inline handlers)
+      document.querySelectorAll('.btn-next[data-goto], .btn-back[data-goto]').forEach(function(btn) {
+        btn.addEventListener('click', function() { goStep(parseInt(btn.dataset.goto, 10)); });
+      });
+      // Step 1 next button
+      var btnNext1 = document.getElementById('btn-next-1');
+      if (btnNext1) btnNext1.addEventListener('click', function() { goStep(2); });
+
+      // Export buttons
+      document.querySelectorAll('.export-btn[data-format]').forEach(function(btn) {
+        btn.addEventListener('click', function() { copyProfile(btn.dataset.format, btn); });
+      });
+      var dlBtn = document.getElementById('btn-download');
+      if (dlBtn) dlBtn.addEventListener('click', downloadProfile);
+
+      // Nav toggle
+      var toggle = document.getElementById('nav-toggle');
+      var links = document.getElementById('nav-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function() {
+          toggle.classList.toggle('active');
+          links.classList.toggle('open');
+        });
+      }
+
+      // Nav scroll
+      var nav = document.getElementById('nav');
+      window.addEventListener('scroll', function() {
+        if (nav) nav.classList.toggle('scrolled', window.scrollY > 30);
+      });
+
+      // Reveal observer
+      var reveals = document.querySelectorAll('.reveal');
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(function(el) { obs.observe(el); });
+
+      renderProgress();
+    }
+
+    function bindInput(id, key) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function() { state[key] = el.value.trim(); });
+    }
+
+    function bindTextarea(id, key) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', function() { state[key] = el.value.trim(); });
+    }
+
+    function bindPills(containerId, stateKey) {
+      var container = document.getElementById(containerId);
+      if (!container) return;
+      container.querySelectorAll('.opt-pill').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          container.querySelectorAll('.opt-pill').forEach(function(b) { b.classList.remove('selected'); });
+          btn.classList.add('selected');
+          state[stateKey] = btn.dataset.val;
+        });
+      });
+    }
+
+    /* ── PROGRESS ── */
+    function renderProgress() {
+      var bar = document.getElementById('progress-bar');
+      if (!bar) return;
+      bar.textContent = '';
+      for (var i = 1; i <= TOTAL_STEPS; i++) {
+        if (i > 1) {
+          var conn = document.createElement('div');
+          conn.className = 'progress-connector' + (i <= currentStep ? ' done' : '');
+          bar.appendChild(conn);
+        }
+        var wrap = document.createElement('div');
+        wrap.className = 'progress-step';
+        var num = document.createElement('button');
+        num.className = 'progress-num';
+        num.textContent = String(i);
+        num.setAttribute('aria-label', 'Go to step ' + i);
+        num.setAttribute('type', 'button');
+        if (i === currentStep) {
+          num.classList.add('active');
+        } else if (i < currentStep) {
+          num.classList.add('done');
+          (function(n) {
+            num.addEventListener('click', function() { goStep(n); });
+          }(i));
+        }
+        wrap.appendChild(num);
+        bar.appendChild(wrap);
+      }
+    }
+
+    /* ── NAVIGATION ── */
+    function syncTextInputs() {
+      ['f-name', 'f-location', 'f-tz', 'f-instructions', 'f-never', 'f-goals', 'f-antigoals'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var key = id.replace('f-', '').replace('-', '_');
+        // map known ids
+        var keyMap = {
+          'f-name': 'name',
+          'f-location': 'location',
+          'f-tz': 'timezone',
+          'f-instructions': 'instructions',
+          'f-never': 'never',
+          'f-goals': 'goals',
+          'f-antigoals': 'antigoals'
+        };
+        state[keyMap[id]] = el.value.trim();
+      });
+    }
+
+    function goStep(n) {
+      if (n < 1 || n > TOTAL_STEPS) return;
+      syncTextInputs();
+      var cur = document.getElementById('step-' + currentStep);
+      if (cur) cur.classList.remove('active');
+      currentStep = n;
+      var next = document.getElementById('step-' + currentStep);
+      if (next) next.classList.add('active');
+      renderProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (n === 7) renderPreview();
+    }
+
+    /* ── GENERATE PROFILE ── */
+    function generateFull() {
+      var lines = [];
+      var name = state.name || 'Anonymous';
+      lines.push('# ' + name);
+      lines.push('');
+
+      // Identity
+      var idParts = [];
+      if (state.location) idParts.push('Location: ' + state.location);
+      if (state.timezone) idParts.push('Timezone: ' + state.timezone);
+      if (state.language) idParts.push('Language: ' + state.language);
+      if (idParts.length) {
+        lines.push('## Identity');
+        idParts.forEach(function(p) { lines.push(p); });
+        lines.push('');
+      }
+
+      // Communication
+      var commLines = [];
+      addMapped(commLines, COMM_MAP.directness, state.directness);
+      addMapped(commLines, COMM_MAP.verbosity, state.verbosity);
+      addMapped(commLines, COMM_MAP.formality, state.formality);
+      addMapped(commLines, COMM_MAP.feedback, state.feedback);
+      addMapped(commLines, COMM_MAP.humor, state.humor);
+      addMapped(commLines, COMM_MAP.format, state.format);
+      if (commLines.length) {
+        lines.push('## Communication');
+        commLines.forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // AI Preferences
+      var aiLines = [];
+      addMapped(aiLines, AI_MAP.relationship, state.relationship);
+      addMapped(aiLines, AI_MAP.proactivity, state.proactivity);
+      addMapped(aiLines, AI_MAP.correction, state.correction);
+      addMapped(aiLines, AI_MAP.depth, state.depth);
+      if (aiLines.length) {
+        lines.push('## AI Preferences');
+        aiLines.forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // Work Style
+      var workLines = [];
+      addMapped(workLines, WORK_MAP.energy, state.energy);
+      addMapped(workLines, WORK_MAP.peak, state.peak);
+      addMapped(workLines, WORK_MAP.tasksize, state.tasksize);
+      addMapped(workLines, WORK_MAP.collab, state.collab);
+      if (workLines.length) {
+        lines.push('## Work Style');
+        workLines.forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // Instructions
+      if (state.instructions) {
+        lines.push('## Instructions');
+        parseLines(state.instructions).forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // Never
+      if (state.never) {
+        lines.push('## Never');
+        parseLines(state.never).forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // Goals
+      if (state.goals) {
+        lines.push('## Goals');
+        parseLines(state.goals).forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      // Anti-Goals
+      if (state.antigoals) {
+        lines.push('## Anti-Goals');
+        parseLines(state.antigoals).forEach(function(l) { lines.push(l); });
+        lines.push('');
+      }
+
+      lines.push('<!-- Generated with meport.app/create -->');
+      return lines.join('\n').trim();
+    }
+
+    function addMapped(arr, map, val) {
+      if (val && map[val]) arr.push('- ' + map[val]);
+    }
+
+    function parseLines(text) {
+      return text.split('\n')
+        .map(function(l) { return l.trim(); })
+        .filter(function(l) { return l.length > 0; })
+        .map(function(l) { return l.charAt(0) === '-' ? l : '- ' + l; });
+    }
+
+    function generateDense() {
+      var parts = [];
+      var name = state.name || 'Anonymous';
+      parts.push(name);
+      if (state.location) parts.push(state.location);
+      if (state.language) parts.push('lang:' + state.language);
+      if (state.directness) parts.push('direct:' + state.directness.replace('_', '-'));
+      if (state.verbosity) parts.push('verbose:' + state.verbosity);
+      if (state.formality) parts.push('tone:' + state.formality.replace('_', '-'));
+      if (state.feedback) parts.push('feedback:' + state.feedback);
+      if (state.humor) parts.push('humor:' + state.humor);
+      if (state.format) parts.push('fmt:' + state.format.replace('_', '-'));
+      if (state.relationship) parts.push('ai:' + state.relationship);
+      if (state.proactivity) parts.push('proactive:' + state.proactivity);
+      if (state.depth) parts.push('depth:' + state.depth);
+      if (state.energy) parts.push('energy:' + state.energy.replace('_', '-'));
+      if (state.peak) parts.push('peak:' + state.peak.replace('_', '-'));
+      if (state.collab) parts.push('collab:' + state.collab.replace('_', '-'));
+
+      var dense = parts.join(' | ');
+
+      var extra = [];
+      if (state.instructions) {
+        var instrItems = state.instructions.split('\n')
+          .map(function(l) { return l.trim().replace(/^-\s*/, ''); })
+          .filter(function(l) { return l.length > 0; })
+          .slice(0, 3)
+          .join('; ');
+        if (instrItems) extra.push(instrItems);
+      }
+      if (state.never) {
+        var neverItems = state.never.split('\n')
+          .map(function(l) { return l.trim().replace(/^-\s*/, ''); })
+          .filter(function(l) { return l.length > 0; })
+          .slice(0, 2)
+          .join(', ');
+        if (neverItems) extra.push('NEVER: ' + neverItems);
+      }
+      if (extra.length) dense += '\n' + extra.join('\n');
+      return dense.slice(0, 800);
+    }
+
+    function generateCompact() {
+      var full = generateFull();
+      var lines = full.split('\n');
+      var result = [];
+      var skip = false;
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        if (line === '## Goals' || line === '## Anti-Goals') {
+          skip = true;
+        } else if (/^## /.test(line) && skip) {
+          skip = false;
+        }
+        if (!skip) result.push(line);
+      }
+      return result.join('\n').trim().slice(0, 1500);
+    }
+
+    /* ── PREVIEW RENDERING (textContent only — no user-data innerHTML) ── */
+    function renderPreview() {
+      var full = generateFull();
+      var output = document.getElementById('preview-output');
+      var charBadge = document.getElementById('char-count');
+      if (output) output.textContent = full;
+      if (charBadge) charBadge.textContent = full.length + ' chars';
+    }
+
+    /* ── COPY / DOWNLOAD ── */
+    function copyProfile(format, btn) {
+      var text;
+      if (format === 'full')    text = generateFull();
+      else if (format === 'dense')   text = generateDense();
+      else if (format === 'compact') text = generateCompact();
+      else return;
+
+      function showCopied() {
+        btn.classList.add('copied');
+        setTimeout(function() { btn.classList.remove('copied'); }, 1800);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(function() {
+          fallbackCopy(text, showCopied);
+        });
+      } else {
+        fallbackCopy(text, showCopied);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+      if (cb) cb();
+    }
+
+    function downloadProfile() {
+      var text = generateFull();
+      var blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = '.meport.md';
+      a.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* ── BOOT ── */
+    document.addEventListener('DOMContentLoaded', init);
+
+  }());
+  </script>
+
+</body>
+</html>

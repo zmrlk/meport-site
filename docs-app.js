@@ -60,11 +60,11 @@ const T = {
   s_what_b_p3:    { en: 'Meport works with <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> and more. One profile, all platforms.', pl: 'Meport działa z <strong>ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity</strong> i innymi. Jeden profil, wszystkie platformy.' },
 
   // Power
-  s_what_p_p1:    { en: 'Meport (v0.2.0) is a CLI + desktop app that creates structured AI personality profiles and compiles them into platform-specific custom instructions. It replaces manual prompt engineering with a standardized, portable profile format.', pl: 'Meport (v0.2.0) to aplikacja desktopowa i CLI, które tworzy ustrukturyzowane profile osobowości AI i kompiluje je do instrukcji specyficznych dla każdej platformy. Zastępuje ręczne prompt engineering standaryzowanym, przenośnym formatem profilu.' },
-  s_what_p_p2:    { en: 'Key capabilities: <strong>9 question packs</strong> covering communication, work, cognition, personality, and more. <strong>12 export compilers</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, generic, JSON). <strong>3-layer inference engine</strong> (explicit answers, behavioral signals, compound patterns). <strong>Rule-based exports</strong> generating actionable IF/THEN instructions instead of vague descriptions.', pl: 'Kluczowe możliwości: <strong>9 pakietów pytań</strong> obejmujących komunikację, pracę, kognitywistykę, osobowość i więcej. <strong>12 kompilatorów eksportu</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, generic, JSON). <strong>3-warstwowy silnik inferencji</strong> (jawne odpowiedzi, sygnały behawioralne, wzorce złożone). <strong>Eksporty oparte na regułach</strong> generujące akcjonalne instrukcje IF/THEN zamiast ogólnych opisów.' },
+  s_what_p_p1:    { en: 'Meport (v0.2.5) is a CLI + desktop app that creates structured AI personality profiles and compiles them into platform-specific custom instructions. It replaces manual prompt engineering with a standardized, portable profile format.', pl: 'Meport (v0.2.5) to aplikacja desktopowa i CLI, które tworzy ustrukturyzowane profile osobowości AI i kompiluje je do instrukcji specyficznych dla każdej platformy. Zastępuje ręczne prompt engineering standaryzowanym, przenośnym formatem profilu.' },
+  s_what_p_p2:    { en: 'Key capabilities: <strong>9 question packs</strong> covering communication, work, cognition, personality, and more. <strong>13 export compilers</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, generic, JSON). <strong>3-layer inference engine</strong> (explicit answers, behavioral signals, compound patterns). <strong>Rule-based exports</strong> generating actionable IF/THEN instructions instead of vague descriptions.', pl: 'Kluczowe możliwości: <strong>9 pakietów pytań</strong> obejmujących komunikację, pracę, kognitywistykę, osobowość i więcej. <strong>12 kompilatorów eksportu</strong> (ChatGPT, Claude, Cursor, Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md, generic, JSON). <strong>3-warstwowy silnik inferencji</strong> (jawne odpowiedzi, sygnały behawioralne, wzorce złożone). <strong>Eksporty oparte na regułach</strong> generujące akcjonalne instrukcje IF/THEN zamiast ogólnych opisów.' },
 
   // Dev
-  s_what_d_p1:    { en: 'Meport is a TypeScript monorepo (pnpm workspaces) with three packages: <code>@meport/core</code> (schema, profiler, compilers, inference), <code>@meport/cli</code> (Commander.js CLI with 23 commands), and <code>@meport/app</code> (future Electron app).', pl: 'Meport to monorepo TypeScript (pnpm workspaces) z trzema pakietami: <code>@meport/core</code> (schemat, profiler, kompilatory, inferencja), <code>@meport/cli</code> (CLI Commander.js z 23 komendami), oraz <code>@meport/app</code> (przyszła aplikacja Electron).' },
+  s_what_d_p1:    { en: 'Meport is a TypeScript monorepo (pnpm workspaces) with three packages: <code>@meport/core</code> (schema, profiler, compilers, inference), <code>@meport/cli</code> (Commander.js CLI with 25 commands), and <code>@meport/app</code> (future Electron app).', pl: 'Meport to monorepo TypeScript (pnpm workspaces) z trzema pakietami: <code>@meport/core</code> (schemat, profiler, kompilatory, inferencja), <code>@meport/cli</code> (CLI Commander.js z 23 komendami), oraz <code>@meport/app</code> (przyszła aplikacja Electron).' },
   s_what_d_p2:    { en: 'The core innovation is the <strong>rule-based compiler system</strong>. Instead of generating descriptions ("User prefers brevity" ~50% compliance), Meport generates actionable rules ("Max 5 lines for simple questions" ~85% compliance). Each question option carries an <code>export_rule</code> field that becomes a concrete AI behavior instruction.', pl: 'Kluczową innowacją jest <strong>system kompilatorów opartych na regułach</strong>. Zamiast generować opisy ("Użytkownik preferuje zwięzłość" ~50% skuteczności), Meport generuje akcjonalne reguły ("Max 5 linii na proste pytania" ~85% skuteczności). Każda opcja pytania ma pole <code>export_rule</code>, które staje się konkretną instrukcją zachowania AI.' },
 
   // ═══════ SECTION: INSTALLATION ═══════
@@ -100,8 +100,8 @@ const T = {
   // ═══════ SECTION: COMMANDS ═══════
   s_cmd_title:      { en: 'Commands Reference', pl: 'Komendy' },
   s_cmd_intro:      { en: 'All Meport commands with flags, types, and examples. Default profile path is <code>./meport-profile.json</code> for all commands.', pl: 'Wszystkie komendy Meport z flagami, typami i przykładami. Domyślna ścieżka profilu to <code>./meport-profile.json</code> dla wszystkich komend.' },
-  s_cmd_dev_intro:  { en: 'Complete command list. All 23 commands registered in <code>packages/cli/src/index.ts</code>. Hidden commands (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) are deprecated.', pl: 'Pełna lista komend. Wszystkie 23 komendy zarejestrowane w <code>packages/cli/src/index.ts</code>. Ukryte komendy (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) są przestarzałe.' },
-  s_cmd_dev_all_label: { en: 'All 23 commands', pl: 'Wszystkie 23 komendy' },
+  s_cmd_dev_intro:  { en: 'Complete command list. All 25 commands registered in <code>packages/cli/src/index.ts</code>. Hidden commands (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) are deprecated.', pl: 'Pełna lista komend. Wszystkie 25 komendy zarejestrowane w <code>packages/cli/src/index.ts</code>. Ukryte komendy (<code>sync</code>, <code>update</code>, <code>continue</code>, <code>profile-legacy</code>) są przestarzałe.' },
+  s_cmd_dev_all_label: { en: 'All 25 commands', pl: 'Wszystkie 25 komendy' },
 
   // Command descriptions
   cmd_profile_desc: { en: 'Start profiling. Creates a comprehensive AI personality profile through interactive questions. If an AI provider is configured, offers AI-driven conversational mode.', pl: 'Rozpocznij profilowanie. Tworzy kompleksowy profil osobowości AI przez interaktywne pytania. Jeśli dostawca AI jest skonfigurowany, oferuje tryb konwersacyjny napędzany AI.' },
@@ -155,13 +155,13 @@ const T = {
 
   // ═══════ SECTION: EXPORT FORMATS ═══════
   s_export_title:       { en: 'Export Formats', pl: 'Formaty eksportu' },
-  s_export_intro:       { en: 'Meport compiles your profile into <strong>12 platform-specific formats</strong>. Each compiler respects the platform\'s character limits, file format, and instruction style.', pl: 'Meport kompiluje Twój profil do <strong>12 formatów specyficznych dla platform</strong>. Każdy kompilator respektuje limity znaków platformy, format pliku i styl instrukcji.' },
+  s_export_intro:       { en: 'Meport compiles your profile into <strong>13 platform-specific formats</strong>. Each compiler respects the platform\'s character limits, file format, and instruction style.', pl: 'Meport kompiluje Twój profil do <strong>12 formatów specyficznych dla platform</strong>. Każdy kompilator respektuje limity znaków platformy, format pliku i styl instrukcji.' },
   s_export_auto_title:  { en: 'Auto-deploy targets', pl: 'Cele auto-deploy' },
   s_export_auto_body:   { en: '<code>meport deploy</code> writes files directly for: <strong>Cursor</strong> (.cursor/rules/meport.mdc), <strong>Claude Code</strong> (CLAUDE.md), <strong>Copilot</strong> (.github/copilot-instructions.md), <strong>Windsurf</strong> (.windsurfrules), <strong>AGENTS.md</strong> (project root), <strong>Ollama</strong> (Modelfile + ollama create).', pl: '<code>meport deploy</code> zapisuje pliki bezpośrednio dla: <strong>Cursor</strong> (.cursor/rules/meport.mdc), <strong>Claude Code</strong> (CLAUDE.md), <strong>Copilot</strong> (.github/copilot-instructions.md), <strong>Windsurf</strong> (.windsurfrules), <strong>AGENTS.md</strong> (root projektu), <strong>Ollama</strong> (Modelfile + ollama create).' },
   s_export_manual_title: { en: 'Manual targets (clipboard)', pl: 'Cele ręczne (schowek)' },
   s_export_manual_body:  { en: 'For platforms without config files, use <code>meport export &lt;platform&gt; --copy</code> and paste into the platform\'s custom instructions: <strong>ChatGPT</strong> (Settings > Personalization > Custom instructions), <strong>Claude</strong> (Account > Profile), <strong>Gemini</strong>, <strong>Grok</strong>, <strong>Perplexity</strong>.', pl: 'Dla platform bez plików konfiguracyjnych użyj <code>meport export &lt;platform&gt; --copy</code> i wklej do instrukcji niestandardowych platformy: <strong>ChatGPT</strong> (Ustawienia > Personalizacja), <strong>Claude</strong> (Konto > Profil), <strong>Gemini</strong>, <strong>Grok</strong>, <strong>Perplexity</strong>.' },
 
-  s_export_dev_intro:   { en: 'The compiler system uses a two-phase architecture: <strong>collect</strong> (gather rules from all sources) and <strong>format</strong> (platform-specific output). All 12 compilers extend <code>BaseCompiler</code> and are registered in <code>packages/core/src/compiler/index.ts</code>.', pl: 'System kompilatorów używa dwufazowej architektury: <strong>collect</strong> (zbierz reguły ze wszystkich źródeł) i <strong>format</strong> (wyjście specyficzne dla platformy). Wszystkie 12 kompilatorów rozszerza <code>BaseCompiler</code> i jest zarejestrowanych w <code>packages/core/src/compiler/index.ts</code>.' },
+  s_export_dev_intro:   { en: 'The compiler system uses a two-phase architecture: <strong>collect</strong> (gather rules from all sources) and <strong>format</strong> (platform-specific output). All 13 compilers extend <code>BaseCompiler</code> and are registered in <code>packages/core/src/compiler/index.ts</code>.', pl: 'System kompilatorów używa dwufazowej architektury: <strong>collect</strong> (zbierz reguły ze wszystkich źródeł) i <strong>format</strong> (wyjście specyficzne dla platformy). Wszystkie 12 kompilatorów rozszerza <code>BaseCompiler</code> i jest zarejestrowanych w <code>packages/core/src/compiler/index.ts</code>.' },
 
   // ═══════ SECTION: SCANNING ═══════
   s_scan_title:         { en: 'Scanning', pl: 'Skanowanie' },
@@ -293,6 +293,10 @@ const T = {
   nav_app_export:   { en: 'Export', pl: 'Eksport' },
   nav_app_demo:     { en: 'Demo', pl: 'Demo' },
   nav_app_settings: { en: 'Settings', pl: 'Ustawienia' },
+  nav_webapp:       { en: 'Web App', pl: 'Web App' },
+  nav_creator:      { en: 'Profile Creator', pl: 'Profile Creator' },
+  nav_choose_path:  { en: 'Choose Your Path', pl: 'Wybierz ścieżkę' },
+  nav_standard:     { en: 'The Standard', pl: 'Standard' },
   tbl_size:         { en: 'Size', pl: 'Rozmiar' },
 
   // ═══════ SECTION: DESKTOP APP ═══════
@@ -305,6 +309,67 @@ const T = {
   s_app_p_features:  { en: '<strong>Desktop-exclusive features:</strong> Deep file scanning (analyzes your apps, configs, bookmarks, schedule — with your permission), native save/open dialogs, system tray integration, and Ollama auto-detection with one-click model installation.', pl: '<strong>Funkcje ekskluzywne desktopowe:</strong> Głębokie skanowanie plików (analizuje Twoje aplikacje, konfiguracje, zakładki, harmonogram — za Twoją zgodą), natywne okna zapisu/otwarcia, integracja z tray systemowym i auto-wykrywanie Ollama z instalacją modelu jednym kliknięciem.' },
   s_app_d_intro:     { en: 'The app lives in <code>packages/app/</code> (Svelte 5 + TypeScript) with Tauri shell in <code>packages/app/src-tauri/</code> (Rust). Shared profiling logic is in <code>packages/core/</code>. Build: <code>pnpm tauri build</code>. Dev: <code>pnpm tauri dev</code>.', pl: 'Aplikacja jest w <code>packages/app/</code> (Svelte 5 + TypeScript) z powłoką Tauri w <code>packages/app/src-tauri/</code> (Rust). Współdzielona logika profilowania jest w <code>packages/core/</code>. Build: <code>pnpm tauri build</code>. Dev: <code>pnpm tauri dev</code>.' },
   s_app_d_stack:     { en: '<strong>Tech stack:</strong> Svelte 5 (runes), TypeScript strict, Vite 6, Tauri 2, @meport/core (shared with CLI). State management via Svelte 5 <code>$state</code>/<code>$derived</code>. No external state library. CSS custom properties design system (dark theme, oklch colors, accent green #29ef82).', pl: '<strong>Stack technologiczny:</strong> Svelte 5 (runes), TypeScript strict, Vite 6, Tauri 2, @meport/core (współdzielony z CLI). Zarządzanie stanem przez Svelte 5 <code>$state</code>/<code>$derived</code>. Bez zewnętrznej biblioteki stanu. Design system CSS custom properties (ciemny motyw, kolory oklch, accent zielony #29ef82).' },
+
+  // ═══════ SECTION: CHOOSE PATH ═══════
+  s_path_title: { en: 'Choose Your Path', pl: 'Wybierz ścieżkę' },
+  s_path_b_intro: { en: 'Meport has four ways to create your AI profile. Pick what fits you:', pl: 'Meport ma cztery sposoby na stworzenie profilu AI. Wybierz co pasuje:' },
+  s_path_p_intro: { en: 'Four tools, same profile format. Choose based on your workflow:', pl: 'Cztery narzędzia, ten sam format profilu. Wybierz na podstawie workflow:' },
+  s_path_d_intro: { en: 'All tools produce the same PersonaProfile JSON internally and export to .meport.md/.meport.json via the standard compilers:', pl: 'Wszystkie narzędzia produkują ten sam PersonaProfile JSON wewnętrznie i eksportują do .meport.md/.meport.json przez standardowe kompilatory:' },
+  s_path_creator: { en: '🌐 Profile Creator (Web)', pl: '🌐 Profile Creator (Web)' },
+  s_path_creator_desc: { en: 'Click through options in your browser. 2 minutes, no download, no AI needed. Best for quick start.', pl: 'Klikaj opcje w przeglądarce. 2 minuty, bez pobierania, bez AI. Najlepszy na szybki start.' },
+  s_path_webapp: { en: '💻 Web App', pl: '💻 Web App' },
+  s_path_webapp_desc: { en: 'Full Meport experience in the browser. Profiling, AI interview, exports. No file scanning.', pl: 'Pełne doświadczenie Meport w przeglądarce. Profilowanie, wywiad AI, eksporty. Bez skanowania plików.' },
+  s_path_desktop: { en: '🖥️ Desktop App', pl: '🖥️ Desktop App' },
+  s_path_desktop_desc: { en: 'Full power — file scanning, Ollama, auto-deploy to your AI tools. Download for Mac/Win/Linux.', pl: 'Pełna moc — skanowanie plików, Ollama, auto-deploy do narzędzi AI. Pobierz na Mac/Win/Linux.' },
+  s_path_cli: { en: '⌨️ CLI', pl: '⌨️ CLI' },
+  s_path_cli_desc: { en: 'Terminal-first. Scriptable. 25 commands, 9 packs, all exports. For developers.', pl: 'Terminal-first. Skryptowalny. 25 komend, 9 pakietów, wszystkie eksporty. Dla developerów.' },
+  s_path_tool: { en: 'Tool', pl: 'Narzędzie' },
+  s_path_best_for: { en: 'Best for', pl: 'Najlepsze do' },
+  s_path_limits: { en: 'Limitations', pl: 'Ograniczenia' },
+  s_path_creator_for: { en: 'Quick start, no tech knowledge', pl: 'Szybki start, bez wiedzy tech' },
+  s_path_creator_lim: { en: 'No AI, basic profile only', pl: 'Bez AI, tylko podstawowy profil' },
+  s_path_webapp_for: { en: 'Full profiling without download', pl: 'Pełne profilowanie bez pobierania' },
+  s_path_webapp_lim: { en: 'No file scan, no auto-deploy, no Ollama', pl: 'Brak skanu plików, auto-deploy, Ollama' },
+  s_path_desktop_t: { en: 'Desktop App', pl: 'Desktop App' },
+  s_path_desktop_for: { en: 'Full experience with all features', pl: 'Pełne doświadczenie ze wszystkimi features' },
+  s_path_desktop_lim: { en: 'Requires download, not code-signed yet', pl: 'Wymaga pobrania, brak podpisu cyfrowego' },
+  s_path_cli_for: { en: 'Automation, scripting, CI/CD', pl: 'Automatyzacja, skrypty, CI/CD' },
+  s_path_cli_lim: { en: 'Terminal required', pl: 'Wymaga terminala' },
+  s_path_standard_for: { en: 'Understanding the format, building tools', pl: 'Zrozumienie formatu, budowanie narzędzi' },
+  s_path_standard_lim: { en: 'Reference only — not a tool', pl: 'Tylko referencja — nie narzędzie' },
+
+  // ═══════ SECTION: WEB APP ═══════
+  s_webapp_title: { en: 'Web App', pl: 'Web App' },
+  s_webapp_b_intro: { en: 'The <strong>Web App</strong> gives you the full Meport experience right in your browser — no download needed. Open <a href="/app/">meport.app/app</a> and start building your profile.', pl: '<strong>Web App</strong> daje pełne doświadczenie Meport w przeglądarce — bez pobierania. Otwórz <a href="/app/">meport.app/app</a> i zacznij budować profil.' },
+  s_webapp_callout_title: { en: 'When to use Web App vs Desktop?', pl: 'Kiedy Web App a kiedy Desktop?' },
+  s_webapp_callout_body: { en: 'Use <strong>Web App</strong> when you want to try Meport quickly or don\'t want to install anything. Use <strong>Desktop App</strong> when you want file scanning, Ollama (offline AI), or auto-deploy to your local AI tool configs.', pl: 'Użyj <strong>Web App</strong> gdy chcesz szybko wypróbować Meport lub nie chcesz nic instalować. Użyj <strong>Desktop App</strong> gdy potrzebujesz skanowania plików, Ollama (offline AI) lub auto-deploy do lokalnych konfiguracji AI.' },
+  s_webapp_b_limits: { en: 'The Web App can\'t scan your files (browser security prevents file system access) and can\'t auto-deploy profiles to your AI tools. For these features, use the <a href="#desktop-app">Desktop App</a>.', pl: 'Web App nie może skanować plików (bezpieczeństwo przeglądarki) i nie może auto-deploy profili. Do tych funkcji użyj <a href="#desktop-app">Desktop App</a>.' },
+  'compare.feature': { en: 'Feature', pl: 'Funkcja' },
+  s_webapp_vs_desktop: { en: 'Web App vs Desktop', pl: 'Web App vs Desktop' },
+  s_webapp_profiling: { en: 'Profiling (questions)', pl: 'Profilowanie (pytania)' },
+  s_webapp_ai: { en: 'AI interview', pl: 'Wywiad AI' },
+  s_webapp_export: { en: 'Export to 13 platforms', pl: 'Eksport na 13 platform' },
+  s_webapp_scan: { en: 'File scanning', pl: 'Skanowanie plików' },
+  s_webapp_deploy: { en: 'Auto-deploy to tools', pl: 'Auto-deploy do narzędzi' },
+  s_webapp_ollama: { en: 'Ollama (offline)', pl: 'Ollama (offline)' },
+  s_webapp_p_intro: { en: 'The Web App at <a href="/app/">meport.app/app</a> runs the same Svelte UI as the Desktop App, without Tauri. All profiling, AI interview, and export features work. Limitations:', pl: 'Web App na <a href="/app/">meport.app/app</a> uruchamia ten sam interfejs Svelte co Desktop App, bez Tauri. Profilowanie, wywiad AI i eksporty działają. Ograniczenia:' },
+  s_webapp_d_intro: { en: 'The Web App is the Desktop App\'s Svelte frontend served as a static SPA. Built with <code>vite build</code> from <code>packages/app/</code>.', pl: 'Web App to frontend Svelte Desktop App serwowany jako statyczne SPA. Budowany przez <code>vite build</code> z <code>packages/app/</code>.' },
+  s_webapp_d_tech: { en: 'The <code>tauri-bridge.ts</code> detects browser mode and falls back to browser APIs (localStorage for profile, clipboard for export, no file system access). AI calls go directly to provider APIs via fetch.', pl: '<code>tauri-bridge.ts</code> wykrywa tryb przeglądarki i używa browser API (localStorage na profil, clipboard na eksport, brak dostępu do systemu plików). Wywołania AI idą bezpośrednio do API providerów przez fetch.' },
+
+  // ═══════ SECTION: PROFILE CREATOR ═══════
+  s_creator_title: { en: 'Profile Creator', pl: 'Profile Creator' },
+  s_creator_b_intro: { en: 'The <strong><a href="create.html">Profile Creator</a></strong> is the fastest way to get started — a simple form where you click through options and get your <code>.meport.md</code> file in 2 minutes. No AI, no download, no account needed.', pl: '<strong><a href="create.html">Profile Creator</a></strong> to najszybszy start — prosty formularz gdzie klikasz opcje i dostajesz plik <code>.meport.md</code> w 2 minuty. Bez AI, bez pobierania, bez konta.' },
+  s_creator_tip_title: { en: 'Quick start tip', pl: 'Szybki start' },
+  s_creator_tip_body: { en: 'Start with the Profile Creator to get a basic profile, then import it into the <a href="/app/">Web App</a> or <a href="#desktop-app">Desktop App</a> to add AI analysis and deeper profiling.', pl: 'Zacznij od Profile Creator żeby dostać podstawowy profil, potem zaimportuj go do <a href="/app/">Web App</a> lub <a href="#desktop-app">Desktop App</a> żeby dodać analizę AI i głębsze profilowanie.' },
+  s_creator_p_intro: { en: 'The <a href="create.html">Profile Creator</a> is a static HTML form that generates <code>.meport.md</code> client-side. No backend, no AI. It maps selected options to imperative behavioral instructions (e.g., selecting "Very direct" produces "Be very direct. Skip qualifiers and filler."). Supports 3 export tiers: Full, Dense (800 chars), and Compact (1500 chars).', pl: '<a href="create.html">Profile Creator</a> to statyczny formularz HTML generujący <code>.meport.md</code> po stronie klienta. Bez backendu, bez AI. Mapuje opcje na imperatywne instrukcje behawioralne (np. "Very direct" → "Be very direct. Skip qualifiers and filler."). Wspiera 3 tiery eksportu: Full, Dense (800 znaków) i Compact (1500 znaków).' },
+
+  // ═══════ SECTION: THE STANDARD ═══════
+  s_standard_title: { en: 'The Standard (.meport.md)', pl: 'Standard (.meport.md)' },
+  s_standard_p_intro: { en: 'Meport profiles use an open format — <code>.meport.md</code> — that works everywhere, with or without Meport. You can write it by hand, edit in any text editor, and paste into any AI tool:', pl: 'Profile Meport używają otwartego formatu — <code>.meport.md</code> — który działa wszędzie, z Meportem lub bez. Możesz go napisać ręcznie, edytować w dowolnym edytorze i wkleić do dowolnego AI:' },
+  s_standard_p_link: { en: 'Full specification with all sections, examples, security guidelines, and export tiers: <a href="standard.html"><strong>Meport Standard v1.0 →</strong></a>', pl: 'Pełna specyfikacja ze wszystkimi sekcjami, przykładami, wytycznymi bezpieczeństwa i tierami eksportu: <a href="standard.html"><strong>Meport Standard v1.0 →</strong></a>' },
+  s_standard_d_intro: { en: 'The <code>.meport.md</code> standard defines a portable, human-readable profile format. Two representations:', pl: 'Standard <code>.meport.md</code> definiuje przenośny, czytelny format profilu. Dwie reprezentacje:' },
+  s_standard_d_formats: { en: '<strong>.meport.md</strong> (Markdown, human source of truth) and <strong>.meport.json</strong> (JSON, machine-validated via <a href="/schema/v1.json">JSON Schema</a>). The format separates <strong>DATA</strong> sections (who you are) from <strong>POLICY</strong> sections (how to treat you). 4 export tiers: Summary (150 chars), Dense (800), Compact (1500), Full (3500).', pl: '<strong>.meport.md</strong> (Markdown, źródło prawdy) i <strong>.meport.json</strong> (JSON, walidowany przez <a href="/schema/v1.json">JSON Schema</a>). Format oddziela sekcje <strong>DATA</strong> (kim jesteś) od <strong>POLICY</strong> (jak cię traktować). 4 tiery eksportu: Summary (150 zn.), Dense (800), Compact (1500), Full (3500).' },
+  s_standard_d_link: { en: 'Full specification: <a href="standard.html"><strong>Meport Standard v1.0 →</strong></a> · <a href="/schema/v1.json">JSON Schema</a> · <a href="https://github.com/zmrlk/meport/blob/main/SPEC.md">SPEC.md</a>', pl: 'Pełna specyfikacja: <a href="standard.html"><strong>Meport Standard v1.0 →</strong></a> · <a href="/schema/v1.json">JSON Schema</a> · <a href="https://github.com/zmrlk/meport/blob/main/SPEC.md">SPEC.md</a>' },
 
   // ═══════ SECTION: ONBOARDING ═══════
   s_onboard_title:   { en: 'First Launch — Onboarding', pl: 'Pierwsze uruchomienie — Wdrożenie' },
@@ -433,14 +498,14 @@ const FAQ_BEGINNER = [
   { q: { en: 'How long does profiling take?', pl: 'Ile trwa profilowanie?' }, a: { en: 'Quick mode: about 5 minutes. Full profiling: 15-30 minutes depending on how many packs you choose. You can stop anytime and continue later.', pl: 'Tryb szybki: ok. 5 minut. Pełne profilowanie: 15-30 minut w zależności od liczby wybranych pakietów. Możesz przerwać w dowolnym momencie i kontynuować później.' } },
   { q: { en: 'What happens to my data?', pl: 'Co się dzieje z moimi danymi?' }, a: { en: 'Your profile stays on your computer as a local file. Nothing is uploaded to any cloud. If you use Ollama, even the AI processing is local. There are no accounts, no analytics, no tracking.', pl: 'Twój profil zostaje na Twoim komputerze jako plik lokalny. Nic nie jest wysyłane do chmury. Jeśli używasz Ollama, nawet przetwarzanie AI jest lokalne. Nie ma kont, analityki ani śledzenia.' } },
   { q: { en: 'Can I change my profile later?', pl: 'Czy mogę później zmienić profil?' }, a: { en: 'Yes! Use <code>meport edit</code> to change individual answers, <code>meport deepen</code> to add more detail, or <code>meport refresh</code> to update everything and re-export.', pl: 'Tak! Użyj <code>meport edit</code> aby zmienić pojedyncze odpowiedzi, <code>meport deepen</code> aby dodać więcej szczegółów, lub <code>meport refresh</code> aby wszystko zaktualizować i ponownie eksportować.' } },
-  { q: { en: 'Which AI platforms are supported?', pl: 'Które platformy AI są obsługiwane?' }, a: { en: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md — 12 platforms total, with more coming.', pl: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md — 12 platform łącznie, więcej w drodze.' } },
+  { q: { en: 'Which AI platforms are supported?', pl: 'Które platformy AI są obsługiwane?' }, a: { en: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md — 13 platforms total, with more coming.', pl: 'ChatGPT, Claude (web + Code), Cursor, GitHub Copilot, Windsurf, Ollama, Gemini, Grok, Perplexity, AGENTS.md — 13 platform łącznie, więcej w drodze.' } },
 ];
 
 const FAQ_POWER = [
   { q: { en: 'Rule-based vs description-based exports?', pl: 'Eksporty oparte na regułach vs opisowe?' }, a: { en: 'Rule-based (default, recommended) generates actionable IF/THEN instructions like "Max 5 lines for simple questions" (~85% AI compliance). Description-based (--legacy) generates prose descriptions like "User prefers brevity" (~50% compliance). Always use rule-based unless debugging.', pl: 'Oparte na regułach (domyślne, zalecane) generują akcjonalne instrukcje IF/THEN jak "Max 5 linii na proste pytania" (~85% skuteczności). Opisowe (--legacy) generują opisy prozą jak "Użytkownik preferuje zwięzłość" (~50% skuteczności). Zawsze używaj reguł chyba że debugujesz.' } },
   { q: { en: 'How does AI-driven profiling differ from pack-based?', pl: 'Jak profilowanie z AI różni się od pakietowego?' }, a: { en: 'Pack-based uses fixed questions with predefined options — fast, deterministic, works offline. AI-driven is conversational — the AI asks follow-up questions based on your answers, resulting in richer profiles but requiring an API key.', pl: 'Pakietowe używa stałych pytań z predefiniowanymi opcjami — szybkie, deterministyczne, działa offline. Z AI jest konwersacyjne — AI zadaje pytania uzupełniające na podstawie Twoich odpowiedzi, dając bogatsze profile ale wymagając klucza API.' } },
   { q: { en: 'Can I use Meport in CI/CD?', pl: 'Czy mogę używać Meport w CI/CD?' }, a: { en: 'Yes. Export with <code>meport export cursor -o .cursor/rules/meport.mdc</code> in your pipeline. The profile JSON can be committed to your repo (it contains no secrets). Deploy with <code>meport deploy --all</code>.', pl: 'Tak. Eksportuj z <code>meport export cursor -o .cursor/rules/meport.mdc</code> w pipeline. JSON profilu może być commitowany do repo (nie zawiera sekretów). Wdróż z <code>meport deploy --all</code>.' } },
-  { q: { en: 'What if I use multiple AI tools?', pl: 'Co jeśli używam wielu narzędzi AI?' }, a: { en: 'That\'s the whole point. One profile, 12 exports. Run <code>meport deploy --all</code> and every tool gets your personality. Use <code>meport projects</code> to track multiple project directories.', pl: 'O to właśnie chodzi. Jeden profil, 12 eksportów. Uruchom <code>meport deploy --all</code> i każde narzędzie dostaje Twoją osobowość. Użyj <code>meport projects</code> do śledzenia wielu katalogów projektów.' } },
+  { q: { en: 'What if I use multiple AI tools?', pl: 'Co jeśli używam wielu narzędzi AI?' }, a: { en: 'That\'s the whole point. One profile, 13 exports. Run <code>meport deploy --all</code> and every tool gets your personality. Use <code>meport projects</code> to track multiple project directories.', pl: 'O to właśnie chodzi. Jeden profil, 12 eksportów. Uruchom <code>meport deploy --all</code> i każde narzędzie dostaje Twoją osobowość. Użyj <code>meport projects</code> do śledzenia wielu katalogów projektów.' } },
   { q: { en: 'What are sensitive packs?', pl: 'Co to są wrażliwe pakiety?' }, a: { en: 'Health and Finance packs are marked sensitive. Their dimensions are stored in your profile but excluded from exports by default. You must explicitly opt-in to include them in platform exports.', pl: 'Pakiety Zdrowie i Finanse są oznaczone jako wrażliwe. Ich wymiary są przechowywane w profilu ale domyślnie wyłączone z eksportów. Musisz jawnie wyrazić zgodę na ich uwzględnienie w eksportach platformowych.' } },
 ];
 
@@ -472,9 +537,12 @@ const NAV_STRUCTURE = {
       { key: 'nav_app_export', href: '#app-export' },
       { key: 'nav_app_demo', href: '#app-demo' },
       { key: 'nav_app_settings', href: '#app-settings' },
+      { key: 'nav_webapp', href: '#web-app' },
+      { key: 'nav_creator', href: '#creator' },
     ]},
     { group: 'nav_start', items: [
       { key: 'nav_what', href: '#what' },
+      { key: 'nav_choose_path', href: '#choose-path' },
       { key: 'nav_install', href: '#install' },
       { key: 'nav_quickstart', href: '#quickstart' },
       { key: 'nav_shell', href: '#shell' },
@@ -495,9 +563,12 @@ const NAV_STRUCTURE = {
       { key: 'nav_app_export', href: '#app-export' },
       { key: 'nav_app_demo', href: '#app-demo' },
       { key: 'nav_app_settings', href: '#app-settings' },
+      { key: 'nav_webapp', href: '#web-app' },
+      { key: 'nav_creator', href: '#creator' },
     ]},
     { group: 'nav_start', items: [
       { key: 'nav_what', href: '#what' },
+      { key: 'nav_choose_path', href: '#choose-path' },
       { key: 'nav_install', href: '#install' },
       { key: 'nav_quickstart', href: '#quickstart' },
       { key: 'nav_shell', href: '#shell' },
@@ -512,6 +583,7 @@ const NAV_STRUCTURE = {
       { key: 'nav_ai', href: '#ai-providers' },
       { key: 'nav_profile_mgmt', href: '#profile-mgmt' },
       { key: 'nav_deployment', href: '#deployment' },
+      { key: 'nav_standard', href: '#the-standard' },
       { key: 'nav_config', href: '#configuration' },
     ]},
     { group: 'nav_help', items: [
@@ -524,9 +596,11 @@ const NAV_STRUCTURE = {
       { key: 'nav_app', href: '#desktop-app' },
       { key: 'nav_app_profiling', href: '#app-profiling' },
       { key: 'nav_app_export', href: '#app-export' },
+      { key: 'nav_webapp', href: '#web-app' },
     ]},
     { group: 'nav_start', items: [
       { key: 'nav_what', href: '#what' },
+      { key: 'nav_choose_path', href: '#choose-path' },
       { key: 'nav_install', href: '#install' },
       { key: 'nav_quickstart', href: '#quickstart' },
     ]},
@@ -536,6 +610,7 @@ const NAV_STRUCTURE = {
       { key: 'nav_exports', href: '#exports' },
       { key: 'nav_scanning', href: '#scanning' },
       { key: 'nav_ai', href: '#ai-providers' },
+      { key: 'nav_standard', href: '#the-standard' },
       { key: 'nav_config', href: '#configuration' },
     ]},
     { group: 'nav_internals', items: [

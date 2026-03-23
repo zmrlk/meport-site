@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meport — Teach every AI who you are.</title>
-  <meta name="description" content="Meport creates your AI personality profile from your files and exports to 12 platforms including ChatGPT, Claude, Cursor, Copilot, Ollama. 6 AI providers. Local-first, open source, free forever.">
+  <meta name="description" content="Meport creates your AI personality profile and exports to 13 platforms. Open standard (.meport.md). ChatGPT, Claude, Cursor, Grok, Ollama. Local-first, open source, free.">
   <meta name="author" content="Karol Zamarlik">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://meport.app/">
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://meport.app/">
   <meta property="og:title" content="Meport — Teach every AI who you are.">
-  <meta property="og:description" content="One profile. Every AI. Drop your files, answer a few questions, export to 12 platforms. 6 AI providers. Free, local, open source.">
+  <meta property="og:description" content="One profile. Every AI. Drop your files, answer a few questions, export to 13 platforms. 6 AI providers. Free, local, open source.">
   <meta property="og:image" content="https://meport.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -46,7 +46,9 @@
         <a href="#platforms" data-i18n="nav.platforms">Platforms</a>
         <a href="#compare" data-i18n="nav.compare">Compare</a>
         <a href="#privacy" data-i18n="priv.eyebrow">Privacy</a>
+        <a href="create.html">Create</a>
         <a href="docs.html" data-i18n="nav.docs">Docs</a>
+        <a href="docs.html#std-overview">Standard</a>
         <a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a>
         <button class="lang-switch" id="lang-switch" aria-label="Switch language">
           <span class="lang-option" data-lang="en">EN</span>
@@ -77,7 +79,7 @@
         </h1>
       </div>
       <div class="reveal r2">
-        <p class="hero-p" data-i18n="hero.sub">Drop your files, answer a few questions, and Meport creates your personal ruleset for 12 AI platforms. Six AI providers. One profile. Every AI finally gets you.</p>
+        <p class="hero-p" data-i18n="hero.sub">Every AI conversation starts from zero &mdash; your name, style, preferences, forgotten. Meport fixes that. One profile, every platform. AI finally gets you.</p>
       </div>
       <div class="reveal r3 hero-cta">
         <a href="#download" class="btn btn-primary" data-i18n="hero.cta_dl">Download App</a>
@@ -85,6 +87,7 @@
           <code>npx meport</code>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
+        <a href="/app/" class="btn btn-outline">Try Web App &rarr;</a>
       </div>
     </div>
 
@@ -241,6 +244,61 @@
     </div>
   </section>
 
+  <!-- ═══════════════ WHAT YOU GET ═══════════════ -->
+  <section class="flow" id="standard">
+    <div class="container">
+      <p class="eyebrow reveal">Open Standard</p>
+      <h2 class="h2 reveal">This is what <em>you get.</em></h2>
+      <p class="sub reveal">A portable <code>.meport.md</code> file. Paste it in any AI. Edit in any editor. Works everywhere.</p>
+      <div class="ba reveal r1">
+        <div class="ba-card ba-good" style="grid-column:span 2;max-width:640px;margin:0 auto">
+          <span class="ba-tag good">.meport.md</span>
+          <div class="ba-bubble ai good" style="font-family:var(--mono);font-size:.78rem;line-height:1.9;white-space:pre"># Alex Chen
+> Direct, concise, English. Senior engineer. Peak: 9-12.
+
+## Communication
+- Be direct. Skip qualifiers and filler.
+- Code-first format. No prose walls.
+- Feedback: welcome corrections.
+
+## Instructions
+- Use TypeScript for all examples
+- Skip preambles &mdash; go straight to the answer
+
+## Never
+- Explain basic concepts
+- Use emoji</div>
+          <p class="ba-verd good">Copy &rarr; paste in ChatGPT, Claude, Grok, or Cursor &rarr; AI instantly knows how to talk to you.</p>
+        </div>
+      </div>
+      <div class="bento" style="margin-top:32px">
+        <div class="bento-card reveal">
+          <div class="bento-num">.md</div>
+          <h3>Human-readable</h3>
+          <p>Markdown. Edit anywhere. Paste anywhere. No tools needed.</p>
+        </div>
+        <div class="bento-card reveal r1">
+          <div class="bento-num">.json</div>
+          <h3>Machine-validated</h3>
+          <p>JSON Schema for APIs, tooling, and validation.</p>
+        </div>
+        <div class="bento-card reveal r2">
+          <div class="bento-num">4</div>
+          <h3>Export tiers</h3>
+          <p>150 &rarr; 800 &rarr; 1500 &rarr; 3500 chars. Fits every platform.</p>
+        </div>
+        <div class="bento-card reveal r3">
+          <div class="bento-num">0</div>
+          <h3>Dependencies</h3>
+          <p>Parse with 10 lines of regex. No SDK. No lock-in.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:28px" class="reveal r3">
+        <a href="docs.html#std-overview" class="btn btn-outline">Read the full standard &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ PLATFORMS ═══════════════ -->
   <section class="flow" id="platforms">
     <div class="container">
@@ -280,7 +338,7 @@
               <th data-i18n="compare.feature">Feature</th>
               <th><span class="ct-badge ct-ready">CLI</span></th>
               <th><span class="ct-badge ct-ready">Desktop</span></th>
-              <th><span class="ct-badge ct-ready">Web App</span></th>
+              <th><a href="/app/" class="ct-badge ct-ready">Web App</a></th>
               <th><span class="ct-badge ct-soon">MCP<small class="ct-soon-label"> · Soon</small></span></th>
             </tr>
           </thead>
@@ -288,7 +346,7 @@
             <tr><td data-i18n="compare.r1">Profiling (questions)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
             <tr><td data-i18n="compare.r2">File scanning</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-limit" data-i18n="compare.limited">Limited</td><td class="ct-no">—</td></tr>
             <tr><td data-i18n="compare.r3">AI interview</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r4">Export to 12 platforms</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r4">Export to 13 platforms</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
             <tr><td data-i18n="compare.r5">Auto-deploy to tools</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
             <tr><td data-i18n="compare.r6">Profile editing</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
             <tr><td data-i18n="compare.r7">Question packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-no">—</td></tr>
@@ -374,7 +432,7 @@
             <code>npx meport</code>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
           </div>
-          <p class="dl-sub" data-i18n="dl.cli.sub">20+ commands &middot; 9 packs &middot; 12 exports &middot; 6 AI providers</p>
+          <p class="dl-sub" data-i18n="dl.cli.sub">25 commands &middot; 9 packs &middot; 13 exports &middot; 6 AI providers</p>
         </div>
         <div class="dl-main dl-main-app">
           <div class="dl-main-eyebrow" data-i18n="dl.app.for">For everyone</div>
@@ -390,7 +448,7 @@
       <!-- Coming soon — inline -->
       <p class="dl-coming-line reveal r2" data-i18n-html="dl.coming_line">Also: <strong>CLI</strong> via <code>npx meport</code></p>
       <div class="reveal r2 coffee-row">
-        <a href="https://buycoffee.to/zmrlk" target="_blank" class="coffee-btn" data-i18n="dl.coffee">
+        <a href="https://buycoffee.to/zmrlk" target="_blank" rel="noopener" class="coffee-btn" data-i18n="dl.coffee">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
           Buy us a coffee
         </a>
@@ -400,7 +458,10 @@
         <span>&middot;</span>
         <a href="docs.html" data-i18n="dl.docs">Documentation</a>
         <span>&middot;</span>
-        <a href="#">Discord</a>
+        <a href="create.html">Create your profile online &rarr;</a>
+        <span>&middot;</span>
+        <a href="/app/">Try the Web App &rarr;</a>
+        <span>&middot;</span>
       </div>
     </div>
   </section>
@@ -414,8 +475,8 @@
       </div>
       <div class="footer-cols">
         <div><h4 data-i18n="footer.product">Product</h4><a href="#download" data-i18n="nav.download">Download</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#platforms" data-i18n="nav.platforms">Platforms</a></div>
-        <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="#">MCP Server</a></div>
-        <div><h4 data-i18n="footer.community">Community</h4><a href="https://isiko.pl" target="_blank">ISIKO</a><a href="https://x.com/meportapp" target="_blank">@meportapp</a><a href="https://x.com/kzamarlikk" target="_blank">@kzamarlikk</a><a href="https://buycoffee.to/zmrlk" target="_blank" data-i18n="footer.coffee">Buy us a coffee</a></div>
+        <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="docs.html#std-overview">Standard v1.0</a><a href="app/">Web App</a></div>
+        <div><h4 data-i18n="footer.community">Community</h4><a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a><a href="https://x.com/meportapp" target="_blank" rel="noopener">@meportapp</a><a href="https://x.com/kzamarlikk" target="_blank" rel="noopener">@kzamarlikk</a><a href="https://buycoffee.to/zmrlk" target="_blank" data-i18n="footer.coffee">Buy us a coffee</a></div>
       </div>
     </div>
     <div class="footer-bottom"><p data-i18n-html="footer.bottom">Created by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> with <a href="https://github.com/zmrlk/bOS" target="_blank" rel="noopener">bOS CLI</a> &middot; meport.app &middot; 2026</p></div>
@@ -428,7 +489,7 @@
     "@type": "SoftwareApplication",
     "name": "Meport",
     "url": "https://meport.app",
-    "description": "Open-source tool that creates AI personality profiles from your files and exports them to 12 platforms including ChatGPT, Claude, Cursor, Copilot, and Ollama. 6 AI providers. Local-first, free forever.",
+    "description": "Open-source tool that creates AI personality profiles from your files and exports them to 13 platforms including ChatGPT, Claude, Cursor, Copilot, and Ollama. 6 AI providers. Local-first, free forever.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Windows, Linux",
     "offers": {
@@ -445,10 +506,10 @@
     "license": "https://opensource.org/licenses/MIT",
     "isAccessibleForFree": true,
     "downloadUrl": "https://www.npmjs.com/package/meport",
-    "softwareVersion": "0.2.0",
+    "softwareVersion": "0.2.5",
     "featureList": [
       "AI personality profiling from files",
-      "Export to 12 platforms in native formats",
+      "Export to 13 platforms in native formats",
       "100% local processing — zero servers",
       "6 AI providers: Claude, OpenAI, Gemini, Grok, OpenRouter, Ollama",
       "CLI: npx meport",

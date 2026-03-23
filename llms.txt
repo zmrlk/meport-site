@@ -1,7 +1,7 @@
 # Meport — Teach every AI who you are.
 
 ## What is Meport?
-Meport is an open-source CLI tool (v0.2.0) that creates AI personality profiles from your files and exports them to 12 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
+Meport is an open-source CLI tool (v0.2.5) that creates AI personality profiles from your files and exports them to 13 platforms. It scans your documents, asks targeted questions, and generates rule-based instructions that make AI tools like ChatGPT, Claude, Cursor, Copilot, and Ollama understand how you think, work, and communicate.
 
 ## Key Facts
 - Free forever, MIT license, open source
@@ -13,7 +13,7 @@ Meport is an open-source CLI tool (v0.2.0) that creates AI personality profiles 
 - 6 AI providers: Claude (Anthropic), OpenAI, Gemini (Google), Grok (xAI), OpenRouter, Ollama (local/offline)
 - Available as CLI (npx meport), desktop app (Mac/Win/Linux) available at github.com/zmrlk/meport/releases. Web app at meport.app
 
-## Supported Export Platforms (12 compilers)
+## Supported Export Platforms (13 compilers)
 ChatGPT, Claude, Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini, Grok, Perplexity, Ollama, AGENTS.md, JSON, Generic
 
 ## Auto-deploy targets (5)
@@ -39,6 +39,21 @@ Cursor (.cursor/rules/meport.mdc), Claude Code (CLAUDE.md section), Copilot (.gi
 - npm: https://www.npmjs.com/package/meport
 - CLI: npx meport
 - Documentation: https://meport.app/docs.html
+
+## Meport Profile Standard v1.0
+The .meport.md format is an open standard for portable AI user profiles. It defines how to describe yourself to AI systems using Markdown.
+- Format: # Name, > Summary, ## Sections, Key: Value, - Items
+- Two formats: .meport.md (human-readable Markdown) + .meport.json (machine-validated JSON Schema)
+- DATA sections (who you are): Identity, Work, Personality, Life Context, Financial, Goals, Anti-Goals, Expertise
+- POLICY sections (how to treat you): Communication, AI Preferences, Instructions, Never
+- 4 export tiers: Summary (150 chars), Dense (800), Compact (1500), Full (3500)
+- Progressive levels: L0 (identity only) → L1 (+communication) → L2 (+cognitive/work) → L3 (+intelligence)
+- Cross-model tested: ChatGPT, Claude, Grok, Gemini
+- JSON Schema: https://meport.app/schema/v1.json
+- Full specification: https://meport.app/standard.html
+
+## Profile Creator
+Web-based profile creator at https://meport.app/create.html — create a .meport.md profile by clicking options, no Markdown knowledge needed. No account, no AI, runs entirely in browser.
 
 ## Creator
 Built by Karol Zamarlik (ISIKO). Created because every AI tool treats you like a stranger — Meport fixes that in 5 minutes.
