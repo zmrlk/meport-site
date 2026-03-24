@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meport — Teach every AI who you are.</title>
-  <meta name="description" content="Meport creates your AI personality profile and exports to 13 platforms. Open standard (.meport.md). ChatGPT, Claude, Cursor, Grok, Ollama. Local-first, open source, free.">
+  <meta name="description" content="Meport creates your AI personality profile and exports to 15 platforms. Open standard (.meport.md). ChatGPT, Claude, Cursor, Grok, Ollama. Local-first, open source, free.">
   <meta name="author" content="Karol Zamarlik">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://meport.app/">
@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://meport.app/">
   <meta property="og:title" content="Meport — Teach every AI who you are.">
-  <meta property="og:description" content="One profile. Every AI. Drop your files, answer a few questions, export to 13 platforms. 6 AI providers. Free, local, open source.">
+  <meta property="og:description" content="One profile. Every AI. Drop your files, answer a few questions, export to 15 platforms. 6 AI providers. Free, local, open source.">
   <meta property="og:image" content="https://meport.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -87,7 +87,7 @@
           <code>npx meport</code>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 5V3.5A1.5 1.5 0 009.5 2h-6A1.5 1.5 0 002 3.5v6A1.5 1.5 0 003.5 11H5" stroke="currentColor" stroke-width="1.5"/></svg>
         </div>
-        <a href="/app/" class="btn btn-outline">Try Web App &rarr;</a>
+        <a href="create.html" class="btn btn-outline">Create profile online &rarr;</a>
       </div>
     </div>
 
@@ -338,26 +338,24 @@
               <th data-i18n="compare.feature">Feature</th>
               <th><span class="ct-badge ct-ready">CLI</span></th>
               <th><span class="ct-badge ct-ready">Desktop</span></th>
-              <th><a href="/app/" class="ct-badge ct-ready">Web App</a></th>
+              <th><a href="create.html" class="ct-badge ct-ready">Creator</a></th>
               <th><span class="ct-badge ct-soon">MCP<small class="ct-soon-label"> · Soon</small></span></th>
             </tr>
           </thead>
           <tbody>
-            <tr><td data-i18n="compare.r1">Profiling (questions)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r2">File scanning</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-limit" data-i18n="compare.limited">Limited</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r3">AI interview</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r4">Export to 13 platforms</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r1">Profiling (questions)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-limit">Basic</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r2">File scanning</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r3">AI interview</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r4">Export to 15 platforms</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-limit">3 tiers</td><td class="ct-yes">✓</td></tr>
             <tr><td data-i18n="compare.r5">Auto-deploy to tools</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r6">Profile editing</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r7">Question packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r8">Inference engine</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r9">Offline mode (Ollama)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r10">GUI / drag & drop</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r6">Profile editing</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r7">Question packs</td><td class="ct-yes">9 packs</td><td class="ct-yes">9 packs</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r8">Inference engine</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r9">Offline mode (Ollama)</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r10">GUI / click options</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-no">—</td></tr>
             <tr><td data-i18n="compare.r11">Works without terminal</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r12">Business track</td><td class="ct-soon-t">Soon</td><td class="ct-soon-t">Soon</td><td class="ct-soon-t">Soon</td><td class="ct-no">—</td></tr>
-            <tr><td data-i18n="compare.r13">Read profile via API</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r14">Serve profile to AI tools</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
-            <tr><td data-i18n="compare.r15">Live profile updates</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-no">—</td><td class="ct-yes">✓</td></tr>
+            <tr><td data-i18n="compare.r12">Needs download</td><td class="ct-no">—</td><td class="ct-yes">✓</td><td class="ct-no">—</td><td class="ct-no">—</td></tr>
+            <tr><td data-i18n="compare.r13">Setup time</td><td class="ct-limit">0 min</td><td class="ct-limit">~2 min</td><td class="ct-yes">0 min</td><td class="ct-limit">0 min</td></tr>
           </tbody>
         </table>
       </div>
@@ -460,7 +458,7 @@
         <span>&middot;</span>
         <a href="create.html">Create your profile online &rarr;</a>
         <span>&middot;</span>
-        <a href="/app/">Try the Web App &rarr;</a>
+        <a href="create.html">Create profile online &rarr;</a>
         <span>&middot;</span>
       </div>
     </div>
@@ -475,11 +473,11 @@
       </div>
       <div class="footer-cols">
         <div><h4 data-i18n="footer.product">Product</h4><a href="#download" data-i18n="nav.download">Download</a><a href="#how" data-i18n="nav.how">How it works</a><a href="#platforms" data-i18n="nav.platforms">Platforms</a></div>
-        <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="docs.html#std-overview">Standard v1.0</a><a href="app/">Web App</a></div>
+        <div><h4 data-i18n="footer.developers">Developers</h4><a href="https://github.com/zmrlk/meport" target="_blank" rel="noopener">GitHub</a><a href="docs.html" data-i18n="dl.docs">Documentation</a><a href="docs.html#std-overview">Standard v1.0</a><a href="create.html">Profile Creator</a></div>
         <div><h4 data-i18n="footer.community">Community</h4><a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a><a href="https://x.com/meportapp" target="_blank" rel="noopener">@meportapp</a><a href="https://x.com/kzamarlikk" target="_blank" rel="noopener">@kzamarlikk</a><a href="https://buycoffee.to/zmrlk" target="_blank" data-i18n="footer.coffee">Buy us a coffee</a></div>
       </div>
     </div>
-    <div class="footer-bottom"><p data-i18n-html="footer.bottom">Created by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> with <a href="https://github.com/zmrlk/bOS" target="_blank" rel="noopener">bOS CLI</a> &middot; meport.app &middot; 2026</p></div>
+    <div class="footer-bottom"><p data-i18n-html="footer.bottom">Created by <a href="https://isiko.pl" target="_blank" rel="noopener">ISIKO</a> with <a href="https://github.com/zmrlk/bOS" target="_blank" rel="noopener">bOS CLI</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; 2026</p></div>
   </footer>
 
   <script src="app.js"></script>
@@ -489,7 +487,7 @@
     "@type": "SoftwareApplication",
     "name": "Meport",
     "url": "https://meport.app",
-    "description": "Open-source tool that creates AI personality profiles from your files and exports them to 13 platforms including ChatGPT, Claude, Cursor, Copilot, and Ollama. 6 AI providers. Local-first, free forever.",
+    "description": "Open-source tool that creates AI personality profiles from your files and exports them to 15 platforms including ChatGPT, Claude, Cursor, Copilot, and Ollama. 6 AI providers. Local-first, free forever.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Windows, Linux",
     "offers": {
@@ -506,10 +504,10 @@
     "license": "https://opensource.org/licenses/MIT",
     "isAccessibleForFree": true,
     "downloadUrl": "https://www.npmjs.com/package/meport",
-    "softwareVersion": "0.2.5",
+    "softwareVersion": "0.2.7",
     "featureList": [
       "AI personality profiling from files",
-      "Export to 13 platforms in native formats",
+      "Export to 15 platforms in native formats",
       "100% local processing — zero servers",
       "6 AI providers: Claude, OpenAI, Gemini, Grok, OpenRouter, Ollama",
       "CLI: npx meport",
